@@ -1,7 +1,7 @@
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.tsx";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, HashRouter } from "react-router-dom";
 import { Toaster } from "sonner";
 import { HelmetProvider } from "react-helmet-async";
 
@@ -17,7 +17,7 @@ const root = createRoot(container);
 
 const renderApp = () => {
   root.render(
-    <BrowserRouter>
+    <HashRouter>
       <AuthProvider>
         <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
           <HelmetProvider>
@@ -28,7 +28,7 @@ const renderApp = () => {
           </HelmetProvider>
         </ThemeProvider>
       </AuthProvider>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
