@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { GraduationCap, Terminal } from "lucide-react";
+import signinHeroImage from "../../../../assets/signin.png";
 
 /** Đặt ảnh nền trái (server room / datacenter) vào public — ví dụ public/assets/signin.jpg */
-export const SIGNIN_HERO_IMAGE = "/assets/signin.png";
+export const SIGNIN_HERO_IMAGE = signinHeroImage;
 
 export default function AuthLayout({
   children,

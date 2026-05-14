@@ -11,6 +11,7 @@ import {
   ChevronRight,
   MessageCircle,
 } from "lucide-react";
+import aboutUsImage from "../../../../assets/aboutus.png";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -39,8 +40,8 @@ const AboutPage: React.FC = () => {
         {/* Background Image Placeholder */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/assets/aboutus.png"
-            alt="Hero Background"
+            src={aboutUsImage}
+            alt="Không gian học tập BitHub"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-primary/70"></div>

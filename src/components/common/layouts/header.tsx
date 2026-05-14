@@ -4,7 +4,7 @@ import { useState } from "react";
 import { cn } from "@/shared/lib/utils";
 import { Button } from "../ui/button";
 import { CoursesNavItem } from "./courses-nav-item";
-
+import logoImage from "../../../../assets/logo.svg";
 import { useAuth } from "@/features/Auth/context/AuthContext";
 
 const navLinkClass = ({ isActive }: { isActive: boolean }) =>
@@ -32,7 +32,7 @@ const Header = () => {
     <header className="fixed inset-x-0 top-0 z-50 w-full bg-on-primary shadow-sm border-b-2 border-secondary">
     <div className="grid h-16 w-full max-w-container-max mx-auto grid-cols-[1fr_auto] items-center gap-md px-md md:grid-cols-[1fr_auto_1fr]">
       <div className="flex min-w-0 items-center justify-self-start">
-        <img src="/assets/logo.svg" alt="bithub" className="cursor-pointer" onClick={() => navigate("/")} />
+        <img src={logoImage} alt="bithub" className="cursor-pointer" onClick={() => navigate("/")} />
       </div>
       <nav className="hidden items-baseline gap-lg md:flex">
         <NavLink to="/" end className={navLinkClass}>
