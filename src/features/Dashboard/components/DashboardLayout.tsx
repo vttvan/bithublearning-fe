@@ -50,11 +50,12 @@ export const DashboardLayout: React.FC = () => {
       </div>
 
       <aside className="sticky top-16 hidden h-[calc(100vh-64px)] w-64 shrink-0 flex-col overflow-y-auto border-r border-outline-variant bg-white md:flex">
-        <div className="mt-4 flex-1 space-y-2 p-4">
+        <div className="flex min-h-0 flex-1 flex-col p-4">
           <DashboardSidebarContent
             locationPathname={location.pathname}
             logout={logout}
             navigate={navigateFromSidebar}
+            pinActionsToBottom
           />
         </div>
       </aside>
@@ -70,13 +71,15 @@ function DashboardSidebarContent({
   locationPathname,
   logout,
   navigate,
+  pinActionsToBottom = false,
 }: {
   locationPathname: string;
   logout: () => void;
   navigate: (path: string) => void;
+  pinActionsToBottom?: boolean;
 }) {
   return (
-    <>
+    <div className="flex min-h-0 flex-1 flex-col">
       <nav className="space-y-2">
           <SidebarLink
             icon={<LayoutDashboard size={20} />}
@@ -96,11 +99,11 @@ function DashboardSidebarContent({
             onClick={() => navigate("/dashboard/achievements")}
             active={locationPathname.startsWith("/dashboard/achievements")}
           />
-          <SidebarLink
+          {/* <SidebarLink
             icon={<Files size={20} />}
             label="Tài nguyên"
             active={locationPathname === "/dashboard/resources"}
-          />
+          /> */}
           <SidebarLink
             icon={<MonitorPlay size={20} />}
             label="Khóa học trực tiếp"
@@ -109,7 +112,11 @@ function DashboardSidebarContent({
           />
       </nav>
 
-      <div className="mt-4 space-y-2 border-t border-outline-variant pt-4">
+      <div
+        className={`space-y-2 border-t border-outline-variant pt-4 ${
+          pinActionsToBottom ? "mt-auto" : "mt-4"
+        }`}
+      >
           <SidebarLink
             icon={<Settings size={20} />}
             label="Cài đặt"
@@ -118,13 +125,13 @@ function DashboardSidebarContent({
           />
           <button
             onClick={logout}
-            className="flex w-full items-center gap-3 rounded-lg px-4 py-3 font-medium text-on-surface-variant transition-colors hover:bg-error-container hover:text-error"
+            className="flex w-full items-center gap-3 rounded-lg px-4 py-3 font-medium text-on-surface-variant transition-colors hover:bg-surface-container"
           >
             <LogOut size={20} />
             Đăng xuất
           </button>
       </div>
-    </>
+    </div>
   );
 }
 

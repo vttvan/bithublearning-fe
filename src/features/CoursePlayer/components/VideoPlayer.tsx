@@ -22,8 +22,8 @@ const MOCK_TRANSCRIPT = Array.from({ length: 15 }).map((_, i) => ({
   id: i,
   time: `0${Math.floor(i / 2)}:${(i % 2) * 30 === 0 ? "00" : "30"}`,
   content: i % 2 === 0 
-    ? "In this segment, we explore how systematic innovation (TRIZ) applies to data structure management. When handling large-scale arrays in real-time banking systems, the physical constraints often mirror engineering..."
-    : "The principle of Segmentation allows us to break down complex problems into manageable sub-algorithms. Notice how the visual representation on screen demonstrates the recursive flow..."
+    ? "Trong phần này, chúng ta sẽ tìm hiểu cách áp dụng đổi mới có hệ thống (TRIZ) vào quản lý cấu trúc dữ liệu. Khi xử lý các mảng dữ liệu quy mô lớn trong các hệ thống ngân hàng thời gian thực, các ràng buộc vật lý thường phản ánh các ràng buộc kỹ thuật..."
+    : "Nguyên tắc phân đoạn cho phép chúng ta chia nhỏ các vấn đề phức tạp thành các thuật toán con dễ quản lý hơn. Hãy chú ý cách hình ảnh minh họa trên màn hình thể hiện luồng đệ quy..."
 }));
 
 const VideoPlayer: React.FC<VideoPlayerProps> = ({ instructor }) => {
@@ -90,7 +90,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ instructor }) => {
           {/* Video Navigation */}
           <div className="flex items-center justify-between mt-4">
             <button className="flex items-center gap-2 text-white/80 hover:text-white transition-colors font-bold text-body-sm">
-              <ChevronLeft size={18} />
+              <ChevronLeft size={18 } />
               Previous: Problem Framing
             </button>
             <button className="bg-[#f28633] text-white px-6 py-2 rounded-lg flex items-center gap-2 font-bold hover:bg-[#d97220] transition-colors active:scale-[0.98] text-body-sm">

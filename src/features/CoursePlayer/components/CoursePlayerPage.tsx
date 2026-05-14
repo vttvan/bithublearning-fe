@@ -27,7 +27,7 @@ const CoursePlayerPage: React.FC = () => {
   // Mock course data for the player
   const courseData = {
     title: "Full-Stack Engineering",
-    module: "Module 3: Systematic Innovation",
+    module: "Chương 3: Systematic Innovation",
     instructor: {
       name: "Dr. Alex Rivers",
       role: "Senior Engineer @ SBank",
@@ -66,7 +66,7 @@ const CoursePlayerPage: React.FC = () => {
             className="w-full h-12 flex items-center gap-2 text-white font-bold uppercase mb-4"
           >
             <ChevronLeft size={16} strokeWidth={3} />
-            Back to Dashboard
+            Quay lại Dashboard
           </Button>
           <h2 className="text-headline-sm font-bold text-primary mb-1 leading-tight">
             {courseData.title}
@@ -80,34 +80,34 @@ const CoursePlayerPage: React.FC = () => {
         <nav className="flex-1 overflow-y-auto py-6 px-3 space-y-2">
           <PlayerSidebarLink 
             icon={<BookOpen size={20} />} 
-            label="Course Overview" 
+            label="Tổng quan về khóa học" 
             active={activeTab === "overview"} 
             onClick={() => setActiveTab("overview")} 
           />
           <PlayerSidebarLink 
             icon={<PlayCircle size={20} />} 
-            label="Theory & Video" 
+            label="Lý Thuyết & Video" 
             active={activeTab === "theory"} 
             onClick={() => setActiveTab("theory")} 
           />
           <PlayerSidebarLink 
             icon={<Code2 size={20} />} 
-            label="Code Exercises" 
+            label="Bài tập về Code" 
             active={activeTab === "code"} 
             onClick={() => setActiveTab("code")} 
           />
           <PlayerSidebarLink 
             icon={<FileQuestion size={20} />} 
-            label="Theory Quizzes" 
+            label="Bài kiểm tra lý thuyết" 
             active={activeTab === "quiz"} 
             onClick={() => setActiveTab("quiz")} 
           />
-          <PlayerSidebarLink 
+          {/* <PlayerSidebarLink 
             icon={<Files size={20} />} 
             label="Resources" 
             active={activeTab === "resources"} 
             onClick={() => setActiveTab("resources")} 
-          />
+          /> */}
         </nav>
 
         {/* Footer actions */}
