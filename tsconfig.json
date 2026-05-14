@@ -22,6 +22,5 @@
       "@mock/*": ["./mockdata/*"]
     }
   },
-  "include": ["src", "mockdata"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src", "mockdata"]
 }
