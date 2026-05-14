@@ -48,7 +48,7 @@ export const coursesNavSections: CoursesNavSection[] = [
   },
   {
     id: "offline-workshops",
-    title: "Offline Workshops",
+    title: "Hội thảo Offline",
     subtitle: "Đào tạo chuyên sâu trực tiếp",
     href: "/offline-workshops",
     items: [

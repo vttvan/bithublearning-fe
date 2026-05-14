@@ -25,6 +25,7 @@ import AdminReportsPage from "@/features/AdminDashboard/components/AdminReportsP
 import DashboardOverview from "@/features/Dashboard/components/DashboardOverview";
 import AdminDashboardShell from "@/features/AdminDashboard/components/AdminDashboardShell";
 import AdminOverviewPage from "@/features/AdminDashboard/components/AdminOverviewPage";
+import CartPage from "@/features/Cart/components/CartPage";
 
 const AppRouter = () => {
   return (
@@ -74,6 +75,7 @@ const AppRouter = () => {
         <Route path="courses" element={<UnifiedCoursesPage />} />
         <Route path="courses-online" element={<CoursesPage />} />
         <Route path="courses-online/:id" element={<CourseDetailPage />} />
+        <Route path="cart" element={<CartPage />} />
         <Route path="about" element={<AboutPage />} />
         <Route path="offline-workshops" element={<OfflineWorkshopsPage />} />
         <Route path="offline-workshops/:id" element={<OfflineWorkshopDetailPage />} />

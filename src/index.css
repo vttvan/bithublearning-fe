@@ -15,7 +15,7 @@
      COLORS
   ========================= */
 
-  --color-primary: #001836;
+  --color-primary: #254776;
   --color-error: #ba1a1a;
   --color-surface-tint: #3e5f90;
   --color-on-surface-variant: #43474f;
@@ -364,7 +364,7 @@ body {
   /* Map shadcn variables → màu của bạn */
   --background: #fcf9f8;
   --foreground: #1b1c1c;
-  --primary: #001836;
+  --primary: #254776;
   --primary-foreground: #ffffff;
   --secondary: #904d00;
   --secondary-foreground: #ffffff;
@@ -380,7 +380,7 @@ body {
   /* sidebar giữ nguyên hoặc tuỳ chỉnh */
   --sidebar: #ffffff;
   --sidebar-foreground: #1b1c1c;
-  --sidebar-primary: #001836;
+  --sidebar-primary: #254776;
   --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: #f0eded;
   --sidebar-accent-foreground: #1b1c1c;

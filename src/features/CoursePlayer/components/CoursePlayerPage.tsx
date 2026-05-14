@@ -63,7 +63,7 @@ const CoursePlayerPage: React.FC = () => {
           <Button 
           
             onClick={() => navigate("/dashboard")}
-            className="w-full h-12 flex items-center gap-2 text-white font-bold uppercase mb-4"
+            className="w-full h-12 flex items-center gap-2 text-white font-bold uppercase mb-4 bg-on-primary-fixed-variant"
           >
             <ChevronLeft size={16} strokeWidth={3} />
             Quay lại Dashboard

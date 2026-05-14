@@ -27,7 +27,7 @@ const SignUpForm: React.FC = () => {
       <div className="px-8 pt-8 ml-10 mt-10">
       <Link
           to="/"
-          className="inline-flex items-center gap-2 text-body-md text-on-primary-container/70 hover:text-primary transition-colors"
+          className="inline-flex items-center gap-2 text-body-md text-primary hover:text-primary transition-colors"
         >
           <ArrowLeftIcon className="size-4" />
           Back
@@ -37,7 +37,7 @@ const SignUpForm: React.FC = () => {
       <div className="flex w-full flex-1 flex-col items-center justify-center px-8 py-12 overflow-auto min-w-0">
         <div className="w-1/2 mx-auto">
           <header className="mb-8">
-            <h1 className="font-[Georgia,Cambria,'Times_New_Roman',serif] text-headline-lg font-semibold text-primary">
+            <h1 className=" text-headline-lg font-semibold text-primary">
               Create Account
             </h1>
             <p className="mt-2 text-body-md text-on-primary-container/85">
@@ -176,7 +176,7 @@ const SignUpForm: React.FC = () => {
             Already have an account?{" "}
             <Link
               to="/signin"
-              className="font-semibold text-on-secondary-container hover:underline transition-colors"
+              className="font-semibold text-secondary-container hover:underline transition-colors"
             >
               Sign in
             </Link>

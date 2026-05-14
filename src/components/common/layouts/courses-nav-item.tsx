@@ -135,7 +135,7 @@ export function CoursesNavItem({ className }: CoursesNavItemProps) {
                     </h2>
                   )}
                   {section.subtitle ? (
-                    <p className="mt-0.5 font-body-md text-body-md text-on-primary-container/70">
+                    <p className="mt-0.5 font-body-md text-body-md text-on-primary-container">
                       {section.subtitle}
                     </p>
                   ) : null}

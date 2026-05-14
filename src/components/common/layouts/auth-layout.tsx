@@ -22,7 +22,7 @@ export default function AuthLayout({
           <div className="absolute inset-0 bg-primary/75" aria-hidden />
           <div className="relative z-10 flex h-full min-h-[520px] flex-col justify-between px-10 py-12 text-white lg:min-h-0 lg:px-14 lg:py-14">
             <div className="max-w-full mt-35">
-              <p className="font-[Georgia,Cambria,'Times_New_Roman',serif] text-4xl font-bold tracking-tight lg:text-5xl">
+              <p className=" text-4xl font-bold tracking-tight lg:text-5xl">
                 BitHub
               </p>
               <p className="mt-6 font-body-md text-body-md leading-relaxed text-white/95 w-3/4">

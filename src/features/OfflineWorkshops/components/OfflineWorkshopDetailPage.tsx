@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import {
   AlertTriangle,
   Award,
@@ -249,29 +249,51 @@ function PublicWorkshopDetail({
 }) {
   const heroDate = `${workshop.startDate} - ${workshop.endDate}`;
   const instructor = workshop.instructors?.[0];
+  const heroRef = React.useRef<HTMLElement | null>(null);
+  const [showStickyHeader, setShowStickyHeader] = React.useState(false);
+  const relatedItems = relatedWorkshops.length
+    ? relatedWorkshops
+    : OFFLINE_WORKSHOPS_MOCK.filter((item) => item.id !== workshop.id).slice(0, 3);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const heroBottom = heroRef.current?.getBoundingClientRect().bottom ?? 0;
+      setShowStickyHeader(heroBottom <= 64);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
-      <section className="relative bg-[#0b2f4f] py-10 text-white md:py-14">
-        <img
-          src={workshop.thumbnail}
-          alt=""
-          className="absolute inset-0 h-full w-full object-cover opacity-20"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#092744] via-[#0b2f4f]/95 to-[#0b2f4f]/82" />
-        <div className="relative mx-auto grid max-w-container-max gap-8 px-md lg:grid-cols-[minmax(0,1fr)_360px]">
-          <div className="max-w-3xl">
+      <motion.section
+        ref={heroRef}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        className="hero-gradient relative py-12 md:py-16"
+      >
+        <div className="relative z-10 mx-auto max-w-container-max px-md">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="max-w-2xl"
+          >
             <span className="mb-4 inline-flex rounded bg-[#f28633] px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">
               {workshop.category}
             </span>
-            <h1 className="font-display text-[34px] font-bold leading-tight md:text-[44px]">
+            <h1 className="mb-4 font-display text-[36px] font-bold leading-tight text-on-primary md:text-[42px]">
               {workshop.title}
             </h1>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/78 md:text-lg">
+            <p className="mb-6 max-w-full text-body-lg leading-relaxed text-primary-fixed-dim">
               {workshop.subtitle ?? workshop.description}
             </p>
 
-            <div className="mt-6 flex flex-wrap items-center gap-5 text-sm text-white/84">
+            <div className="mb-8 flex flex-wrap items-center gap-6 text-sm text-white/84">
               <span className="inline-flex items-center gap-1.5">
                 <MapPin size={16} />
                 {workshop.location}
@@ -286,14 +308,49 @@ function PublicWorkshopDetail({
               </span>
             </div>
 
-            <div className="mt-6 flex items-center gap-2">
+            <div className="flex items-center gap-2">
               <span className="font-bold text-[#f7b955]">4.8</span>
               <span className="flex gap-0.5">{renderStars(4.8)}</span>
               <span className="text-sm text-white/70">(128 đánh giá)</span>
             </div>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
+
+      <AnimatePresence>
+        {showStickyHeader ? (
+          <motion.div
+            initial={{ opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.18 }}
+            className="fixed inset-x-0 top-16 z-40 border-b border-white/10 bg-primary-container px-4 py-3 text-white shadow-xl"
+          >
+            <div className="mx-auto flex max-w-container-max flex-col gap-2 md:flex-row md:items-center md:justify-between">
+              <div className="min-w-0">
+                <h2 className="truncate text-base font-bold md:text-lg">
+                  {workshop.title}
+                </h2>
+                <div className="mt-1 flex flex-wrap items-center gap-2 text-sm">
+                  <span className="rounded bg-cyan-100 px-2 py-0.5 text-xs font-bold text-primary">
+                    {workshop.category}
+                  </span>
+                  <span className="font-bold text-amber-400">4.8</span>
+                  <span className="flex gap-0.5">{renderStars(4.8, 12)}</span>
+                  <span className="text-white/80">(128 đánh giá)</span>
+                  <span className="text-white/80">
+                    Còn {workshop.seatsRemaining ?? 24} chỗ
+                  </span>
+                  <span className="text-white/80">{heroDate}</span>
+                </div>
+              </div>
+              <button className="hidden shrink-0 rounded-lg bg-secondary-container px-5 py-2 text-sm font-bold text-on-secondary-container shadow-lg hover:brightness-110 md:block">
+                Đăng ký ngay
+              </button>
+            </div>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
 
       <div className="mx-auto max-w-container-max px-md py-10">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_360px]">
@@ -341,26 +398,24 @@ function PublicWorkshopDetail({
                 />
               </div>
             ) : null}
+
+            <section className="pt-14">
+              <h2 className="mb-6 font-display text-2xl font-bold text-primary">
+                Các workshop liên quan
+              </h2>
+              <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+                {relatedItems.map((item) => (
+                  <RelatedWorkshopCard key={item.id} workshop={item} />
+                ))}
+              </div>
+            </section>
           </main>
 
-          <aside className="lg:sticky lg:top-24 lg:self-start">
+          <aside className="w-full shrink-0 self-start lg:sticky lg:top-36 lg:z-30">
             <PublicPricingCard workshop={workshop} instructorName={instructor?.name} />
           </aside>
         </div>
       </div>
-
-      <section className="bg-[#f7f5f2] py-12">
-        <div className="mx-auto max-w-container-max px-md">
-          <h2 className="mb-6 font-display text-2xl font-bold text-[#003366]">
-            Các workshop liên quan
-          </h2>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {(relatedWorkshops.length ? relatedWorkshops : OFFLINE_WORKSHOPS_MOCK.filter((item) => item.id !== workshop.id).slice(0, 3)).map((item) => (
-              <RelatedWorkshopCard key={item.id} workshop={item} />
-            ))}
-          </div>
-        </div>
-      </section>
     </>
   );
 }
@@ -494,34 +549,34 @@ function PublicPricingCard({
   instructorName?: string;
 }) {
   return (
-    <section className="overflow-hidden rounded-lg border border-outline-variant bg-white shadow-lg">
+    <section className="overflow-hidden rounded-xl border border-outline-variant bg-surface-container-lowest shadow-lg">
       <div className="relative aspect-video">
         <img src={workshop.thumbnail} alt={workshop.title} className="h-full w-full object-cover" />
         <button className="absolute inset-0 flex items-center justify-center bg-black/28 transition-colors hover:bg-black/38">
-          <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white text-[#003366] shadow-xl">
-            <Play size={25} className="ml-1 fill-[#003366]" />
+          <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white text-primary shadow-xl">
+            <Play size={25} className="ml-1 fill-primary" />
           </span>
         </button>
       </div>
       <div className="space-y-5 p-6">
         <div className="flex items-baseline gap-3">
-          <span className="text-3xl font-bold text-[#003366]">
+          <span className="text-3xl font-bold text-primary">
             {formatUsd(workshop.price ?? 0)}
           </span>
-          <span className="text-sm font-semibold text-[#f28633]">
+          <span className="text-sm font-semibold text-secondary-container">
             {workshop.progressText}
           </span>
         </div>
-        <button className="flex w-full items-center justify-center gap-2 rounded bg-[#f28633] py-3.5 font-bold text-white shadow-sm transition-colors hover:bg-[#d87424]">
+        <button className="flex w-full items-center justify-center gap-2 rounded-lg bg-secondary-container py-3.5 font-bold text-on-secondary-container shadow-sm transition-all hover:brightness-110 active:scale-[0.98]">
           <ShoppingCart size={18} />
           Đăng ký workshop
         </button>
-        <button className="w-full rounded border-2 border-outline-variant py-3 font-bold text-[#003366] transition-colors hover:bg-surface-container">
+        <button className="w-full rounded-lg border-2 border-outline-variant py-3 font-bold text-primary transition-all hover:bg-surface-container active:scale-[0.98]">
           Thêm vào giỏ hàng
         </button>
 
         <div>
-          <h3 className="mb-3 font-bold text-[#003366]">Workshop này bao gồm:</h3>
+          <h3 className="mb-3 font-bold text-primary">Workshop này bao gồm:</h3>
           <ul className="space-y-3 text-sm text-on-surface-variant">
             <PublicIncludeItem icon={<Calendar size={16} />} text={`${workshop.startDate} - ${workshop.endDate}`} />
             <PublicIncludeItem icon={<MapPin size={16} />} text={workshop.location} />
@@ -533,11 +588,11 @@ function PublicPricingCard({
         </div>
 
         <div className="flex gap-4 border-t border-outline-variant pt-4">
-          <button className="flex items-center gap-2 text-sm font-semibold text-on-surface-variant hover:text-[#003366]">
+          <button className="flex items-center gap-2 text-sm font-semibold text-on-surface-variant transition-colors hover:text-primary">
             <Share2 size={16} />
             Chia sẻ
           </button>
-          <button className="flex items-center gap-2 text-sm font-semibold text-on-surface-variant hover:text-[#003366]">
+          <button className="flex items-center gap-2 text-sm font-semibold text-on-surface-variant transition-colors hover:text-primary">
             <Heart size={16} />
             Yêu thích
           </button>
@@ -550,7 +605,7 @@ function PublicPricingCard({
 function PublicIncludeItem({ icon, text }: { icon: React.ReactNode; text: string }) {
   return (
     <li className="flex items-center gap-3">
-      <span className="shrink-0 text-[#003366]">{icon}</span>
+      <span className="shrink-0 text-primary">{icon}</span>
       <span>{text}</span>
     </li>
   );

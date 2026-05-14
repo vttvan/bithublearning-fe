@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import {
   Star,
@@ -50,6 +50,20 @@ const CourseDetailPage: React.FC = () => {
 
   const [activeTab, setActiveTab] = useState<Tab>("Overview");
   const [expandedModules, setExpandedModules] = useState<string[]>(["m1"]);
+  const [showStickyHeader, setShowStickyHeader] = useState(false);
+  const heroRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const heroBottom = heroRef.current?.getBoundingClientRect().bottom ?? 0;
+      setShowStickyHeader(heroBottom <= 64);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   if (!course) {
     return (
@@ -85,6 +99,7 @@ const CourseDetailPage: React.FC = () => {
     <>
       {/* ══════ Hero Banner ══════ */}
       <motion.section
+        ref={heroRef}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -150,7 +165,7 @@ const CourseDetailPage: React.FC = () => {
             {/* CTA buttons */}
             <div className="flex flex-wrap gap-3">
               <button className="bg-secondary-container hover:bg-secondary text-primary hover:text-on-primary font-bold px-8 py-3 rounded-lg transition-all active:scale-95 shadow-lg">
-                Enroll Now
+                Đăng ký ngay
               </button>
               <button className="border border-white/40 text-white hover:bg-white/10 font-bold px-8 py-3 rounded-lg transition-all active:scale-95 flex items-center gap-2">
                 <Play size={18} /> Watch Preview
@@ -159,6 +174,47 @@ const CourseDetailPage: React.FC = () => {
           </motion.div>
         </div>
       </motion.section>
+
+      <AnimatePresence>
+        {showStickyHeader ? (
+          <motion.div
+            initial={{ opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.18 }}
+            className="fixed inset-x-0 top-16 z-40 border-b border-white/10 bg-primary-container px-4 py-3 text-white shadow-xl"
+          >
+            <div className="mx-auto flex max-w-container-max flex-col gap-2 md:flex-row md:items-center md:justify-between">
+              <div className="min-w-0">
+                <h2 className="truncate text-base font-bold md:text-lg">
+                  {course.title}
+                </h2>
+                <div className="mt-1 flex flex-wrap items-center gap-2 text-sm">
+                  <span className="rounded bg-cyan-100 px-2 py-0.5 text-xs font-bold text-[#001c3d]">
+                    Bán chạy nhất
+                  </span>
+                  <span className="rounded bg-violet-100 px-2 py-0.5 text-xs font-bold text-violet-700">
+                    {course.level}
+                  </span>
+                  <span className="font-bold text-amber-400">
+                    {course.rating}
+                  </span>
+                  <span className="flex gap-0.5">{renderStars(course.rating, 12)}</span>
+                  <span className="text-white/80">
+                    ({course.reviewCount.toLocaleString("vi-VN")} xếp hạng)
+                  </span>
+                  <span className="text-white/80">
+                    {course.enrolledStudents.toLocaleString("vi-VN")} học viên
+                  </span>
+                </div>
+              </div>
+              <button className="hidden shrink-0 rounded-lg bg-secondary-container px-5 py-2 text-sm font-bold text-primary-container shadow-lg hover:bg-secondary md:block">
+                Đăng ký ngay
+              </button>
+            </div>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -186,7 +242,7 @@ const CourseDetailPage: React.FC = () => {
         </div>
 
         {/* Two-column layout */}
-        <div className="flex flex-col lg:flex-row gap-10">
+        <div className="flex flex-col gap-10 lg:flex-row lg:items-start">
           {/* ── Left Column ── */}
           <div className="flex-1 min-w-0">
             {activeTab === "Overview" && (
@@ -223,28 +279,28 @@ const CourseDetailPage: React.FC = () => {
                 />
               </div>
             )}
+
+            {/* ══════ Related Courses ══════ */}
+            {relatedCourses.length > 0 && (
+              <section className="pt-14">
+                <h2 className="font-display text-headline-lg text-primary mb-6">
+                  Khóa học liên quan
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+                  {relatedCourses.map((rc) => (
+                    <RelatedCourseCard key={rc.id} course={rc} />
+                  ))}
+                </div>
+              </section>
+            )}
           </div>
 
           {/* ── Right Sidebar (sticky) ── */}
-          <aside className="w-full lg:w-[380px] shrink-0 sticky top-[70px] self-start z-30">
+          <aside className="w-full shrink-0 self-start lg:sticky lg:top-36 lg:z-30 lg:w-[380px]">
             <PricingSidebar course={course} />
           </aside>
         </div>
       </motion.div>
-
-      {/* ══════ Related Courses ══════ */}
-      {relatedCourses.length > 0 && (
-        <section className="max-w-container-max mx-auto px-md pb-16">
-          <h2 className="font-display text-headline-lg text-primary mb-6">
-            Related {course.category.label.charAt(0) + course.category.label.slice(1).toLowerCase()} Courses
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {relatedCourses.map((rc) => (
-              <RelatedCourseCard key={rc.id} course={rc} />
-            ))}
-          </div>
-        </section>
-      )}
     </>
   );
 };
@@ -442,41 +498,39 @@ function PricingSidebar({ course }: { course: CourseDetail }) {
 
         {/* CTA buttons */}
         <button className="w-full bg-secondary-container text-on-secondary-container font-bold py-3.5 rounded-lg hover:brightness-110 transition-all active:scale-[0.98] shadow-md text-body-lg">
-          Enroll in Course
+          Đăng ký khóa học
         </button>
         <button className="w-full border-2 border-outline-variant text-primary font-bold py-3 rounded-lg hover:bg-surface-container transition-all active:scale-[0.98] text-body-md">
-          Add to Cart
+          Thêm vào giỏ hàng
         </button>
 
-        <p className="text-center text-on-surface-variant text-[13px] italic">
-          30-Day Money Back Guarantee
-        </p>
+       
 
         {/* What's included */}
         <div>
           <h4 className="font-semibold text-primary text-body-md mb-3">
-            What's included:
+            Bao gồm:
           </h4>
           <ul className="space-y-2.5">
             <IncludeItem
               icon={<Monitor size={16} />}
-              text={`${course.includes.hoursVideo} hours on-demand video`}
+              text={`${course.includes.hoursVideo} giờ video theo yêu cầu`}
             />
             <IncludeItem
               icon={<Download size={16} />}
-              text={`${course.includes.downloadableResources} downloadable resources`}
+              text={`${course.includes.downloadableResources} tài liệu có thể tải xuống`}
             />
             {course.includes.lifetimeAccess && (
-              <IncludeItem icon={<Infinity size={16} />} text="Full lifetime access" />
+              <IncludeItem icon={<Infinity size={16} />} text="Truy cập trọn đời" />
             )}
             {course.includes.mobileAccess && (
               <IncludeItem
                 icon={<Smartphone size={16} />}
-                text="Access on mobile and TV"
+                text="Truy cập trên thiết bị di động và máy tính"
               />
             )}
             {course.includes.certificate && (
-              <IncludeItem icon={<Award size={16} />} text="Certificate of completion" />
+              <IncludeItem icon={<Award size={16} />} text="Giấy chứng nhận hoàn thành" />
             )}
           </ul>
         </div>
@@ -484,10 +538,10 @@ function PricingSidebar({ course }: { course: CourseDetail }) {
         {/* Share / Wishlist */}
         <div className="flex gap-4 pt-2 border-t border-outline-variant">
           <button className="flex items-center gap-2 text-on-surface-variant text-body-md hover:text-primary transition-colors">
-            <Share2 size={16} /> Share
+            <Share2 size={16} /> Chia sẽ
           </button>
           <button className="flex items-center gap-2 text-on-surface-variant text-body-md hover:text-primary transition-colors">
-            <Heart size={16} /> Wishlist
+            <Heart size={16} /> Danh sách yêu thích
           </button>
         </div>
       </div>

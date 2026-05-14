@@ -6,11 +6,12 @@ import { Button } from "../ui/button";
 import { CoursesNavItem } from "./courses-nav-item";
 import logoImage from "../../../../assets/logo.svg";
 import { useAuth } from "@/features/Auth/context/AuthContext";
+import CartDropdown from "@/features/Cart/components/CartDropdown";
 
 const navLinkClass = ({ isActive }: { isActive: boolean }) =>
   cn(
     "relative inline-block pb-1.5 font-body-md transition-all duration-300 ease-out",
-    "font-medium text-on-primary-container/100",
+    "font-medium text-primary-container",
     "after:pointer-events-none after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:bg-secondary-container after:transition-transform after:duration-300 after:ease-out after:content-['']",
     "hover:-translate-y-1 hover:text-primary hover:after:scale-x-100",
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-on-primary",
@@ -52,6 +53,7 @@ const Header = () => {
       <div className="hidden items-center justify-self-end gap-sm md:flex">
         {isAuthenticated ? (
           <div className="flex items-center gap-md">
+            <CartDropdown />
             <div 
               className="flex items-center gap-sm cursor-pointer hover:opacity-80 transition-opacity"
               onClick={() => navigate("/dashboard")}
@@ -69,13 +71,13 @@ const Header = () => {
           <>
             <Button
               onClick={() => navigate("/signin")}
-              className="px-sm py-xs text-on-primary font-medium hover:bg-primary-fixed-variant/20 transition-all active:scale-95"
+              className="px-sm bg-primary-container/90 py-xs text-on-primary font-medium hover:bg-primary-container/70 transition-all active:scale-95"
             >
               Đăng nhập
             </Button>
             <Button
               onClick={() => navigate("/signup")}
-              className="px-md py-xs bg-secondary-container text-on-secondary-container font-bold rounded-lg hover:brightness-110 transition-all active:scale-95"
+              className="px-md py-xs  bg-secondary-container text-on-secondary-container/90 font-bold rounded-lg hover:brightness-110 transition-all active:scale-95"
             >
               Đăng ký
             </Button>
@@ -105,9 +107,14 @@ const Header = () => {
             Về chúng tôi
           </button>
           {isAuthenticated ? (
-            <button onClick={() => navigateMobile("/dashboard")} className="rounded-lg px-sm py-sm text-left font-semibold text-primary hover:bg-surface-container">
-              Học tập của tôi
-            </button>
+            <>
+              <button onClick={() => navigateMobile("/dashboard")} className="rounded-lg px-sm py-sm text-left font-semibold text-primary hover:bg-surface-container">
+                Học tập của tôi
+              </button>
+              <button onClick={() => navigateMobile("/cart")} className="rounded-lg px-sm py-sm text-left font-semibold text-primary hover:bg-surface-container">
+                Giỏ hàng
+              </button>
+            </>
           ) : (
             <div className="mt-xs grid grid-cols-2 gap-xs">
               <button onClick={() => navigateMobile("/signin")} className="rounded-lg border border-outline-variant px-sm py-sm font-semibold text-primary">

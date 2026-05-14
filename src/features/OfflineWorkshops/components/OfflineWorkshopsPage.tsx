@@ -7,18 +7,20 @@ const OfflineWorkshopsPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#f8f9fa] font-sans pb-20">
       {/* Header Section */}
-      <div className="bg-white border-b border-outline-variant pt-12 pb-8 px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <div>
-              <h1 className="text-[#003366] text-4xl font-bold mb-4">Offline Workshops</h1>
-              <p className="text-on-surface-variant max-w-3xl text-lg leading-relaxed">
-                Immersive, systematic engineering training led by industry experts. Master TRIZ-based problem solving and modern development architectures in person.
+      <div className="courses-search-gradient relative overflow-hidden px-8 py-16 text-white md:py-24">
+        <div className="relative z-10 mx-auto max-w-7xl">
+          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <div className='ml-8'>
+              <h1 className="mb-4 text-4xl font-bold text-white md:text-5xl">
+                Hội thảo trực tiếp
+              </h1>
+              <p className="max-w-3xl text-lg leading-relaxed text-white/82">
+                Chương trình đào tạo kỹ thuật chuyên sâu, bài bản do các chuyên
+                gia trong ngành hướng dẫn. Nắm vững kỹ thuật giải quyết vấn đề
+                dựa trên TRIZ và các kiến trúc phát triển hiện đại trực tiếp.
               </p>
             </div>
-            <button className="bg-[#003366] text-white px-6 py-3 rounded-md font-bold hover:bg-[#002244] transition-colors shrink-0">
-              View Schedule
-            </button>
+  
           </div>
         </div>
       </div>
@@ -30,28 +32,28 @@ const OfflineWorkshopsPage: React.FC = () => {
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-outline" size={20} />
             <input 
               type="text" 
-              placeholder="Search by course name or technology..." 
+              placeholder="Tìm theo tên khóa học hoặc công nghệ..." 
               className="w-full pl-10 pr-4 py-2.5 rounded-md border border-outline-variant focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
             />
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
             <select className="px-4 py-2.5 rounded-md border border-outline-variant bg-white focus:outline-none focus:border-primary min-w-[200px]">
-              <option>Location: All Cities</option>
-              <option>Ho Chi Minh City</option>
-              <option>Hanoi</option>
-              <option>Da Nang</option>
+              <option>Địa điểm: Tất cả thành phố</option>
+              <option>TP. Hồ Chí Minh</option>
+              <option>Hà Nội</option>
+              <option>Đà Nẵng</option>
             </select>
             
             <select className="px-4 py-2.5 rounded-md border border-outline-variant bg-white focus:outline-none focus:border-primary min-w-[200px]">
-              <option>Duration: Any</option>
-              <option>1-3 Days</option>
-              <option>4-7 Days</option>
+              <option>Thời lượng: Bất kỳ</option>
+              <option>1-3 ngày</option>
+              <option>4-7 ngày</option>
             </select>
             
             <button className="flex items-center gap-2 px-4 py-2.5 font-bold text-primary hover:bg-surface-variant rounded-md transition-colors whitespace-nowrap">
               <Filter size={18} />
-              More Filters
+              Thêm bộ lọc
             </button>
           </div>
         </div>
