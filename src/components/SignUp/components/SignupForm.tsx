@@ -37,7 +37,7 @@ const SignUpForm: React.FC = () => {
       <div className="flex w-full flex-1 flex-col items-center justify-center px-8 py-12 overflow-auto min-w-0">
         <div className="w-1/2 mx-auto">
           <header className="mb-8">
-            <h1 className=" text-headline-lg font-semibold text-primary">
+            <h1 className=" text-headline-lg font-semibold text-primary-container">
               Create Account
             </h1>
             <p className="mt-2 text-body-md text-on-primary-container/85">
