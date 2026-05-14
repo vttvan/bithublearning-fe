@@ -1,0 +1,509 @@
+import type {
+  AdminCourseManagementData,
+  AdminOverviewData,
+  AdminReportsData,
+  AdminUsersData,
+  OfflineCourseEditorData,
+  OnlineCourseEditorData,
+} from "../types/adminDashboard";
+
+export const adminOverviewMock: AdminOverviewData = {
+  title: "Tổng quan hệ thống",
+  subtitle: "Báo cáo thị trường, dữ liệu và nội dung mới nhất từ BitHub Academy.",
+  metrics: [
+    {
+      id: "metric-1",
+      label: "Người học đăng ký",
+      value: "12,482",
+      delta: "+8.4% thang nay",
+      tone: "blue",
+    },
+    {
+      id: "metric-2",
+      label: "Doanh thu",
+      value: "$842.0M",
+      delta: "Mục tiêu 12B",
+      tone: "green",
+    },
+    {
+      id: "metric-3",
+      label: "Khóa học đang hoạt động",
+      value: "156",
+      delta: "36 khóa học mới ",
+      tone: "orange",
+    },
+  ],
+  activityCountLabel: "Phân tích báo cáo",
+  activityCountValue: "156 Khóa học hoạt động",
+  activitySplit: [
+    { label: "Online", value: "106", tone: "blue" },
+    { label: "Offline", value: "50", tone: "orange" },
+  ],
+  recentActivities: [
+    {
+      id: "activity-1",
+      courseName: "Hoc vien onboarding",
+      instructorName: "Nguyen Thi Minh",
+      activityType: "Cap nhat lesson",
+      timestamp: "2 phut truoc",
+      status: "published",
+    },
+    {
+      id: "activity-2",
+      courseName: "Khoa hoc Python",
+      instructorName: "Khoa Do",
+      activityType: "Dang tai video",
+      timestamp: "14 phut truoc",
+      status: "published",
+    },
+    {
+      id: "activity-3",
+      courseName: "AI He thong",
+      instructorName: "Le Hoang Han",
+      activityType: "Trinh duyet bai tap",
+      timestamp: "1 gio truoc",
+      status: "draft",
+    },
+    {
+      id: "activity-4",
+      courseName: "Data Science Intro",
+      instructorName: "BitHub Ops",
+      activityType: "Loi dong bo file",
+      timestamp: "3 gio truoc",
+      status: "warning",
+    },
+  ],
+  systemHealth: [
+    {
+      id: "health-1",
+      label: "Server Load",
+      value: "24%",
+      change: "On dinh",
+      tone: "healthy",
+    },
+    {
+      id: "health-2",
+      label: "Database Storage",
+      value: "68%",
+      change: "+4.6%",
+      tone: "warning",
+    },
+    {
+      id: "health-3",
+      label: "API Latency",
+      value: "44ms",
+      change: "-12%",
+      tone: "healthy",
+    },
+  ],
+  workspaceCard: {
+    title: "BitHub Pro",
+    description:
+      "Tập hợp các quy trình vận hành, báo cáo tồn động.",
+    actionLabel: "Tim hieu them",
+  },
+};
+
+export const adminOnlineCoursesMock: AdminCourseManagementData = {
+  mode: "online",
+  title: "Quản lý khóa học",
+  subtitle: "Hệ thống khóa học online cho phép quản lý nội dung, bài tập, quiz và video.",
+  summary: [
+    {
+      id: "summary-1",
+      label: "Tổng tham gia",
+      value: "12,482",
+      meta: "+12%",
+    },
+    {
+      id: "summary-2",
+      label: "Khóa học hoạt động",
+      value: "48",
+      meta: "6 mới",
+    },
+    {
+      id: "summary-3",
+      label: "Avg. completion",
+      value: "76%",
+      meta: "Ổn định",
+    },
+  ],
+  filters: ["Tất cả", "Draft", "Published", "Advanced Filter"],
+  courses: [
+    {
+      id: "online-1",
+      title: "Systematic Innovation for Engineers",
+      category: "Innovation",
+      instructor: "Tran Duy",
+      status: "published",
+      enrollment: "1,294",
+      updatedAt: "1 day ago",
+      thumbnail:
+        "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop",
+      format: "online",
+    },
+    {
+      id: "online-2",
+      title: "Advanced React & Modern Patterns",
+      category: "Software",
+      instructor: "Sarah Jenkins",
+      status: "draft",
+      enrollment: "0",
+      updatedAt: "2 days ago",
+      thumbnail:
+        "https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=1200&auto=format&fit=crop",
+      format: "online",
+    },
+    {
+      id: "online-3",
+      title: "User Experience for Architects",
+      category: "Design",
+      instructor: "Alex Miller",
+      status: "published",
+      enrollment: "812",
+      updatedAt: "1 week ago",
+      thumbnail:
+        "https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1200&auto=format&fit=crop",
+      format: "online",
+    },
+  ],
+};
+
+export const adminOfflineCoursesMock: AdminCourseManagementData = {
+  mode: "offline",
+  title: "Quản lý khóa học offline",
+  subtitle: "Quản lý workshop, lịch học, nội dung từng buổi và tài liệu cho học viên.",
+  summary: [
+    {
+      id: "summary-1",
+      label: "Upcoming workshops",
+      value: "14",
+      meta: "3 trong tuan",
+    },
+    {
+      id: "summary-2",
+      label: "Venue partners",
+      value: "08",
+      meta: "2 moi",
+    },
+    {
+      id: "summary-3",
+      label: "Session assets",
+      value: "126",
+      meta: "16 can review",
+    },
+  ],
+  filters: ["Tất cả", "Published", "Review", "Advanced Filter"],
+  courses: [
+    {
+      id: "offline-1",
+      title: "Advanced TRIZ for Engineers",
+      category: "Workshop",
+      instructor: "Dr. Artyom Petrov",
+      status: "published",
+      enrollment: "56",
+      updatedAt: "3 hours ago",
+      thumbnail:
+        "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1740&auto=format&fit=crop",
+      format: "offline",
+    },
+    {
+      id: "offline-2",
+      title: "Scalable Backend Systems",
+      category: "Architecture",
+      instructor: "Phan Thanh Dat",
+      status: "review",
+      enrollment: "32",
+      updatedAt: "Yesterday",
+      thumbnail:
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1740&auto=format&fit=crop",
+      format: "offline",
+    },
+  ],
+};
+
+export const adminOnlineCourseEditorsMock: Record<string, OnlineCourseEditorData> = {
+  "online-1": {
+    id: "online-1",
+    title: "Đổi mới có hệ thống dành cho kỹ sư",
+    subtitle: "6 chương • 38 bài học",
+    updatedAt: "Cập nhật lần cuối Sep 02, 2026",
+    modules: [
+      {
+        id: "module-1",
+        title: "Chương 1: Nhập môn TRIZ",
+        lessons: [
+          {
+            id: "lesson-1",
+            title: "Giới thiệu về nguồn gốc TRIZ",
+            type: "video",
+            durationLabel: "12:02",
+          },
+          {
+            id: "lesson-2",
+            title: "Kiểm tra 40 nguyên lý sáng tạo",
+            type: "quiz",
+            durationLabel: "5 câu hỏi",
+          },
+        ],
+      },
+      {
+        id: "module-2",
+        title: "Chương 2: Tư duy hệ thống",
+        lessons: [
+          {
+            id: "lesson-3",
+            title: "Bài đọc: Phân tích mô hình hệ thống",
+            type: "reading",
+            durationLabel: "8 phút",
+          },
+          {
+            id: "lesson-4",
+            title: "Bài tập case study 1",
+            type: "exercise",
+            durationLabel: "1 bài nộp",
+          },
+        ],
+      },
+    ],
+    selectedLessonId: "lesson-1",
+    lessonDetails: {
+      "lesson-1": {
+        id: "lesson-1",
+        moduleId: "module-1",
+        title: "Giới thiệu về nguồn gốc TRIZ",
+        type: "video",
+        durationLabel: "12:02",
+        videoUrl: "https://vimeo.com/123456",
+        durationMinutes: 12,
+        content:
+          "Nội dung bài học sử dụng markdown để mô tả mục tiêu, tài liệu đọc thêm và hướng dẫn cho học viên.",
+        attachments: ["slide-module-1.pdf", "innovation-checklist.docx"],
+        previewImage:
+          "https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=1200&auto=format&fit=crop",
+      },
+      "lesson-2": {
+        id: "lesson-2",
+        moduleId: "module-1",
+        title: "Kiểm tra 40 Nguyên lý sáng tạo",
+        type: "quiz",
+        durationLabel: "5 câu hỏi",
+        videoUrl: "https://vimeo.com/223344",
+        durationMinutes: 8,
+        content:
+          "Quiz đánh giá mức độ nắm vững 40 nguyên lý sáng tạo, gồm 5 câu hỏi và 1 tình huống mở.",
+        attachments: ["quiz-bank-module-1.pdf"],
+        quizConfig: {
+          passingScore: 70,
+          durationMinutes: 15,
+          importedFileName: "triz-principles-question-bank.xlsx",
+          questions: [
+            {
+              id: "quiz-q1",
+              prompt: "Nguyên lý sáng tạo nào phù hợp nhất để tách 1 chức năng gây xung đột ra khỏi hệ thống chính?",
+              options: [
+                { id: "q1-a", label: "Segmentation" },
+                { id: "q1-b", label: "Taking out" },
+                { id: "q1-c", label: "Local quality" },
+                { id: "q1-d", label: "Nested doll" },
+              ],
+              correctOptionId: "q1-b",
+              explanation: "Taking out phù hợp khi cần đưa một thành phần gây hại ra khỏi hệ thống.",
+            },
+            {
+              id: "quiz-q2",
+              prompt: "Khi muốn tối ưu hóa giao diện của hai thành phần, bạn ưu tiên nhóm nguyên lý nào?",
+              options: [
+                { id: "q2-a", label: "Dynamicity" },
+                { id: "q2-b", label: "Universality" },
+                { id: "q2-c", label: "Intermediary" },
+                { id: "q2-d", label: "Copying" },
+              ],
+              correctOptionId: "q2-c",
+              explanation: "Intermediary giúp tạo lớp trung gian để giải quyết xung đột giao diện.",
+            },
+          ],
+        },
+        previewImage:
+          "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop",
+      },
+      "lesson-3": {
+        id: "lesson-3",
+        moduleId: "module-2",
+        title: "Bài đọc: Phân tích mô hình hệ thống",
+        type: "reading",
+        durationLabel: "8 phut",
+        videoUrl: "https://vimeo.com/556677",
+        durationMinutes: 8,
+        content:
+          "Tài liệu đọc cho học viên về mô hình hệ thống, input-output và đường chạy giá trị.",
+        attachments: ["system-model-reading.pdf"],
+        previewImage:
+          "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop",
+      },
+      "lesson-4": {
+        id: "lesson-4",
+        moduleId: "module-2",
+        title: "Bài tập case study 1",
+        type: "exercise",
+        durationLabel: "1 bai nop",
+        videoUrl: "https://vimeo.com/889900",
+        durationMinutes: 15,
+        content:
+          "Bài tập thực hành để học viên nộp file phân tích case study trên mô hình TRIZ.",
+        attachments: ["exercise-brief.docx"],
+        codeExercise: {
+          language: "typescript",
+          difficulty: "medium",
+          starterCode:
+            "export function resolveContradiction(input: number[]): number {\n  // TODO: implement\n  return 0;\n}",
+          solutionCode:
+            "export function resolveContradiction(input: number[]): number {\n  return input.reduce((best, value) => Math.max(best, value), Number.NEGATIVE_INFINITY);\n}",
+          testCases: [
+            {
+              id: "tc-1",
+              input: "[1, 4, 2]",
+              expectedOutput: "4",
+              visibility: "public",
+            },
+            {
+              id: "tc-2",
+              input: "[-5, -2, -9]",
+              expectedOutput: "-2",
+              visibility: "hidden",
+            },
+          ],
+        },
+        previewImage:
+          "https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=1200&auto=format&fit=crop",
+      },
+    },
+  },
+};
+
+export const adminOfflineCourseEditorsMock: Record<string, OfflineCourseEditorData> = {
+  "offline-1": {
+    id: "offline-1",
+    title: "TRIZ nâng cao dành cho kỹ sư",
+    subtitle: "5 buổi • Hanoi Hub",
+    venue: "Hanoi Hub - Sector 7",
+    uploadHint: "Tải lên slide, bài tập, bảng điểm danh cho mỗi buổi học.",
+    sessions: [
+      {
+        id: "session-1",
+        title: "Buổi 1: Những nền tảng của đổi mới có hệ thống",
+        dateLabel: "Nov 02, 2026",
+        timeLabel: "09:00 - 17:00",
+        room: "Hall A",
+        speaker: "Dr. Artyom Petrov",
+        content:
+          "Mô tả mục tiêu session, flow bài giảng, timebox cho thực hành và chuẩn bị yêu cầu cầu của học viên.",
+        assets: [
+          { id: "asset-1", name: "agenda-day-1.pdf", sizeLabel: "2.4 MB" },
+          { id: "asset-2", name: "workshop-handout.zip", sizeLabel: "18 MB" },
+        ],
+      },
+      {
+        id: "session-2",
+        title: "Buổi 2: Phòng khám Ma trận Mâu thuẫn",
+        dateLabel: "Nov 03, 2026",
+        timeLabel: "09:00 - 17:00",
+        room: "Room 402",
+        speaker: "Le Thi Mai",
+        content:
+          "Trường hợp phòng khám cho ma trận mâu thuẫn, phân nhóm bài tập và review ngay tại lớp.",
+        assets: [
+          { id: "asset-3", name: "matrix-case-study.pdf", sizeLabel: "3.1 MB" },
+        ],
+      },
+    ],
+    selectedSessionId: "session-1",
+  },
+};
+
+export const adminUsersMock: AdminUsersData = {
+  title: "Quản lý user",
+  subtitle: "Theo dõi học viên, giảng viên và quyền truy cập của hệ thống.",
+  summary: [
+    { id: "user-summary-1", label: "Active users", value: "8,421", meta: "+6%" },
+    { id: "user-summary-2", label: "Instructors", value: "184", meta: "12 moi" },
+    { id: "user-summary-3", label: "Pending approvals", value: "24", meta: "Can duyet" },
+  ],
+  users: [
+    {
+      id: "user-1",
+      name: "Nguyen Thi Minh",
+      email: "minh.nguyen@bithub.edu",
+      role: "instructor",
+      status: "active",
+      program: "Systematic Innovation",
+      joinedAt: "Joined 2025-04-12",
+    },
+    {
+      id: "user-2",
+      name: "Khoa Do",
+      email: "khoa.do@bithub.edu",
+      role: "student",
+      status: "active",
+      program: "Backend Systems",
+      joinedAt: "Joined 2026-01-18",
+    },
+    {
+      id: "user-3",
+      name: "Le Hoang Han",
+      email: "han.le@bithub.edu",
+      role: "admin",
+      status: "pending",
+      program: "Operations",
+      joinedAt: "Joined 2026-07-02",
+    },
+    {
+      id: "user-4",
+      name: "Data Science Intro Cohort",
+      email: "cohort.ds@bithub.edu",
+      role: "student",
+      status: "suspended",
+      program: "Data Science",
+      joinedAt: "Joined 2024-11-09",
+    },
+  ],
+};
+
+export const adminReportsMock: AdminReportsData = {
+  title: "Quản lý reports",
+  subtitle: "Xử lý báo cáo nội dung, vận hành và các báo cáo hệ thống.",
+  summary: [
+    { id: "report-summary-1", label: "Open", value: "18", tone: "orange" },
+    { id: "report-summary-2", label: "In review", value: "07", tone: "blue" },
+    { id: "report-summary-3", label: "Resolved", value: "142", tone: "green" },
+  ],
+  reports: [
+    {
+      id: "report-1",
+      title: "Lỗi phát lại video trên Chương 3",
+      category: "Course Content",
+      severity: "medium",
+      reporter: "support@bithub.io",
+      createdAt: "10 mins ago",
+      status: "open",
+    },
+    {
+      id: "report-2",
+      title: "Yêu cầu thay đổi phòng hội thảo ngoại tuyến",
+      category: "Operations",
+      severity: "low",
+      reporter: "ops.hanoi@bithub.io",
+      createdAt: "1 hour ago",
+      status: "in-review",
+    },
+    {
+      id: "report-3",
+      title: "Người dùng không thể nộp bài kiểm tra cuối kỳ",
+      category: "Assessment",
+      severity: "high",
+      reporter: "qa@bithub.io",
+      createdAt: "Today 08:42",
+      status: "resolved",
+    },
+  ],
+};
