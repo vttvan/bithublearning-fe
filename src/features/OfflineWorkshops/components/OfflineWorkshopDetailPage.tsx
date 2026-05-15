@@ -685,13 +685,13 @@ function SessionCard({
       animate={{ opacity: 1, x: 0 }}
       transition={{ delay: index * 0.06 }}
       className={`relative bg-white p-6 shadow-sm ${
-        isActive ? "border-2 border-[#c86f09]" : "border border-[#cfd4dc]"
+        isActive ? "border-2 border-secondary-container " : "border border-[#cfd4dc]"
       }`}
     >
       <div
-        className={`absolute -left-[34px] top-5 z-10 h-4 w-4 rounded-full border-2 border-white ${
+        className={`absolute -left-[30px] top-5 z-10 h-4 w-4 rounded-full border-2 border-white ${
           isActive
-            ? "bg-[#b96a00] shadow-[0_0_0_4px_rgba(242,134,51,0.18)]"
+            ? "bg-secondary-container  shadow-[0_0_0_4px_rgba(242,134,51,0.18)]"
             : isCompleted
               ? "bg-[#1c9c4c]"
               : "bg-[#cfd4dc]"
@@ -699,7 +699,7 @@ function SessionCard({
       />
 
       {isActive ? (
-        <span className="absolute right-0 top-0 bg-[#9b5a04] px-4 py-1 text-[10px] font-bold uppercase tracking-wide text-white">
+        <span className="absolute right-0 top-0 bg-secondary-container px-4 py-1 text-[10px] font-bold uppercase tracking-wide text-white">
           Hôm nay
         </span>
       ) : null}
@@ -740,7 +740,7 @@ function SessionCard({
 
       {isActive && session.actionLabel ? (
         <div className="mt-5 flex justify-end">
-          <button className="bg-[#001c3d] px-6 py-2.5 text-xs font-bold text-white transition-colors hover:bg-[#003366]">
+          <button className="bg-primary px-6 py-2.5 text-xs font-bold text-white transition-colors hover:bg-[#003366]">
             {session.actionLabel}
           </button>
         </div>
@@ -828,7 +828,7 @@ function InstructorsCard({ workshop }: { workshop: OfflineWorkshop }) {
 
 function MaterialsCard({ materials }: { materials: WorkshopAsset[] }) {
   return (
-    <section className="bg-[#001c3d] p-5 text-white shadow-sm">
+    <section className="bg-primary p-5 text-white shadow-sm">
       <p className="mb-5 text-[10px] font-bold uppercase tracking-widest text-white/72">
         Tài liệu workshop
       </p>
@@ -839,15 +839,15 @@ function MaterialsCard({ materials }: { materials: WorkshopAsset[] }) {
           return (
             <button
               key={item.id}
-              className="flex w-full items-center gap-3 text-left text-xs font-bold leading-snug text-white hover:text-[#f28633]"
+              className="flex w-full items-center gap-3 text-left text-xs font-bold leading-snug text-white hover:text-secondary-container"
             >
-              <Icon size={16} className="shrink-0 text-[#f28633]" />
+              <Icon size={16} className="shrink-0 text-secondary-container" />
               {item.title}
             </button>
           );
         })}
       </div>
-      <button className="mt-6 flex w-full items-center justify-center gap-2 bg-[#b96a00] px-4 py-3 text-xs font-bold text-white hover:bg-[#d87b06]">
+      <button className="mt-6 flex w-full items-center justify-center gap-2 bg-secondary-container px-4 py-3 text-xs font-bold text-white hover:bg-[#d87b06]">
         <Download size={15} />
         Tải tất cả (.zip)
       </button>

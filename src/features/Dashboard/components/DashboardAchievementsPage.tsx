@@ -60,9 +60,9 @@ export const DashboardAchievementsPage: React.FC = () => {
 
   return (
     <div className="bg-[#f7f5f2] p-4 pb-20 sm:p-6 lg:p-8">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-8xl">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-[#001c3d] sm:text-4xl">{data.title}</h1>
+          <h1 className="text-3xl font-bold text-primary sm:text-4xl">{data.title}</h1>
           <p className="mt-2 text-sm text-[#606a76]">{data.subtitle}</p>
         </div>
 
@@ -116,7 +116,7 @@ export const DashboardAchievementsPage: React.FC = () => {
             transition={{ delay: 0.12 }}
             className="rounded-xl border border-[#e6e9ef] bg-white p-5 shadow-sm"
           >
-            <h2 className="mb-5 text-2xl font-bold text-[#001c3d]">
+            <h2 className="mb-5 text-2xl font-bold text-primary">
               Chứng chỉ chuyên môn
             </h2>
             <div className="space-y-4">
@@ -190,17 +190,17 @@ function CertificateCard({
         className="h-28 w-full rounded-lg object-cover"
       />
       <div>
-        <p className="text-[10px] font-bold uppercase tracking-wide text-[#f28633]">
+        <p className="text-[10px] font-bold uppercase tracking-wide text-secondary-container">
           {certificate.category}
         </p>
-        <h3 className="mt-1 text-xl font-bold leading-tight text-[#001c3d] sm:text-2xl">
+        <h3 className="mt-1 text-xl font-bold leading-tight text-primary sm:text-2xl">
           {certificate.title}
         </h3>
         <p className="mt-2 text-sm text-[#667085]">
           {certificate.issuedAt} • {certificate.certificateId}
         </p>
         <div className="mt-4 flex flex-wrap gap-2">
-          <button className="inline-flex items-center gap-2 rounded-md bg-[#001c3d] px-4 py-2.5 text-xs font-bold text-white hover:bg-[#003366]">
+          <button className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2.5 text-xs font-bold text-white hover:bg-[#003366]">
             <Download size={14} />
             {certificate.downloadLabel}
           </button>

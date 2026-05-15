@@ -111,7 +111,7 @@ export const DashboardOfflineCourses: React.FC = () => {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
-            className="rounded-xl bg-[#001c3d] p-6 text-white shadow-lg"
+            className="rounded-xl bg-primary p-6 text-white shadow-lg"
           >
             <h3 className="mb-6 text-lg font-bold text-white/90">Buổi học tiếp theo</h3>
 
@@ -235,7 +235,7 @@ function WorkshopCard({
 
         <button
           onClick={onViewDetail}
-          className="mt-auto w-full rounded bg-[#001c3d] py-3 font-bold text-white transition-colors hover:bg-[#003366] active:scale-[0.98]"
+          className="mt-auto w-full rounded bg-primary py-3 font-bold text-white transition-colors hover:bg-[#003366] active:scale-[0.98]"
         >
           XEM CHI TIẾT
         </button>
@@ -263,7 +263,7 @@ function ResourceItem({ resource }: { resource: WorkshopAsset }) {
           </div>
         ) : null}
       </div>
-      <button className="shrink-0 rounded p-2 opacity-60 transition-all group-hover:bg-white group-hover:opacity-100">
+      <button className="shrink-0 rounded p-2 opacity-60 transition-all group-hover:bg-white group-hover:opacity- 100">
         <ActionIcon size={18} className="text-on-surface-variant" />
       </button>
     </div>

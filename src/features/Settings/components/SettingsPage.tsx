@@ -226,7 +226,7 @@ const SettingsPage: React.FC = () => {
               <button
                 onClick={handleSaveProfile}
                 disabled={savingProfile}
-                className="rounded-md bg-[#001c3d] px-5 py-2.5 text-sm font-bold text-white hover:bg-[#003366] disabled:opacity-60"
+                className="rounded-md bg-primary px-5 py-2.5 text-sm font-bold text-white hover:bg-[#003366] disabled:opacity-60"
               >
                 {savingProfile ? "Saving..." : "Save Changes"}
               </button>

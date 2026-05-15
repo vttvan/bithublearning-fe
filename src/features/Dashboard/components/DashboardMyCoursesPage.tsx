@@ -168,7 +168,7 @@ function CourseCard({
           className={`mt-4 flex w-full items-center justify-center gap-2 rounded-md px-4 py-3 text-sm font-bold transition-colors ${
             isCompleted
               ? "border border-[#cfd4dc] bg-white text-[#667085] hover:bg-[#f9fafb]"
-              : "bg-[#001c3d] text-white hover:bg-[#003366]"
+              : "bg-primary text-white hover:bg-[#003366]"
           }`}
         >
           <Play size={15} />
