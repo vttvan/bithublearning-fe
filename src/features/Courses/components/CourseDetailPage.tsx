@@ -500,9 +500,7 @@ function PricingSidebar({ course }: { course: CourseDetail }) {
         <button className="w-full bg-secondary-container text-on-secondary-container font-bold py-3.5 rounded-lg hover:brightness-110 transition-all active:scale-[0.98] shadow-md text-body-lg">
           Đăng ký khóa học
         </button>
-        <button className="w-full border-2 border-outline-variant text-primary font-bold py-3 rounded-lg hover:bg-surface-container transition-all active:scale-[0.98] text-body-md">
-          Thêm vào giỏ hàng
-        </button>
+ 
 
        
 

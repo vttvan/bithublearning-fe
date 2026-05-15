@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import {
   Award,
   BookOpen,
@@ -8,6 +9,7 @@ import {
   LogOut,
   Menu,
   MonitorPlay,
+  Sparkles,
   Settings,
   X,
 } from "lucide-react";
@@ -15,7 +17,7 @@ import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../../Auth/context/AuthContext";
 
 export const DashboardLayout: React.FC = () => {
-  const { logout } = useAuth();
+  const { logout, user } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
@@ -49,7 +51,12 @@ export const DashboardLayout: React.FC = () => {
         ) : null}
       </div>
 
-      <aside className="sticky top-16 hidden h-[calc(100vh-64px)] w-64 shrink-0 flex-col overflow-y-auto border-r border-outline-variant bg-white md:flex">
+      <motion.aside
+        initial={{ x: -24, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.45, ease: "easeOut" }}
+        className="sticky top-16 hidden h-[calc(100vh-64px)] w-64 shrink-0 flex-col overflow-y-auto border-r border-outline-variant bg-white md:flex"
+      >
         <div className="flex min-h-0 flex-1 flex-col p-4">
           <DashboardSidebarContent
             locationPathname={location.pathname}
@@ -58,14 +65,21 @@ export const DashboardLayout: React.FC = () => {
             pinActionsToBottom
           />
         </div>
-      </aside>
+      </motion.aside>
 
       <div className="min-w-0 flex-1 overflow-y-auto">
-        <Outlet />
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.72, duration: 0.45, ease: "easeOut" }}
+        >
+          <Outlet />
+        </motion.div>
       </div>
     </div>
   );
 };
+
 
 function DashboardSidebarContent({
   locationPathname,
@@ -81,35 +95,43 @@ function DashboardSidebarContent({
   return (
     <div className="flex min-h-0 flex-1 flex-col">
       <nav className="space-y-2">
+        <motion.div initial={{ opacity: 0, x: -14 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.16 }}>
           <SidebarLink
             icon={<LayoutDashboard size={20} />}
             label="Tổng quan"
             onClick={() => navigate("/dashboard")}
             active={locationPathname === "/dashboard"}
           />
+        </motion.div>
+        <motion.div initial={{ opacity: 0, x: -14 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.24 }}>
           <SidebarLink
             icon={<BookOpen size={20} />}
             label="Khóa học của tôi"
             onClick={() => navigate("/dashboard/courses")}
             active={locationPathname.startsWith("/dashboard/courses")}
           />
+        </motion.div>
+        <motion.div initial={{ opacity: 0, x: -14 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.32 }}>
           <SidebarLink
             icon={<Award size={20} />}
             label="Thành tựu"
             onClick={() => navigate("/dashboard/achievements")}
             active={locationPathname.startsWith("/dashboard/achievements")}
           />
+        </motion.div>
           {/* <SidebarLink
             icon={<Files size={20} />}
             label="Tài nguyên"
             active={locationPathname === "/dashboard/resources"}
           /> */}
+        <motion.div initial={{ opacity: 0, x: -14 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 }}>
           <SidebarLink
             icon={<MonitorPlay size={20} />}
             label="Khóa học trực tiếp"
             onClick={() => navigate("/dashboard/offline-courses")}
             active={locationPathname.startsWith("/dashboard/offline-courses")}
           />
+        </motion.div>
       </nav>
 
       <div
@@ -117,12 +139,15 @@ function DashboardSidebarContent({
           pinActionsToBottom ? "mt-auto" : "mt-4"
         }`}
       >
+        <motion.div initial={{ opacity: 0, x: -14 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.48 }}>
           <SidebarLink
             icon={<Settings size={20} />}
             label="Cài đặt"
             onClick={() => navigate("/dashboard/settings")}
             active={locationPathname.startsWith("/dashboard/settings")}
           />
+        </motion.div>
+        <motion.div initial={{ opacity: 0, x: -14 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.56 }}>
           <button
             onClick={logout}
             className="flex w-full items-center gap-3 rounded-lg px-4 py-3 font-medium text-on-surface-variant transition-colors hover:bg-surface-container"
@@ -130,6 +155,7 @@ function DashboardSidebarContent({
             <LogOut size={20} />
             Đăng xuất
           </button>
+        </motion.div>
       </div>
     </div>
   );

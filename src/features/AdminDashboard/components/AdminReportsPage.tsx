@@ -25,7 +25,7 @@ const AdminReportsPage: React.FC = () => {
 
   return (
     <div className="p-4 pb-20 sm:p-6 lg:p-8">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-8xl">
         <h1 className="text-3xl font-bold text-[#001c3d] sm:text-4xl">{data.title}</h1>
         <p className="mt-2 text-sm text-[#606a76]">{data.subtitle}</p>
 

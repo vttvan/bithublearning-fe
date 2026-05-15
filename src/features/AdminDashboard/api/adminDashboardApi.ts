@@ -5,7 +5,9 @@ import {
   adminOnlineCourseEditorsMock,
   adminOnlineCoursesMock,
   adminOverviewMock,
+  adminNotificationsMock,
   adminReportsMock,
+  adminUserDetailsMock,
   adminUsersMock,
 } from "../mocks/adminDashboard.mock";
 import type {
@@ -14,6 +16,8 @@ import type {
   AdminCourseMode,
   AdminOverviewData,
   AdminReportsData,
+  AdminNotificationsData,
+  AdminUserDetailData,
   AdminUsersData,
   CreateOfflineSessionPayload,
   CreateOnlineLessonPayload,
@@ -101,6 +105,18 @@ export const adminDashboardApi = {
     });
   },
 
+  async getUserDetail(userId: string): Promise<AdminUserDetailData> {
+    if (shouldUseMockApi) {
+      await wait();
+      return structuredClone(adminUserDetailsMock[userId] ?? adminUserDetailsMock["user-1"]);
+    }
+
+    return request<AdminUserDetailData>({
+      url: `/admin/users/${userId}`,
+      method: "GET",
+    });
+  },
+
   async getReports(): Promise<AdminReportsData> {
     if (shouldUseMockApi) {
       await wait();
@@ -109,6 +125,18 @@ export const adminDashboardApi = {
 
     return request<AdminReportsData>({
       url: "/admin/reports",
+      method: "GET",
+    });
+  },
+
+  async getNotifications(): Promise<AdminNotificationsData> {
+    if (shouldUseMockApi) {
+      await wait();
+      return adminNotificationsMock;
+    }
+
+    return request<AdminNotificationsData>({
+      url: "/admin/notifications",
       method: "GET",
     });
   },

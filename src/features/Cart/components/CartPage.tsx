@@ -86,9 +86,12 @@ const CartPage = () => {
               <span className="font-bold text-primary">Tổng tiền</span>
               <span className="text-2xl font-bold text-primary">{formatVND(total)}</span>
             </div>
-            <button className="mt-6 w-full rounded-lg bg-primary px-4 py-3.5 font-bold text-on-primary shadow-sm transition-all hover:brightness-110 active:scale-[0.98]">
+            <Link
+              to="/checkout/success"
+              className="mt-6 inline-flex w-full items-center justify-center rounded-lg bg-primary px-4 py-3.5 font-bold text-on-primary shadow-sm transition-all hover:brightness-110 active:scale-[0.98]"
+            >
               Thanh toán ngay
-            </button>
+            </Link>
             <div className="mt-5 space-y-2 text-xs text-on-surface-variant">
               <p className="flex items-center gap-2">
                 <ShieldCheck size={14} className="text-secondary-container" />

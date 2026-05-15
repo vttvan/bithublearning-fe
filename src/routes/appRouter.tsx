@@ -21,11 +21,14 @@ import AdminCourseManagementPage from "@/features/AdminDashboard/components/Admi
 import AdminOnlineCourseEditorPage from "@/features/AdminDashboard/components/AdminOnlineCourseEditorPage";
 import AdminOfflineCourseEditorPage from "@/features/AdminDashboard/components/AdminOfflineCourseEditorPage";
 import AdminUsersPage from "@/features/AdminDashboard/components/AdminUsersPage";
+import AdminUserDetailPage from "@/features/AdminDashboard/components/AdminUserDetailPage";
 import AdminReportsPage from "@/features/AdminDashboard/components/AdminReportsPage";
+import AdminNotificationsPage from "@/features/AdminDashboard/components/AdminNotificationsPage";
 import DashboardOverview from "@/features/Dashboard/components/DashboardOverview";
 import AdminDashboardShell from "@/features/AdminDashboard/components/AdminDashboardShell";
 import AdminOverviewPage from "@/features/AdminDashboard/components/AdminOverviewPage";
 import CartPage from "@/features/Cart/components/CartPage";
+import CheckoutSuccessPage from "@/features/Cart/components/CheckoutSuccessPage";
 
 const AppRouter = () => {
   return (
@@ -59,6 +62,8 @@ const AppRouter = () => {
           element={<AdminOfflineCourseEditorPage />}
         />
         <Route path="users" element={<AdminUsersPage />} />
+        <Route path="users/:userId" element={<AdminUserDetailPage />} />
+        <Route path="notifications" element={<AdminNotificationsPage />} />
         <Route path="reports" element={<AdminReportsPage />} />
       </Route>
       <Route element={<MainLayout />}>
@@ -76,6 +81,7 @@ const AppRouter = () => {
         <Route path="courses-online" element={<CoursesPage />} />
         <Route path="courses-online/:id" element={<CourseDetailPage />} />
         <Route path="cart" element={<CartPage />} />
+        <Route path="checkout/success" element={<CheckoutSuccessPage />} />
         <Route path="about" element={<AboutPage />} />
         <Route path="offline-workshops" element={<OfflineWorkshopsPage />} />
         <Route path="offline-workshops/:id" element={<OfflineWorkshopDetailPage />} />

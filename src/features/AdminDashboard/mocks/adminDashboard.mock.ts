@@ -2,6 +2,8 @@ import type {
   AdminCourseManagementData,
   AdminOverviewData,
   AdminReportsData,
+  AdminNotificationsData,
+  AdminUserDetailData,
   AdminUsersData,
   OfflineCourseEditorData,
   OnlineCourseEditorData,
@@ -33,8 +35,114 @@ export const adminOverviewMock: AdminOverviewData = {
       tone: "orange",
     },
   ],
-  activityCountLabel: "Phân tích báo cáo",
-  activityCountValue: "156 Khóa học hoạt động",
+  revenueChart: {
+    title: "Doanh thu theo tháng",
+    rangeLabel: "12 tháng gần nhất",
+    totalLabel: "Tổng doanh thu",
+    totalValue: "₫842.000.000",
+    points: [
+      { label: "T1", value: 42 },
+      { label: "T2", value: 55 },
+      { label: "T3", value: 48 },
+      { label: "T4", value: 72 },
+      { label: "T5", value: 64 },
+      { label: "T6", value: 88 },
+      { label: "T7", value: 95 },
+      { label: "T8", value: 82 },
+      { label: "T9", value: 76 },
+      { label: "T10", value: 91 },
+      { label: "T11", value: 104 },
+      { label: "T12", value: 126 },
+    ],
+  },
+  topCourses: {
+    title: "Khóa học bán chạy",
+    subtitle: "Xếp hạng theo doanh thu và số lượt mua",
+    courses: [
+      {
+        id: "top-course-1",
+        title: "Systematic Innovation for Engineers",
+        category: "Innovation",
+        sales: 482,
+        revenue: "₫248.000.000",
+        completionRate: 82,
+      },
+      {
+        id: "top-course-2",
+        title: "Advanced React & Modern Patterns",
+        category: "Software",
+        sales: 326,
+        revenue: "₫186.000.000",
+        completionRate: 76,
+      },
+      {
+        id: "top-course-3",
+        title: "Data Science Intro",
+        category: "Data",
+        sales: 284,
+        revenue: "₫142.000.000",
+        completionRate: 69,
+      },
+    ],
+  },
+  customerFeedback: {
+    title: "Feedback khách hàng",
+    averageRating: "4.8/5",
+    feedbacks: [
+      {
+        id: "feedback-1",
+        customerName: "Nguyen Minh Anh",
+        courseName: "Advanced React & Modern Patterns",
+        rating: 5,
+        comment: "Nội dung rõ ràng, bài tập thực tế và dashboard học tập rất dễ theo dõi.",
+        createdAt: "2 giờ trước",
+      },
+      {
+        id: "feedback-2",
+        customerName: "Le Hoang Nam",
+        courseName: "Systematic Innovation for Engineers",
+        rating: 5,
+        comment: "Phần TRIZ được giải thích dễ hiểu, áp dụng được ngay vào case công việc.",
+        createdAt: "Hôm qua",
+      },
+      {
+        id: "feedback-3",
+        customerName: "Tran Bao Chau",
+        courseName: "Data Science Intro",
+        rating: 4,
+        comment: "Video tốt, mong có thêm ví dụ doanh nghiệp ở phần dashboard dữ liệu.",
+        createdAt: "3 ngày trước",
+      },
+    ],
+  },
+  activityCountLabel: "Quản lý danh sách report",
+  activityCountValue: "156 report trong hệ thống",
+  reportList: [
+    {
+      id: "overview-report-1",
+      title: "Lỗi phát lại video trên Chương 3",
+      category: "Course Content",
+      severity: "medium",
+      reporter: "support@bithub.io",
+      status: "open",
+    },
+    {
+      id: "overview-report-2",
+      title: "Người dùng không thể nộp bài kiểm tra cuối kỳ",
+      category: "Assessment",
+      severity: "high",
+      reporter: "qa@bithub.io",
+      status: "in-review",
+    },
+    {
+      id: "overview-report-3",
+      title: "Yêu cầu thay đổi phòng workshop offline",
+      category: "Operations",
+      severity: "low",
+      reporter: "ops.hanoi@bithub.io",
+      status: "resolved",
+    },
+  ],
   activitySplit: [
     { label: "Online", value: "106", tone: "blue" },
     { label: "Offline", value: "50", tone: "orange" },
@@ -137,6 +245,8 @@ export const adminOnlineCoursesMock: AdminCourseManagementData = {
       instructor: "Tran Duy",
       status: "published",
       enrollment: "1,294",
+      price: "2.400.000đ",
+      createdAt: " Jan 08, 2026",
       updatedAt: "1 day ago",
       thumbnail:
         "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop",
@@ -149,6 +259,8 @@ export const adminOnlineCoursesMock: AdminCourseManagementData = {
       instructor: "Sarah Jenkins",
       status: "draft",
       enrollment: "0",
+      price: "1.800.000đ",
+      createdAt: " Feb 14, 2026",
       updatedAt: "2 days ago",
       thumbnail:
         "https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=1200&auto=format&fit=crop",
@@ -161,6 +273,8 @@ export const adminOnlineCoursesMock: AdminCourseManagementData = {
       instructor: "Alex Miller",
       status: "published",
       enrollment: "812",
+      price: "1.500.000đ",
+      createdAt: " Mar 21, 2026",
       updatedAt: "1 week ago",
       thumbnail:
         "https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1200&auto=format&fit=crop",
@@ -202,6 +316,8 @@ export const adminOfflineCoursesMock: AdminCourseManagementData = {
       instructor: "Dr. Artyom Petrov",
       status: "published",
       enrollment: "56",
+      price: "3.200.000đ",
+      createdAt: " Apr 02, 2026",
       updatedAt: "3 hours ago",
       thumbnail:
         "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1740&auto=format&fit=crop",
@@ -214,6 +330,8 @@ export const adminOfflineCoursesMock: AdminCourseManagementData = {
       instructor: "Phan Thanh Dat",
       status: "review",
       enrollment: "32",
+      price: "2.900.000đ",
+      createdAt: " Apr 18, 2026",
       updatedAt: "Yesterday",
       thumbnail:
         "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1740&auto=format&fit=crop",
@@ -422,7 +540,7 @@ export const adminOfflineCourseEditorsMock: Record<string, OfflineCourseEditorDa
 };
 
 export const adminUsersMock: AdminUsersData = {
-  title: "Quản lý user",
+  title: "Quản lý người dùng",
   subtitle: "Theo dõi học viên, giảng viên và quyền truy cập của hệ thống.",
   summary: [
     { id: "user-summary-1", label: "Active users", value: "8,421", meta: "+6%" },
@@ -437,7 +555,7 @@ export const adminUsersMock: AdminUsersData = {
       role: "instructor",
       status: "active",
       program: "Systematic Innovation",
-      joinedAt: "Joined 2025-04-12",
+      joinedAt: " 2025-04-12",
     },
     {
       id: "user-2",
@@ -446,7 +564,7 @@ export const adminUsersMock: AdminUsersData = {
       role: "student",
       status: "active",
       program: "Backend Systems",
-      joinedAt: "Joined 2026-01-18",
+      joinedAt: " 2026-01-18",
     },
     {
       id: "user-3",
@@ -455,7 +573,7 @@ export const adminUsersMock: AdminUsersData = {
       role: "admin",
       status: "pending",
       program: "Operations",
-      joinedAt: "Joined 2026-07-02",
+      joinedAt: " 2026-07-02",
     },
     {
       id: "user-4",
@@ -464,10 +582,140 @@ export const adminUsersMock: AdminUsersData = {
       role: "student",
       status: "suspended",
       program: "Data Science",
-      joinedAt: "Joined 2024-11-09",
+      joinedAt: " 2024-11-09",
     },
   ],
 };
+
+export const adminUserDetailsMock: Record<string, AdminUserDetailData> = {
+  "user-1": createAdminUserDetail({
+    id: "user-1",
+    name: "Nguyen Thi Minh",
+    email: "minh.nguyen@bithub.edu",
+    role: "instructor",
+    status: "active",
+    program: "Systematic Innovation",
+    joinedAt: " 2025-04-12",
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=900&auto=format&fit=crop",
+    totalSpent: "12.500.000 VND",
+  }),
+  "user-2": createAdminUserDetail({
+    id: "user-2",
+    name: "Khoa Do",
+    email: "khoa.do@bithub.edu",
+    role: "student",
+    status: "active",
+    program: "Backend Systems",
+    joinedAt: " 2026-01-18",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=900&auto=format&fit=crop",
+    totalSpent: "8.900.000 VND",
+  }),
+  "user-3": createAdminUserDetail({
+    id: "user-3",
+    name: "Le Hoang Han",
+    email: "han.le@bithub.edu",
+    role: "admin",
+    status: "pending",
+    program: "Operations",
+    joinedAt: " 2026-07-02",
+    avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=900&auto=format&fit=crop",
+    totalSpent: "5.200.000 VND",
+  }),
+  "user-4": createAdminUserDetail({
+    id: "user-4",
+    name: "Data Science Intro Cohort",
+    email: "cohort.ds@bithub.edu",
+    role: "student",
+    status: "suspended",
+    program: "Data Science",
+    joinedAt: " 2024-11-09",
+    avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=900&auto=format&fit=crop",
+    totalSpent: "3.700.000 VND",
+  }),
+};
+
+function createAdminUserDetail(
+  profile: Omit<AdminUserDetailData["profile"], "phone">,
+): AdminUserDetailData {
+  return {
+    profile: {
+      ...profile,
+      phone: "090 123 4567",
+    },
+    purchasedCourses: [
+      {
+        id: "course-1",
+        title: "Tư duy Sáng tạo TRIZ Cơ bản",
+        level: "Trung cấp",
+        enrolledAt: "12/01/2024",
+        progressPercent: 65,
+        completedLessons: 12,
+        totalLessons: 20,
+        status: "learning",
+      },
+      {
+        id: "course-2",
+        title: "Phân tích mẫu thuẫn hệ thống",
+        level: "Nâng cao",
+        enrolledAt: "05/02/2024",
+        progressPercent: 20,
+        completedLessons: 4,
+        totalLessons: 20,
+        status: "learning",
+      },
+      {
+        id: "course-3",
+        title: "Advanced React & Modern Patterns",
+        level: "Nâng cao",
+        enrolledAt: "18/03/2024",
+        progressPercent: 100,
+        completedLessons: 32,
+        totalLessons: 32,
+        status: "completed",
+      },
+    ],
+    offlineWorkshops: [
+      {
+        id: "workshop-1",
+        title: "TRIZ in Business 2024",
+        location: "TP. Hồ Chí Minh",
+        dateLabel: "20/03/2024",
+        status: "registered",
+      },
+    ],
+    transactions: [
+      {
+        id: "txn-1",
+        invoiceCode: "#INV-99201",
+        dateLabel: "15/03/2024",
+        amount: "2.500.000đ",
+        paymentMethod: "Ví MoMo",
+        status: "paid",
+      },
+      {
+        id: "txn-2",
+        invoiceCode: "#INV-98542",
+        dateLabel: "10/02/2024",
+        amount: "5.000.000đ",
+        paymentMethod: "Thẻ Visa",
+        status: "paid",
+      },
+      {
+        id: "txn-3",
+        invoiceCode: "#INV-97210",
+        dateLabel: "01/01/2024",
+        amount: "5.000.000đ",
+        paymentMethod: "Chuyển khoản",
+        status: "pending",
+      },
+    ],
+    achievements: [
+      { id: "ach-1", label: "Hoàn thành onboarding", tone: "green" },
+      { id: "ach-2", label: "Top learner", tone: "orange" },
+      { id: "ach-3", label: "Chứng chỉ nâng cao", tone: "gray" },
+    ],
+  };
+}
 
 export const adminReportsMock: AdminReportsData = {
   title: "Quản lý reports",
@@ -504,6 +752,49 @@ export const adminReportsMock: AdminReportsData = {
       reporter: "qa@bithub.io",
       createdAt: "Today 08:42",
       status: "resolved",
+    },
+  ],
+};
+
+export const adminNotificationsMock: AdminNotificationsData = {
+  title: "Tạo Thông báo Mới",
+  subtitle: "Soạn thảo và gửi thông báo đến học viên trên hệ thống BitHub.",
+  notifications: [
+    {
+      id: "notification-1",
+      title: "Lịch bảo trì hệ thống tối nay",
+      content: "BitHub sẽ bảo trì từ 22:00 đến 23:00. Việc học sẽ trở lại bình thường sau thời gian này.",
+      audience: "all",
+      channels: ["in-app", "email"],
+      sentAt: "12:45 - 24/05/2024",
+      status: "sent",
+    },
+    {
+      id: "notification-2",
+      title: "Khóa React nâng cao có bài tập mới",
+      content: "Bài tập về performance optimization đã được mở cho học viên đang tham gia khóa học.",
+      audience: "students",
+      channels: ["in-app"],
+      sentAt: "09:15 - 24/05/2024",
+      status: "sent",
+    },
+    {
+      id: "notification-3",
+      title: "Nhắc lịch workshop TRIZ in Business",
+      content: "Workshop offline sẽ diễn ra vào cuối tuần này tại TP. Hồ Chí Minh.",
+      audience: "students",
+      channels: ["in-app", "push"],
+      sentAt: "23:10 - 23/05/2024",
+      status: "scheduled",
+    },
+    {
+      id: "notification-4",
+      title: "Cập nhật chính sách hoàn tiền",
+      content: "Chính sách hoàn tiền mới đã được cập nhật trong trung tâm hỗ trợ.",
+      audience: "all",
+      channels: ["email"],
+      sentAt: "18:00 - 23/05/2024",
+      status: "draft",
     },
   ],
 };

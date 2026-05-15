@@ -2,7 +2,6 @@ import React from "react";
 import { Award, Files, BookOpen, Play, Filter } from "lucide-react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../Auth/context/AuthContext";
 import {
   dashboardStatsMock,
   currentEnrolledCourseMock,
@@ -10,25 +9,10 @@ import {
 } from "@mock/data/dashboard.mock";
 
 export const DashboardOverview: React.FC = () => {
-  const { user } = useAuth();
   const navigate = useNavigate();
 
   return (
     <div className="space-y-8 p-4 sm:p-6 lg:p-8">
-      {/* Welcome Section */}
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3 }}
-      >
-        <h1 className="mb-1 text-3xl font-bold text-on-primary-fixed-variant sm:text-display-sm">
-          Chào mừng trở lại, {user?.fullName.split(" ")[0]}!
-        </h1>
-        <p className="text-base text-on-surface-variant sm:text-body-lg">
-          Bạn đã hoàn thành 75% mục tiêu tuần này. Tiếp tục giữ nhịp nhé!
-        </p>
-      </motion.section>
-
       {/* Stats & Resume Card */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Stats Left */}

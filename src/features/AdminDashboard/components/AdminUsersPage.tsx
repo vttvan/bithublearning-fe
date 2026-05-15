@@ -1,8 +1,11 @@
 import React from "react";
+import { ArrowUpRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { adminDashboardService } from "../services/adminDashboardService";
 import type { AdminUserItem, AdminUsersData } from "../types/adminDashboard";
 
 const AdminUsersPage: React.FC = () => {
+  const navigate = useNavigate();
   const [data, setData] = React.useState<AdminUsersData | null>(null);
 
   React.useEffect(() => {
@@ -25,8 +28,8 @@ const AdminUsersPage: React.FC = () => {
 
   return (
     <div className="p-4 pb-20 sm:p-6 lg:p-8">
-      <div className="mx-auto max-w-7xl">
-        <h1 className="text-3xl font-bold text-[#001c3d] sm:text-4xl">{data.title}</h1>
+      <div className="mx-auto max-w-8xl">
+        <h1 className="text-3xl font-bold text-primary sm:text-4xl">{data.title}</h1>
         <p className="mt-2 text-sm text-[#606a76]">{data.subtitle}</p>
 
         <div className="mt-6 grid gap-4 md:grid-cols-3">
@@ -41,16 +44,21 @@ const AdminUsersPage: React.FC = () => {
 
         <div className="mt-6 overflow-x-auto rounded-2xl border border-[#e4e7ec] bg-white shadow-sm">
           <div className="min-w-[860px]">
-          <div className="grid grid-cols-[1.2fr_1.2fr_0.8fr_0.8fr_1fr_1fr] bg-[#f8fafc] px-4 py-3 text-[11px] font-bold uppercase tracking-wide text-[#667085]">
+          <div className="grid grid-cols-[1.2fr_1.2fr_0.8fr_0.8fr_1fr_1fr_0.7fr] bg-[#f8fafc] px-4 py-3 text-[11px] font-bold uppercase tracking-wide text-[#667085]">
             <span>Tên</span>
             <span>Email</span>
             <span>Vai trò</span>
             <span>Trạng thái</span>
             <span>Chương trình</span>
             <span>Ngày tham gia</span>
+            <span>Thao tác</span>
           </div>
           {data.users.map((user) => (
-            <UserRow key={user.id} user={user} />
+            <UserRow
+              key={user.id}
+              user={user}
+              onOpen={() => navigate(`/dashboard/admin/users/${user.id}`)}
+            />
           ))}
           </div>
         </div>
@@ -59,9 +67,9 @@ const AdminUsersPage: React.FC = () => {
   );
 };
 
-function UserRow({ user }: { user: AdminUserItem }) {
+function UserRow({ user, onOpen }: { user: AdminUserItem; onOpen: () => void }) {
   return (
-    <div className="grid grid-cols-[1.2fr_1.2fr_0.8fr_0.8fr_1fr_1fr] items-center border-t border-[#eef1f5] px-4 py-4 text-sm">
+    <div className="grid grid-cols-[1.2fr_1.2fr_0.8fr_0.8fr_1fr_1fr_0.7fr] items-center border-t border-[#eef1f5] px-4 py-4 text-sm">
       <p className="font-semibold text-[#101828]">{user.name}</p>
       <p className="text-[#475467]">{user.email}</p>
       <p className="text-[#475467]">{getUserRoleLabel(user.role)}</p>
@@ -70,6 +78,13 @@ function UserRow({ user }: { user: AdminUserItem }) {
       </span>
       <p className="text-[#475467]">{user.program}</p>
       <p className="text-[#475467]">{user.joinedAt}</p>
+      <button
+        onClick={onOpen}
+        className="inline-flex items-center gap-1 text-sm font-semibold text-[#003366]"
+      >
+        Chi tiết
+        <ArrowUpRight size={15} />
+      </button>
     </div>
   );
 }

@@ -7,7 +7,9 @@ import { Input } from "@/components/common/ui/input";
 import { useAuth } from "../../../features/Auth/context/AuthContext";
 import { toast } from "sonner";
 
-const SignInForm: React.FC = () => {
+const doorAnimationDuration = 980;
+
+const SignInForm: React.FC<{ onLoginSuccess?: () => void }> = ({ onLoginSuccess }) => {
   const navigate = useNavigate();
   const { login } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
@@ -32,6 +34,8 @@ const SignInForm: React.FC = () => {
 
     if (user) {
       toast.success("Login successful!");
+      onLoginSuccess?.();
+      await new Promise((resolve) => window.setTimeout(resolve, doorAnimationDuration));
       navigate(user.role === "admin" ? "/dashboard/admin" : "/dashboard");
     } else {
       setError("Invalid username or password. Try customer / 123 or admin / 123");
@@ -153,9 +157,10 @@ const SignInForm: React.FC = () => {
 
             <Button
               type="submit"
+              disabled={isLoading}
               className="h-12 w-full rounded-lg bg-primary font-label-sm text-label-sm font-bold uppercase tracking-widest text-on-primary hover:bg-primary/90"
             >
-              Sign in
+              {isLoading ? "Signing in..." : "Sign in"}
             </Button>
           </form>
 

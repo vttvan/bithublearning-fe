@@ -54,7 +54,15 @@ export const adminDashboardService = {
     return adminDashboardApi.getUsers();
   },
 
+  getUserDetail(userId: string) {
+    return adminDashboardApi.getUserDetail(userId);
+  },
+
   getReports() {
     return adminDashboardApi.getReports();
+  },
+
+  getNotifications() {
+    return adminDashboardApi.getNotifications();
   },
 };

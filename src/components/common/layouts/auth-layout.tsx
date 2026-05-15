@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { GraduationCap, Terminal } from "lucide-react";
+import { motion } from "framer-motion";
 import signinHeroImage from "../../../../assets/signin.png";
 
 /** Đặt ảnh nền trái (server room / datacenter) vào public — ví dụ public/assets/signin.jpg */
@@ -7,14 +8,31 @@ export const SIGNIN_HERO_IMAGE = signinHeroImage;
 
 export default function AuthLayout({
   children,
+  isOpening = false,
 }: {
   children: React.ReactNode;
+  isOpening?: boolean;
 }) {
   return (
-    <div className="flex min-h-screen flex-col bg-background">
+    <div className="relative flex min-h-screen flex-col overflow-hidden bg-background">
+      <motion.div
+        initial={false}
+        animate={
+          isOpening
+            ? { opacity: [0, 0.5, 0], scaleX: [0, 1, 1] }
+            : { opacity: 0, scaleX: 0 }
+        }
+        transition={{ duration: 0.95, times: [0, 0.45, 1], ease: "easeInOut" }}
+        className="pointer-events-none absolute inset-y-0 left-1/2 z-30 w-px origin-center bg-white shadow-[0_0_42px_rgba(255,255,255,0.9)]"
+      />
       <div className="flex min-h-0 flex-1 flex-col lg:flex-row">
         {/* Trái: branding — chỉ desktop lg; ảnh do bạn thay trong public */}
-        <aside className="relative hidden min-h-[280px] overflow-hidden lg:flex lg:min-h-0 lg:basis-1/2 lg:flex-col lg:shrink-0">
+        <motion.aside
+          initial={false}
+          animate={isOpening ? { x: "-105%", rotateY: -6 } : { x: 0, rotateY: 0 }}
+          transition={{ duration: 0.95, ease: [0.76, 0, 0.24, 1] }}
+          className="relative hidden min-h-[280px] origin-left overflow-hidden lg:flex lg:min-h-0 lg:basis-1/2 lg:flex-col lg:shrink-0"
+        >
         <div
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${SIGNIN_HERO_IMAGE})` }}
@@ -44,12 +62,17 @@ export default function AuthLayout({
               </div>
             </div>
           </div>
-        </aside>
+        </motion.aside>
 
         {/* Phải: form */}
-        <main className="flex flex-1 flex-col bg-[#fcf9f8] overflow-auto min-w-0">
+        <motion.main
+          initial={false}
+          animate={isOpening ? { x: "105%", rotateY: 6 } : { x: 0, rotateY: 0 }}
+          transition={{ duration: 0.95, ease: [0.76, 0, 0.24, 1] }}
+          className="flex flex-1 origin-right flex-col bg-[#fcf9f8] overflow-auto min-w-0"
+        >
         {children}
-        </main>
+        </motion.main>
       </div>
 
     </div>

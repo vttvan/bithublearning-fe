@@ -129,7 +129,7 @@ const UnifiedCoursesPage: React.FC = () => {
             Các khóa học video chất lượng cao, tự học theo tốc độ của riêng bạn. Học theo nhịp độ của riêng bạn với tài liệu toàn diện, bài kiểm tra tương tác và hỗ trợ cộng đồng.
 
             </p>
-            <button className="w-full py-3 px-4 rounded-lg bg-surface-variant text-[#003366] font-bold group-hover:bg-[#003366] group-hover:text-white transition-colors">
+            <button className="w-full py-3 px-4 rounded-lg bg-surface-variant text-primary font-bold group-hover:bg-primary group-hover:text-white transition-colors">
             Khám phá các khóa học trực tuyến
             </button>
           </motion.div>

@@ -15,7 +15,7 @@
      COLORS
   ========================= */
 
-  --color-primary: #254776;
+  --color-primary: #3b73bf;
   --color-error: #ba1a1a;
   --color-surface-tint: #3e5f90;
   --color-on-surface-variant: #43474f;
@@ -140,8 +140,8 @@ body {
 @utility hero-gradient {
   background:
     linear-gradient(135deg,
-      rgba(0, 24, 54, 0.78),
-      rgba(0, 24, 54, 0.72)),
+      rgba(0, 24, 54, 0.6),
+      rgba(0, 24, 54, 0.7)),
     radial-gradient(circle at top left,
       rgba(254, 147, 44, 0.22),
       transparent 35%),
@@ -155,7 +155,7 @@ body {
 @utility courses-search-gradient {
   background:
     linear-gradient(135deg,
-      rgba(0, 24, 54, 0.60),
+      rgba(0, 24, 54, 0.6),
       rgba(0, 24, 54, 0.62)),
     radial-gradient(circle at top right,
       rgba(254, 147, 44, 0.18),

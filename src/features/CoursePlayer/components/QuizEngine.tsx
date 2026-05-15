@@ -8,11 +8,19 @@ import {
   Clock,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import type { CoursePlayerQuiz } from "../types/coursePlayer";
 
-const QuizEngine: React.FC = () => {
-  const [currentQuestion, setCurrentQuestion] = useState(4);
-  const [timeLeft, setTimeLeft] = useState(892); // 14:52 in seconds
-  const [selectedOption, setSelectedOption] = useState<number | null>(1); // Index 1 is Principle 40
+interface QuizEngineProps {
+  quiz: CoursePlayerQuiz;
+}
+
+const QuizEngine: React.FC<QuizEngineProps> = ({ quiz }) => {
+  const [currentQuestion, setCurrentQuestion] = useState(quiz.currentQuestionNumber);
+  const [timeLeft, setTimeLeft] = useState(quiz.timeLimitSeconds);
+  const activeQuestion = quiz.questions[0];
+  const [selectedOption, setSelectedOption] = useState<number | null>(
+    activeQuestion?.selectedOptionIndex ?? null,
+  );
 
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
@@ -21,31 +29,30 @@ const QuizEngine: React.FC = () => {
   };
 
   useEffect(() => {
+    setCurrentQuestion(quiz.currentQuestionNumber);
+    setTimeLeft(quiz.timeLimitSeconds);
+    setSelectedOption(quiz.questions[0]?.selectedOptionIndex ?? null);
+  }, [quiz]);
+
+  useEffect(() => {
     const timer = setInterval(() => {
       setTimeLeft(prev => (prev > 0 ? prev - 1 : 0));
     }, 1000);
     return () => clearInterval(timer);
   }, []);
 
-  const questions = Array.from({ length: 20 }, (_, i) => ({
+  const questions = Array.from({ length: quiz.totalQuestions }, (_, i) => ({
     id: i + 1,
-    status: i < 3 ? "answered" : i === 3 ? "current" : "not-visited"
+    status: i < quiz.solvedQuestions ? "answered" : i + 1 === currentQuestion ? "current" : "not-visited"
   }));
-
-  const options = [
-    "Principle 1: Segmentation – Divide an object into independent parts.",
-    "Principle 40: Composite Materials – Change from uniform to composite structures to reduce weight while maintaining high tensile strength.",
-    "Principle 10: Prior Action – Perform the required change of an object in full or in part before it is needed.",
-    "Principle 15: Dynamicity – Allow the characteristics of an object to change to be optimal at each stage of an operation."
-  ];
 
   return (
     <div className="flex flex-col h-full bg-white">
       {/* Quiz Header */}
       <div className="h-20 border-b border-outline-variant px-12 flex items-center justify-between bg-[#fcfcfc]">
         <div>
-          <p className="text-[#f28633] text-[10px] font-extrabold uppercase tracking-widest mb-1">Systematic Innovation</p>
-          <h2 className="text-title-lg font-bold text-primary">Module 3 Quiz: Logic and Flow</h2>
+          <p className="text-[#f28633] text-[10px] font-extrabold uppercase tracking-widest mb-1">{quiz.category}</p>
+          <h2 className="text-title-lg font-bold text-primary">{quiz.title}</h2>
         </div>
         
         <div className="flex items-center gap-6">
@@ -60,7 +67,9 @@ const QuizEngine: React.FC = () => {
           <div className="flex items-center gap-4 bg-[#fff5ee] border border-[#f28633]/20 rounded-xl px-6 py-2 shadow-sm">
             <div className="text-right">
               <p className="text-[10px] font-bold text-[#f28633] uppercase">Progress</p>
-              <p className="text-headline-xs font-mono font-bold text-[#f28633]">04/20</p>
+              <p className="text-headline-xs font-mono font-bold text-[#f28633]">
+                {currentQuestion.toString().padStart(2, "0")}/{quiz.totalQuestions}
+              </p>
             </div>
           </div>
         </div>
@@ -72,16 +81,16 @@ const QuizEngine: React.FC = () => {
         <div className="flex-1 flex flex-col h-full">
           <div className="bg-white border border-outline-variant rounded-2xl p-10 shadow-sm flex-1 overflow-y-auto">
             <div className="flex items-center gap-3 mb-8">
-              <span className="bg-[#001c3d] text-white text-[11px] font-extrabold px-2 py-1 rounded">Q4</span>
+              <span className="bg-[#001c3d] text-white text-[11px] font-extrabold px-2 py-1 rounded">Q{currentQuestion}</span>
               <span className="text-on-surface-variant text-label-sm font-bold uppercase tracking-wider">Multiple Choice</span>
             </div>
 
             <h3 className="text-headline-sm font-bold text-primary mb-10 leading-snug">
-              In the context of TRIZ-based systematic innovation, which principle is most effectively applied when resolving a technical contradiction between "Weight of Moving Object" and "Strength"?
+              {activeQuestion?.text}
             </h3>
 
             <div className="space-y-4">
-              {options.map((opt, idx) => (
+              {activeQuestion?.options.map((opt, idx) => (
                 <button 
                   key={idx}
                   onClick={() => setSelectedOption(idx)}
@@ -120,7 +129,9 @@ const QuizEngine: React.FC = () => {
           <div className="bg-white border border-outline-variant rounded-2xl p-8 shadow-sm flex flex-col">
             <div className="flex justify-between items-center mb-6">
               <h4 className="text-label-sm font-extrabold text-primary uppercase tracking-widest">Question Palette</h4>
-              <span className="text-[12px] font-bold text-[#f28633]">4 of 20 Solved</span>
+              <span className="text-[12px] font-bold text-[#f28633]">
+                {quiz.solvedQuestions} of {quiz.totalQuestions} Solved
+              </span>
             </div>
 
             <div className="grid grid-cols-5 gap-3 mb-8">

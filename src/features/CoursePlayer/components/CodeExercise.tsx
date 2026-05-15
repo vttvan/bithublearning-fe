@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Editor from "@monaco-editor/react";
 import { 
   Play, 
@@ -9,32 +9,21 @@ import {
   Info,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import type { CoursePlayerCodeExercise } from "../types/coursePlayer";
 
-const CodeExercise: React.FC = () => {
-  const [code, setCode] = useState(`/**
- * @param {number[]} arr
- * @return {number|null}
- */
-function findMaxElement(arr) {
-  if (arr.length === 0) {
-    return null;
-  }
-  
-  let max = arr[0];
-  for (let i = 1; i < arr.length; i++) {
-    if (arr[i] > max) {
-      max = arr[i];
-    }
-  }
-  
-  return max;
-}`);
+interface CodeExerciseProps {
+  exercise: CoursePlayerCodeExercise;
+}
 
+const CodeExercise: React.FC<CodeExerciseProps> = ({ exercise }) => {
+  const [code, setCode] = useState(exercise.starterCode);
   const [isRunning, setIsRunning] = useState(false);
-  const [testResults, setTestResults] = useState([
-    { id: 1, text: "Test Case 1 Passed:", expected: "9", got: "9", status: "pass" },
-    { id: 2, text: "Test Case 2 Passed:", expected: "-5", got: "-5", status: "pass" }
-  ]);
+  const [testResults, setTestResults] = useState(exercise.testCases);
+
+  useEffect(() => {
+    setCode(exercise.starterCode);
+    setTestResults(exercise.testCases);
+  }, [exercise.id, exercise.starterCode, exercise.testCases]);
 
   const handleRunCode = () => {
     setIsRunning(true);
@@ -51,13 +40,13 @@ function findMaxElement(arr) {
         <div className="p-10 space-y-8">
           <div className="space-y-4">
             <div className="flex items-center gap-2 text-on-surface-variant font-bold text-[11px] uppercase tracking-widest">
-              <span className="text-[#f28633]">■</span> Exercise 4.2
+              <span className="text-[#f28633]">■</span> {exercise.label}
             </div>
             <h1 className="text-display-sm font-bold text-primary leading-tight">
-              Maximum Element Detection
+              {exercise.title}
             </h1>
             <p className="text-body-lg text-on-surface-variant leading-relaxed">
-              Systematic innovation in algorithms often requires efficient traversal of data structures. Your task is to implement a robust function that identifies the largest numerical value within an unsorted array.
+              {exercise.description}
             </p>
           </div>
 
@@ -65,7 +54,10 @@ function findMaxElement(arr) {
           <div className="bg-[#f8f9fa] border-l-4 border-primary p-6 rounded-r-xl">
             <h3 className="text-title-sm font-bold text-primary mb-3">Problem Statement</h3>
             <p className="text-body-md text-on-surface-variant leading-relaxed italic">
-              Write a function <code className="bg-surface-container px-1 py-0.5 rounded font-mono text-primary font-bold">findMaxElement(arr)</code> that takes an array of integers and returns the maximum element. The solution must handle empty arrays by returning <code className="bg-surface-container px-1 py-0.5 rounded font-mono text-primary font-bold">null</code>.
+              {exercise.problemStatement}{" "}
+              <code className="bg-surface-container px-1 py-0.5 rounded font-mono text-primary font-bold">
+                {exercise.functionName}
+              </code>
             </p>
           </div>
 
@@ -75,9 +67,9 @@ function findMaxElement(arr) {
               Constraints
             </h3>
             <ul className="space-y-2 list-disc pl-5 text-body-md text-on-surface-variant font-medium">
-              <li>0 ≤ arr.length ≤ 10^5</li>
-              <li>-10^9 ≤ arr[i] ≤ 10^9</li>
-              <li>Time Complexity requirement: O(n)</li>
+              {exercise.constraints.map((constraint) => (
+                <li key={constraint}>{constraint}</li>
+              ))}
             </ul>
           </div>
 
@@ -85,36 +77,28 @@ function findMaxElement(arr) {
           <div className="space-y-4">
             <h3 className="text-title-sm font-bold text-primary">Examples</h3>
             
-            <div className="bg-[#001c3d] rounded-xl p-5 space-y-3 shadow-md">
-              <div className="space-y-1">
-                <p className="text-[#89b4fa] text-[11px] font-mono font-bold uppercase tracking-widest">// Example 1</p>
-                <p className="text-white font-mono text-body-sm">
-                  <span className="text-[#f28633]">Input:</span> [3, 7, 2, 9, 1]
-                </p>
-                <p className="text-white font-mono text-body-sm">
-                  <span className="text-[#f28633]">Output:</span> 9
-                </p>
+            {exercise.examples.map((example, index) => (
+              <div key={example.id} className="bg-[#001c3d] rounded-xl p-5 space-y-3 shadow-md">
+                <div className="space-y-1">
+                  <p className="text-[#89b4fa] text-[11px] font-mono font-bold uppercase tracking-widest">
+                    // Example {index + 1}
+                  </p>
+                  <p className="text-white font-mono text-body-sm">
+                    <span className="text-[#f28633]">Input:</span> {example.input}
+                  </p>
+                  <p className="text-white font-mono text-body-sm">
+                    <span className="text-[#f28633]">Output:</span> {example.output}
+                  </p>
+                </div>
               </div>
-            </div>
-
-            <div className="bg-[#001c3d] rounded-xl p-5 space-y-3 shadow-md">
-              <div className="space-y-1">
-                <p className="text-[#89b4fa] text-[11px] font-mono font-bold uppercase tracking-widest">// Example 2</p>
-                <p className="text-white font-mono text-body-sm">
-                  <span className="text-[#f28633]">Input:</span> [-10, -5, -20]
-                </p>
-                <p className="text-white font-mono text-body-sm">
-                  <span className="text-[#f28633]">Output:</span> -5
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
 
           {/* Image */}
           <div className="pt-6">
             <img 
-              src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=1470&auto=format&fit=crop" 
-              alt="Coding" 
+              src={exercise.image}
+              alt={exercise.title} 
               className="w-full h-48 object-cover rounded-xl shadow-lg brightness-75"
             />
           </div>

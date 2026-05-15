@@ -9,24 +9,14 @@ import {
   Clock,
 } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import type { CoursePlayerInstructor, CoursePlayerTheoryLesson } from "../types/coursePlayer";
 
 interface VideoPlayerProps {
-  instructor: {
-    name: string;
-    role: string;
-    avatar: string;
-  };
+  instructor: CoursePlayerInstructor;
+  lesson: CoursePlayerTheoryLesson;
 }
 
-const MOCK_TRANSCRIPT = Array.from({ length: 15 }).map((_, i) => ({
-  id: i,
-  time: `0${Math.floor(i / 2)}:${(i % 2) * 30 === 0 ? "00" : "30"}`,
-  content: i % 2 === 0 
-    ? "Trong phần này, chúng ta sẽ tìm hiểu cách áp dụng đổi mới có hệ thống (TRIZ) vào quản lý cấu trúc dữ liệu. Khi xử lý các mảng dữ liệu quy mô lớn trong các hệ thống ngân hàng thời gian thực, các ràng buộc vật lý thường phản ánh các ràng buộc kỹ thuật..."
-    : "Nguyên tắc phân đoạn cho phép chúng ta chia nhỏ các vấn đề phức tạp thành các thuật toán con dễ quản lý hơn. Hãy chú ý cách hình ảnh minh họa trên màn hình thể hiện luồng đệ quy..."
-}));
-
-const VideoPlayer: React.FC<VideoPlayerProps> = ({ instructor }) => {
+const VideoPlayer: React.FC<VideoPlayerProps> = ({ instructor, lesson }) => {
   const [activeBottomTab, setActiveBottomTab] = useState("transcript");
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -61,23 +51,23 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ instructor }) => {
                 Current Lesson
               </span>
               <h1 className="text-title-lg font-bold">
-                Array Manipulation in Systemic Innovation
+                {lesson.title}
               </h1>
             </div>
             <div className="flex items-center gap-4">
               <span className="text-on-primary-fixed-variant text-label-sm font-bold">Progress</span>
               <div className="w-24 h-2 bg-white/20 rounded-full overflow-hidden">
-                <div className="h-full bg-[#f28633]" style={{ width: "60%" }} />
+                <div className="h-full bg-[#f28633]" style={{ width: `${lesson.progressPercent}%` }} />
               </div>
-              <span className="text-label-sm font-bold">60%</span>
+              <span className="text-label-sm font-bold">{lesson.progressPercent}%</span>
             </div>
           </div>
 
           {/* Video Player Display */}
           <div className="relative aspect-video bg-[#0a192f] rounded-xl overflow-hidden shadow-2xl group border border-white/10">
             <img 
-              src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?q=80&w=1631&auto=format&fit=crop" 
-              alt="Video Preview" 
+              src={lesson.thumbnail}
+              alt={lesson.title} 
               className="w-full h-full object-cover opacity-40"
             />
             <div className="absolute inset-0 flex items-center justify-center">
@@ -91,10 +81,10 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ instructor }) => {
           <div className="flex items-center justify-between mt-4">
             <button className="flex items-center gap-2 text-white/80 hover:text-white transition-colors font-bold text-body-sm">
               <ChevronLeft size={18 } />
-              Previous: Problem Framing
+              Previous: {lesson.previousTitle ?? "Previous lesson"}
             </button>
             <button className="bg-[#f28633] text-white px-6 py-2 rounded-lg flex items-center gap-2 font-bold hover:bg-[#d97220] transition-colors active:scale-[0.98] text-body-sm">
-              Next Lesson: Logical Flows
+              Next Lesson: {lesson.nextTitle ?? "Next lesson"}
               <ChevronRight size={18} />
             </button>
           </div>
@@ -128,7 +118,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ instructor }) => {
             </div>
 
             <div className="space-y-6">
-              {MOCK_TRANSCRIPT.map((item) => (
+              {lesson.transcript.map((item) => (
                 <div key={item.id} className="flex gap-6 items-start">
                   <span className="text-secondary font-bold text-headline-xs whitespace-nowrap pt-1">{item.time}</span>
                   <p className="text-body-lg text-on-surface-variant leading-relaxed">
@@ -157,8 +147,14 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ instructor }) => {
             <div className="bg-[#fffcf9] border border-[#f28633]/20 rounded-xl p-6">
               <h3 className="text-label-sm font-bold text-[#f28633] uppercase mb-4 tracking-wider">Learning Assets</h3>
               <div className="space-y-3">
-                <AssetLink icon={<FileText size={18} />} label="Lesson_Notes_Module3.pdf" size="2.4 MB" />
-                <AssetLink icon={<Download size={18} />} label="Array_Practice_Sheet.xlsx" size="1.1 MB" />
+                {lesson.assets.map((asset, index) => (
+                  <AssetLink
+                    key={asset.id}
+                    icon={index === 0 ? <FileText size={18} /> : <Download size={18} />}
+                    label={asset.label}
+                    size={asset.size}
+                  />
+                ))}
               </div>
             </div>
           </div>

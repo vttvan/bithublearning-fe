@@ -25,12 +25,62 @@ export interface AdminHealthMetric {
   tone: "healthy" | "warning" | "critical";
 }
 
+export interface AdminRevenuePoint {
+  label: string;
+  value: number;
+}
+
+export interface AdminTopCourse {
+  id: string;
+  title: string;
+  category: string;
+  sales: number;
+  revenue: string;
+  completionRate: number;
+}
+
+export interface AdminCustomerFeedback {
+  id: string;
+  customerName: string;
+  courseName: string;
+  rating: number;
+  comment: string;
+  createdAt: string;
+}
+
+export interface AdminOverviewReportItem {
+  id: string;
+  title: string;
+  category: string;
+  severity: "low" | "medium" | "high";
+  reporter: string;
+  status: "open" | "in-review" | "resolved";
+}
+
 export interface AdminOverviewData {
   title: string;
   subtitle: string;
   metrics: AdminMetricCard[];
+  revenueChart: {
+    title: string;
+    rangeLabel: string;
+    totalLabel: string;
+    totalValue: string;
+    points: AdminRevenuePoint[];
+  };
+  topCourses: {
+    title: string;
+    subtitle: string;
+    courses: AdminTopCourse[];
+  };
+  customerFeedback: {
+    title: string;
+    averageRating: string;
+    feedbacks: AdminCustomerFeedback[];
+  };
   activityCountLabel: string;
   activityCountValue: string;
+  reportList: AdminOverviewReportItem[];
   activitySplit: {
     label: string;
     value: string;
@@ -61,6 +111,8 @@ export interface AdminCourseManagementItem {
   instructor: string;
   status: "published" | "draft" | "review";
   enrollment: string;
+  price: string;
+  createdAt: string;
   updatedAt: string;
   thumbnail: string;
   format: AdminCourseMode;
@@ -248,6 +300,52 @@ export interface AdminUsersData {
   users: AdminUserItem[];
 }
 
+export interface AdminUserPurchasedCourse {
+  id: string;
+  title: string;
+  level: string;
+  enrolledAt: string;
+  progressPercent: number;
+  completedLessons: number;
+  totalLessons: number;
+  status: "learning" | "completed" | "paused";
+}
+
+export interface AdminUserOfflineWorkshop {
+  id: string;
+  title: string;
+  location: string;
+  dateLabel: string;
+  status: "registered" | "attended" | "cancelled";
+}
+
+export interface AdminUserTransaction {
+  id: string;
+  invoiceCode: string;
+  dateLabel: string;
+  amount: string;
+  paymentMethod: string;
+  status: "paid" | "pending" | "refunded";
+}
+
+export interface AdminUserAchievement {
+  id: string;
+  label: string;
+  tone: "green" | "orange" | "gray";
+}
+
+export interface AdminUserDetailData {
+  profile: AdminUserItem & {
+    avatar: string;
+    phone: string;
+    totalSpent: string;
+  };
+  purchasedCourses: AdminUserPurchasedCourse[];
+  offlineWorkshops: AdminUserOfflineWorkshop[];
+  transactions: AdminUserTransaction[];
+  achievements: AdminUserAchievement[];
+}
+
 export interface AdminReportSummaryCard {
   id: string;
   label: string;
@@ -270,4 +368,24 @@ export interface AdminReportsData {
   subtitle: string;
   summary: AdminReportSummaryCard[];
   reports: AdminReportItem[];
+}
+
+export type AdminNotificationAudience = "all" | "students" | "instructors" | "admins";
+export type AdminNotificationChannel = "in-app" | "email" | "push";
+export type AdminNotificationStatus = "sent" | "scheduled" | "draft";
+
+export interface AdminNotificationItem {
+  id: string;
+  title: string;
+  content: string;
+  audience: AdminNotificationAudience;
+  channels: AdminNotificationChannel[];
+  sentAt: string;
+  status: AdminNotificationStatus;
+}
+
+export interface AdminNotificationsData {
+  title: string;
+  subtitle: string;
+  notifications: AdminNotificationItem[];
 }
