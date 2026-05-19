@@ -44,7 +44,7 @@ const AdminOverviewPage: React.FC = () => {
             <button className="rounded-lg border border-[#d0d5dd] bg-white px-4 py-2.5 text-sm font-semibold text-[#344054] hover:bg-[#f9fafb]">
               Xử lý báo cáo
             </button>
-            <button className="rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#003366]">
+            <button className="rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#1267ad]">
               Thêm nội dung mới
             </button>
           </div>
@@ -89,7 +89,7 @@ function MetricCard({ metric, index }: { metric: AdminMetricCard; index: number 
       <p className="text-[11px] font-bold uppercase tracking-wide text-[#98a2b3]">
         {metric.label}
       </p>
-      <p className="mt-3 text-3xl font-bold text-[#001c3d]">{metric.value}</p>
+      <p className="mt-3 text-3xl font-bold text-[#0b4f8a]">{metric.value}</p>
       <p className={`mt-3 text-xs font-semibold ${getToneText(metric.tone)}`}>
         {metric.delta}
       </p>
@@ -143,7 +143,7 @@ function RevenueChartCard({
           <p className="text-[11px] font-bold uppercase tracking-wide text-[#98a2b3]">
             {data.revenueChart.rangeLabel}
           </p>
-          <h2 className="mt-1 text-xl font-bold text-[#001c3d]">
+          <h2 className="mt-1 text-xl font-bold text-[#0b4f8a]">
             {data.revenueChart.title}
           </h2>
         </div>
@@ -151,7 +151,7 @@ function RevenueChartCard({
           <p className="text-[11px] font-bold uppercase tracking-wide text-[#98a2b3]">
             {data.revenueChart.totalLabel}
           </p>
-          <p className="mt-1 text-lg font-bold text-[#001c3d]">
+          <p className="mt-1 text-lg font-bold text-[#0b4f8a]">
             {data.revenueChart.totalValue}
           </p>
         </div>
@@ -243,7 +243,7 @@ function TopCoursesCard({
       className="rounded-2xl border border-[#e4e7ec] bg-white p-5 shadow-sm"
     >
       <div className="mb-5">
-        <h2 className="text-xl font-bold text-[#001c3d]">{data.topCourses.title}</h2>
+        <h2 className="text-xl font-bold text-[#0b4f8a]">{data.topCourses.title}</h2>
         <p className="mt-1 text-sm text-[#667085]">{data.topCourses.subtitle}</p>
       </div>
       <div className="mb-5 overflow-x-auto rounded-xl bg-[#f8fafc] p-4">
@@ -277,7 +277,7 @@ function TopCoursesCard({
           <div key={course.id} className="rounded-xl bg-[#f8fafc] p-4">
             <div className="flex items-start justify-between gap-3">
               <div>
-                <p className="text-sm font-bold text-[#001c3d]">{course.title}</p>
+                <p className="text-sm font-bold text-[#0b4f8a]">{course.title}</p>
                 <p className="mt-1 text-xs font-semibold text-[#667085]">
                   #{index + 1} • {course.category} • {course.sales} lượt mua
                 </p>
@@ -328,10 +328,10 @@ function CustomerFeedbackCard({
           <article key={feedback.id} className="rounded-xl border border-[#eef1f5] p-4">
             <div className="flex items-start justify-between gap-3">
               <div>
-                <p className="font-bold text-[#001c3d]">{feedback.customerName}</p>
+                <p className="font-bold text-[#0b4f8a]">{feedback.customerName}</p>
                 <p className="mt-1 text-xs text-[#667085]">{feedback.courseName}</p>
               </div>
-              <span className="text-sm font-bold text-[#f28633]">
+              <span className="text-sm font-bold text-[#f97316]">
                 {"★".repeat(feedback.rating)}
               </span>
             </div>
@@ -355,7 +355,7 @@ function ActivitySplitCard({ data }: { data: AdminOverviewData }) {
       <h2 className="text-sm font-bold uppercase tracking-wide text-[#98a2b3]">
         {data.activityCountLabel}
       </h2>
-      <p className="mt-3 text-2xl font-bold text-[#001c3d]">
+      <p className="mt-3 text-2xl font-bold text-[#0b4f8a]">
         {data.activityCountValue}
       </p>
       <div className="mt-5 space-y-3">
@@ -372,7 +372,7 @@ function OverviewReportRow({ report }: { report: AdminOverviewReportItem }) {
     <article className="rounded-xl border border-[#eef1f5] bg-[#f8fafc] p-4">
       <div className="flex items-start justify-between gap-3">
         <div>
-          <p className="line-clamp-1 font-bold text-[#001c3d]">{report.title}</p>
+          <p className="line-clamp-1 font-bold text-[#0b4f8a]">{report.title}</p>
           <p className="mt-1 text-xs font-semibold text-[#667085]">
             {report.category} • {report.reporter}
           </p>
@@ -385,7 +385,7 @@ function OverviewReportRow({ report }: { report: AdminOverviewReportItem }) {
         <span className={`rounded-full px-2.5 py-1 text-xs font-bold ${getOverviewSeverityClass(report.severity)}`}>
           {getOverviewSeverityLabel(report.severity)}
         </span>
-        <button className="text-xs font-bold text-[#003366]">Xem report</button>
+        <button className="text-xs font-bold text-[#1267ad]">Xem report</button>
       </div>
     </article>
   );
@@ -400,7 +400,7 @@ function RecentActivitiesCard({ activities }: { activities: AdminRecentActivity[
     >
       <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
         <h2 className="text-xl font-bold text-primary">Hoạt động gần đây</h2>
-        <button className="text-sm font-semibold text-[#003366]">Xem tất cả</button>
+        <button className="text-sm font-semibold text-[#1267ad]">Xem tất cả</button>
       </div>
 
       <div className="overflow-x-auto rounded-xl border border-[#eef1f5]">
@@ -469,7 +469,7 @@ function getToneText(tone: "blue" | "orange" | "green" | "red") {
     case "green":
       return "text-[#16a34a]";
     case "orange":
-      return "text-[#f28633]";
+      return "text-[#f97316]";
     case "red":
       return "text-[#dc2626]";
     case "blue":
@@ -531,7 +531,7 @@ function getOverviewReportStatusClass(status: "open" | "in-review" | "resolved")
     case "resolved":
       return "bg-[#e9f8ee] text-[#17803d]";
     case "in-review":
-      return "bg-[#eef3ff] text-[#003366]";
+      return "bg-[#eef3ff] text-[#1267ad]";
     case "open":
     default:
       return "bg-[#fff7e6] text-[#b85f00]";

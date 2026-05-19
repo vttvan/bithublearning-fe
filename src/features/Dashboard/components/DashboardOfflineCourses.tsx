@@ -72,7 +72,7 @@ export const DashboardOfflineCourses: React.FC = () => {
     <div className="p-4 pb-20 sm:p-6 lg:p-8">
       <div className="mb-10 flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
         <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}>
-          <h1 className="mb-1 text-3xl font-bold text-[#003366] sm:text-4xl">
+          <h1 className="mb-1 text-3xl font-bold text-[#1267ad] sm:text-4xl">
             Khóa học trực tiếp của tôi
           </h1>
           <p className="text-on-surface-variant">
@@ -87,7 +87,7 @@ export const DashboardOfflineCourses: React.FC = () => {
 
       <div className="grid grid-cols-1 gap-8 xl:grid-cols-3">
         <div className="xl:col-span-2">
-          <div className="mb-6 flex items-center gap-2 text-xl font-bold text-[#003366]">
+          <div className="mb-6 flex items-center gap-2 text-xl font-bold text-[#1267ad]">
             <Calendar size={24} />
             <h2>Workshop trực tiếp đã tham gia</h2>
           </div>
@@ -120,7 +120,7 @@ export const DashboardOfflineCourses: React.FC = () => {
                 <span className="mb-1 text-4xl font-bold leading-none">
                   {data.nextSession.dayLabel}
                 </span>
-                <span className="text-sm font-bold uppercase tracking-widest text-[#f28633]">
+                <span className="text-sm font-bold uppercase tracking-widest text-[#f97316]">
                   {data.nextSession.monthLabel}
                 </span>
               </div>
@@ -138,7 +138,7 @@ export const DashboardOfflineCourses: React.FC = () => {
             </div>
 
             <div className="border-t border-white/10 pt-6">
-              <h5 className="mb-4 text-sm font-bold uppercase tracking-wider text-[#f28633]">
+              <h5 className="mb-4 text-sm font-bold uppercase tracking-wider text-[#f97316]">
                 Hướng dẫn địa điểm
               </h5>
               <ul className="space-y-4">
@@ -161,7 +161,7 @@ export const DashboardOfflineCourses: React.FC = () => {
             transition={{ delay: 0.4 }}
             className="rounded-xl border border-outline-variant bg-white p-6 shadow-sm"
           >
-            <div className="mb-6 flex items-center gap-2 text-lg font-bold text-[#003366]">
+            <div className="mb-6 flex items-center gap-2 text-lg font-bold text-[#1267ad]">
               <FileText size={20} />
               <h3>Tài nguyên workshop</h3>
             </div>
@@ -189,7 +189,7 @@ function WorkshopCard({
 }) {
   const statusClassName =
     workshop.statusTone === "primary"
-      ? "bg-[#f28633] text-white"
+      ? "bg-[#f97316] text-white"
       : "border border-outline-variant bg-white text-on-surface-variant";
 
   return (
@@ -213,10 +213,10 @@ function WorkshopCard({
       </div>
 
       <div className="flex flex-1 flex-col p-6">
-        <div className="mb-2 text-xs font-bold uppercase tracking-wider text-[#f28633]">
+        <div className="mb-2 text-xs font-bold uppercase tracking-wider text-[#f97316]">
           {workshop.category}
         </div>
-        <h3 className="mb-6 min-h-[56px] text-xl font-bold text-[#003366]">
+        <h3 className="mb-6 min-h-[56px] text-xl font-bold text-[#1267ad]">
           {workshop.title}
         </h3>
 
@@ -235,7 +235,7 @@ function WorkshopCard({
 
         <button
           onClick={onViewDetail}
-          className="mt-auto w-full rounded bg-primary py-3 font-bold text-white transition-colors hover:bg-[#003366] active:scale-[0.98]"
+          className="mt-auto w-full rounded bg-primary py-3 font-bold text-white transition-colors hover:bg-[#1267ad] active:scale-[0.98]"
         >
           XEM CHI TIẾT
         </button>
@@ -251,10 +251,10 @@ function ResourceItem({ resource }: { resource: WorkshopAsset }) {
   return (
     <div className="group flex cursor-pointer items-center gap-4 rounded-lg border border-outline-variant p-4 transition-colors hover:bg-surface-container">
       <div className="shrink-0 rounded bg-orange-50 p-2">
-        <Icon className="text-[#f28633]" size={20} />
+        <Icon className="text-[#f97316]" size={20} />
       </div>
       <div className="min-w-0 flex-1">
-        <div className="truncate text-sm font-bold text-[#003366]">
+        <div className="truncate text-sm font-bold text-[#1267ad]">
           {resource.title}
         </div>
         {resource.subtitle ? (

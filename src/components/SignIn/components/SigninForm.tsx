@@ -44,7 +44,7 @@ const SignInForm: React.FC<{ onLoginSuccess?: () => void }> = ({ onLoginSuccess 
 
   return (
     <>
-      <div className="px-8 pt-8 ml-10 mt-10">
+      <div className="px-5 pt-5 sm:px-8 sm:pt-8 lg:ml-10 lg:mt-10">
         <Link
           to="/"
           className="inline-flex items-center gap-2 text-body-md text-primary hover:text-primary transition-colors"
@@ -54,23 +54,23 @@ const SignInForm: React.FC<{ onLoginSuccess?: () => void }> = ({ onLoginSuccess 
         </Link>
       </div>
 
-      <div className="flex w-full flex-1 flex-col items-center justify-center px-8 py-12 overflow-auto min-w-0">
-        <div className="w-1/2  mx-auto">
+      <div className="flex w-full flex-1 flex-col items-center justify-start overflow-auto px-5 py-8 sm:justify-center sm:px-8 sm:py-12">
+        <div className="mx-auto w-full max-w-[420px]">
           <header className="mb-8">
             <h1 className="text-headline-lg font-semibold text-primary-container">
               Sign In
             </h1>
-            <p className="mt-2 font-body-md text-body-md text-on-primary-container/85">
+            <p className="mt-2 font-body-md text-body-md text-primary-fixed-dim">
               Welcome back to the academy. Please enter your credentials.
             </p>
           </header>
 
-          <div className="relative my-8">
+          <div className="relative my-7 sm:my-8">
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t border-outline-variant" />
             </div>
             <div className="relative flex justify-center">
-              <span className="bg-[#fcf9f8] px-4 font-label-sm text-label-sm font-semibold uppercase tracking-wider text-on-primary-container/70">
+              <span className="bg-[#fcf9f8] px-3 font-label-sm text-label-sm font-semibold uppercase tracking-wider text-on-primary-container/70 sm:px-4">
                 Or continue with
               </span>
             </div>
@@ -92,12 +92,12 @@ const SignInForm: React.FC<{ onLoginSuccess?: () => void }> = ({ onLoginSuccess 
                 placeholder="e.g. nicolas.tesla@bithub.io"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className=" w-full h-11 rounded-lg border-outline-variant bg-white px-3 font-body-md text-body-md text-on-background placeholder:text-on-primary-container/50 focus-visible:border-primary focus-visible:ring-primary/30"
+                className=" w-full h-11 rounded-lg border-outline-variant bg-white px-3 font-body-md text-body-md text-on-background placeholder:text-primary-fixed-dim focus-visible:border-primary focus-visible:ring-primary/30"
               />
             </div>
 
             <div className="space-y-2">
-              <div className="flex items-center justify-between gap-2">
+              <div className="flex items-center justify-between gap-3">
                 <label
                   htmlFor="signin-password"
                   className="font-body-md text-body-md font-medium text-primary"
@@ -106,7 +106,7 @@ const SignInForm: React.FC<{ onLoginSuccess?: () => void }> = ({ onLoginSuccess 
                 </label>
                 <Link
                   to="/forgot-password"
-                  className="font-body-md text-body-md font-medium text-secondary-container transition-colors hover:underline"
+                  className="shrink-0 font-body-md text-sm font-medium text-secondary-container transition-colors hover:underline sm:text-body-md"
                 >
                   Forgot password?
                 </Link>
@@ -164,7 +164,7 @@ const SignInForm: React.FC<{ onLoginSuccess?: () => void }> = ({ onLoginSuccess 
             </Button>
           </form>
 
-          <p className="mt-8 text-center font-body-md text-body-md text-on-primary-container/85">
+          <p className="mt-8 text-center font-body-md text-body-md text-primary-fixed-dim">
             New to the academy?{" "}
             <Link
               to="/signup"

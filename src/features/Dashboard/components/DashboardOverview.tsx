@@ -26,7 +26,7 @@ export const DashboardOverview: React.FC = () => {
               label="CHỨNG CHỈ ĐẠT ĐƯỢC"
               value={dashboardStatsMock.certificatesEarned.toString()}
               icon={<Award size={24} />}
-              color="bg-[#fef2e8] text-[#f28633]"
+              color="bg-[#fef2e8] text-[#f97316]"
             />
           </motion.div>
           <motion.div
@@ -71,7 +71,7 @@ export const DashboardOverview: React.FC = () => {
             />
             <div className="absolute inset-0 bg-black/40"></div>
             <div className="absolute bottom-4 left-4 right-4 sm:left-6 sm:right-auto">
-              <span className="bg-[#f28633] text-white text-label-sm font-bold px-3 py-1 rounded uppercase mb-2 inline-block">
+              <span className="bg-[#f97316] text-white text-label-sm font-bold px-3 py-1 rounded uppercase mb-2 inline-block">
                 Tiếp tục học
               </span>
               <h3 className="text-xl font-bold text-white sm:text-headline-sm">
@@ -96,7 +96,7 @@ export const DashboardOverview: React.FC = () => {
                 initial={{ width: 0 }}
                 animate={{ width: `${currentEnrolledCourseMock.progress}%` }}
                 transition={{ duration: 0.9, delay: 0.9 }}
-                className="h-full bg-[#f28633]"
+                className="h-full bg-[#f97316]"
               />
             </div>
             <button
@@ -202,7 +202,7 @@ function EnrolledCourseCard({ course }: { course: any }) {
           {/* Progress Bar Mini */}
           <div className="w-full h-2 bg-[#eaecf0] rounded-full overflow-hidden mb-3">
             <div
-              className="h-full bg-[#f28633]"
+              className="h-full bg-[#f97316]"
               style={{ width: `${course.progress}%` }}
             />
           </div>

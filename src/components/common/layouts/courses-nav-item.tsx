@@ -135,7 +135,7 @@ export function CoursesNavItem({ className }: CoursesNavItemProps) {
                     </h2>
                   )}
                   {section.subtitle ? (
-                    <p className="mt-0.5 font-body-md text-body-md text-on-primary-container">
+                    <p className="mt-0.5 font-body-md text-body-md text-primary-fixed-dim">
                       {section.subtitle}
                     </p>
                   ) : null}
@@ -152,7 +152,7 @@ export function CoursesNavItem({ className }: CoursesNavItemProps) {
                             {item.title}
                           </span>
                           {item.description ? (
-                            <span className="mt-0.5 block font-body-md text-body-md text-on-primary-container/80">
+                            <span className="mt-0.5 block font-body-md text-body-md text-primary-container">
                               {item.description}
                             </span>
                           ) : null}
@@ -183,7 +183,7 @@ export function CoursesNavItem({ className }: CoursesNavItemProps) {
                                   {child.title}
                                 </span>
                                 {child.description ? (
-                                  <span className="mt-0.5 block font-body-sm text-body-sm text-on-primary-container/80">
+                                  <span className="mt-0.5 block font-body-sm text-body-sm text-primary-fixed-dim">
                                     {child.description}
                                   </span>
                                 ) : null}

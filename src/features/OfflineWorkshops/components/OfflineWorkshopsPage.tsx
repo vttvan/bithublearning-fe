@@ -76,7 +76,7 @@ const OfflineWorkshopsPage: React.FC = () => {
           <button className="w-10 h-10 flex items-center justify-center border border-outline-variant rounded hover:bg-surface-variant text-on-surface-variant disabled:opacity-50">
             <ChevronLeft size={18} />
           </button>
-          <button className="w-10 h-10 flex items-center justify-center bg-[#003366] text-white font-bold rounded">
+          <button className="w-10 h-10 flex items-center justify-center bg-[#1267ad] text-white font-bold rounded">
             1
           </button>
           <button className="w-10 h-10 flex items-center justify-center border border-outline-variant rounded hover:bg-surface-variant font-medium">

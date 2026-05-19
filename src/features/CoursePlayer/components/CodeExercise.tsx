@@ -40,7 +40,7 @@ const CodeExercise: React.FC<CodeExerciseProps> = ({ exercise }) => {
         <div className="p-10 space-y-8">
           <div className="space-y-4">
             <div className="flex items-center gap-2 text-on-surface-variant font-bold text-[11px] uppercase tracking-widest">
-              <span className="text-[#f28633]">■</span> {exercise.label}
+              <span className="text-[#f97316]">■</span> {exercise.label}
             </div>
             <h1 className="text-display-sm font-bold text-primary leading-tight">
               {exercise.title}
@@ -78,16 +78,16 @@ const CodeExercise: React.FC<CodeExerciseProps> = ({ exercise }) => {
             <h3 className="text-title-sm font-bold text-primary">Examples</h3>
             
             {exercise.examples.map((example, index) => (
-              <div key={example.id} className="bg-[#001c3d] rounded-xl p-5 space-y-3 shadow-md">
+              <div key={example.id} className="bg-[#0b4f8a] rounded-xl p-5 space-y-3 shadow-md">
                 <div className="space-y-1">
                   <p className="text-[#89b4fa] text-[11px] font-mono font-bold uppercase tracking-widest">
                     // Example {index + 1}
                   </p>
                   <p className="text-white font-mono text-body-sm">
-                    <span className="text-[#f28633]">Input:</span> {example.input}
+                    <span className="text-[#f97316]">Input:</span> {example.input}
                   </p>
                   <p className="text-white font-mono text-body-sm">
-                    <span className="text-[#f28633]">Output:</span> {example.output}
+                    <span className="text-[#f97316]">Output:</span> {example.output}
                   </p>
                 </div>
               </div>
@@ -146,7 +146,7 @@ const CodeExercise: React.FC<CodeExerciseProps> = ({ exercise }) => {
                 <span className="text-white/50">Expected</span>
                 <span className="text-white">{res.expected},</span>
                 <span className="text-white/50">Got</span>
-                <span className="text-[#f28633]">{res.got}</span>
+                <span className="text-[#f97316]">{res.got}</span>
               </div>
             ))}
             {isRunning && (
@@ -169,7 +169,7 @@ const CodeExercise: React.FC<CodeExerciseProps> = ({ exercise }) => {
             >
               Run Code
             </button>
-            <button className="px-6 py-2 rounded font-bold text-body-sm bg-[#f28633] text-white hover:bg-[#d97220] transition-all active:translate-y-px shadow-lg shadow-orange-900/20">
+            <button className="px-6 py-2 rounded font-bold text-body-sm bg-[#f97316] text-white hover:bg-[#ea580c] transition-all active:translate-y-px shadow-lg shadow-orange-900/20">
               Submit Solution
             </button>
           </div>

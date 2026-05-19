@@ -34,7 +34,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ instructor, lesson }) => {
   return (
     <div ref={scrollRef} className="h-full overflow-y-auto bg-white relative">
       {/* Video Content Top Area */}
-      <div className="bg-[#003366] text-white py-4 px-8 sticky top-0 z-10 shadow-lg">
+      <div className="bg-[#1267ad] text-white py-4 px-8 sticky top-0 z-10 shadow-lg">
         <motion.div 
           className="max-w-4xl mx-auto"
           style={{
@@ -47,7 +47,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ instructor, lesson }) => {
           {/* Header */}
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-4">
-              <span className="bg-[#f28633] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">
+              <span className="bg-[#f97316] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">
                 Current Lesson
               </span>
               <h1 className="text-title-lg font-bold">
@@ -57,7 +57,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ instructor, lesson }) => {
             <div className="flex items-center gap-4">
               <span className="text-on-primary-fixed-variant text-label-sm font-bold">Progress</span>
               <div className="w-24 h-2 bg-white/20 rounded-full overflow-hidden">
-                <div className="h-full bg-[#f28633]" style={{ width: `${lesson.progressPercent}%` }} />
+                <div className="h-full bg-[#f97316]" style={{ width: `${lesson.progressPercent}%` }} />
               </div>
               <span className="text-label-sm font-bold">{lesson.progressPercent}%</span>
             </div>
@@ -71,7 +71,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ instructor, lesson }) => {
               className="w-full h-full object-cover opacity-40"
             />
             <div className="absolute inset-0 flex items-center justify-center">
-              <button className="w-24 h-24 bg-[#f28633] text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform active:scale-95">
+              <button className="w-24 h-24 bg-[#f97316] text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform active:scale-95">
                 <Play size={40} fill="currentColor" strokeWidth={0} className="ml-2" />
               </button>
             </div>
@@ -83,7 +83,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ instructor, lesson }) => {
               <ChevronLeft size={18 } />
               Previous: {lesson.previousTitle ?? "Previous lesson"}
             </button>
-            <button className="bg-[#f28633] text-white px-6 py-2 rounded-lg flex items-center gap-2 font-bold hover:bg-[#d97220] transition-colors active:scale-[0.98] text-body-sm">
+            <button className="bg-[#f97316] text-white px-6 py-2 rounded-lg flex items-center gap-2 font-bold hover:bg-[#ea580c] transition-colors active:scale-[0.98] text-body-sm">
               Next Lesson: {lesson.nextTitle ?? "Next lesson"}
               <ChevronRight size={18} />
             </button>
@@ -144,8 +144,8 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ instructor, lesson }) => {
             </div>
 
             {/* Assets */}
-            <div className="bg-[#fffcf9] border border-[#f28633]/20 rounded-xl p-6">
-              <h3 className="text-label-sm font-bold text-[#f28633] uppercase mb-4 tracking-wider">Learning Assets</h3>
+            <div className="bg-[#fffcf9] border border-[#f97316]/20 rounded-xl p-6">
+              <h3 className="text-label-sm font-bold text-[#f97316] uppercase mb-4 tracking-wider">Learning Assets</h3>
               <div className="space-y-3">
                 {lesson.assets.map((asset, index) => (
                   <AssetLink
@@ -178,7 +178,7 @@ function TabButton({ label, active, onClick }: { label: string, active: boolean,
       {active && (
         <motion.div 
           layoutId="bottom-tab-indicator"
-          className="absolute bottom-0 left-0 right-0 h-1 bg-[#f28633]"
+          className="absolute bottom-0 left-0 right-0 h-1 bg-[#f97316]"
         />
       )}
     </button>
@@ -187,8 +187,8 @@ function TabButton({ label, active, onClick }: { label: string, active: boolean,
 
 function AssetLink({ icon, label, size }: { icon: React.ReactNode, label: string, size: string }) {
   return (
-    <div className="flex items-center gap-3 p-3 bg-white border border-outline-variant rounded-lg group cursor-pointer hover:border-[#f28633] transition-colors">
-      <div className="text-[#f28633] group-hover:scale-110 transition-transform">
+    <div className="flex items-center gap-3 p-3 bg-white border border-outline-variant rounded-lg group cursor-pointer hover:border-[#f97316] transition-colors">
+      <div className="text-[#f97316] group-hover:scale-110 transition-transform">
         {icon}
       </div>
       <div className="flex-1 min-w-0">

@@ -52,7 +52,7 @@ const AdminUserDetailPage: React.FC = () => {
               alt={data.profile.name}
               className="mx-auto h-28 w-28 rounded-xl object-cover shadow-md"
             />
-            <h1 className="mt-5 text-2xl font-bold text-[#001c3d]">{data.profile.name}</h1>
+            <h1 className="mt-5 text-2xl font-bold text-[#0b4f8a]">{data.profile.name}</h1>
             <span className="mt-2 inline-flex rounded-full bg-[#fff7e6] px-3 py-1 text-xs font-bold text-[#b85f00]">
               {getRoleLabel(data.profile.role)}
             </span>
@@ -69,14 +69,14 @@ const AdminUserDetailPage: React.FC = () => {
               />
             </div>
 
-            <button className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-[#d0d5dd] bg-white px-4 py-2.5 text-sm font-semibold text-[#001c3d] hover:bg-[#f8fafc]">
+            <button className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-[#d0d5dd] bg-white px-4 py-2.5 text-sm font-semibold text-[#0b4f8a] hover:bg-[#f8fafc]">
               <RotateCcw size={16} />
               Đặt lại mật khẩu
             </button>
           </section>
 
           <section className="rounded-2xl border border-[#e4e7ec] bg-white p-6 shadow-sm">
-            <h2 className="text-lg font-bold text-[#001c3d]">Thành tích học tập</h2>
+            <h2 className="text-lg font-bold text-[#0b4f8a]">Thành tích học tập</h2>
             <div className="mt-5 grid grid-cols-3 gap-3">
               {data.achievements.map((achievement) => (
                 <div
@@ -94,7 +94,7 @@ const AdminUserDetailPage: React.FC = () => {
         <main className="space-y-6">
           <section className="rounded-2xl border border-[#e4e7ec] bg-white shadow-sm">
             <div className="flex items-center justify-between border-b border-[#eef1f5] px-6 py-5">
-              <h2 className="text-xl font-bold text-[#001c3d]">Khóa học đang tham gia</h2>
+              <h2 className="text-xl font-bold text-[#0b4f8a]">Khóa học đang tham gia</h2>
               <span className="rounded-full bg-[#f2f4f7] px-3 py-1 text-xs font-bold text-[#475467]">
                 {data.purchasedCourses.length} khóa học
               </span>
@@ -115,7 +115,7 @@ const AdminUserDetailPage: React.FC = () => {
 
           <div className="grid gap-6 lg:grid-cols-[1fr_0.85fr]">
             <WorkshopCard workshop={data.offlineWorkshops[0]} />
-            <section className="rounded-2xl bg-[#001c3d] p-6 text-white shadow-sm">
+            <section className="rounded-2xl bg-[#0b4f8a] p-6 text-white shadow-sm">
               <p className="text-xs font-bold uppercase tracking-wide text-white/60">
                 Tổng chi tiêu
               </p>
@@ -129,7 +129,7 @@ const AdminUserDetailPage: React.FC = () => {
 
           <section className="rounded-2xl border border-[#e4e7ec] bg-white shadow-sm">
             <div className="border-b border-[#eef1f5] px-6 py-5">
-              <h2 className="text-xl font-bold text-[#001c3d]">Lịch sử giao dịch</h2>
+              <h2 className="text-xl font-bold text-[#0b4f8a]">Lịch sử giao dịch</h2>
             </div>
             <div className="overflow-x-auto">
               <div className="min-w-[760px]">
@@ -156,7 +156,7 @@ function ProfileInfo({
   icon,
   label,
   value,
-  valueClassName = "text-[#001c3d]",
+  valueClassName = "text-[#0b4f8a]",
 }: {
   icon: React.ReactNode;
   label: string;
@@ -178,17 +178,17 @@ function CourseRow({ course }: { course: AdminUserPurchasedCourse }) {
   return (
     <div className="grid grid-cols-3 items-center border-t border-[#eef1f5] px-6 py-5 text-sm">
       <div>
-        <p className="font-bold text-[#001c3d]">{course.title}</p>
+        <p className="font-bold text-[#0b4f8a]">{course.title}</p>
         <p className="mt-1 text-xs text-[#667085]">Level: {course.level}</p>
       </div>
-      <p className="text-[#001c3d]">{course.enrolledAt}</p>
+      <p className="text-[#0b4f8a]">{course.enrolledAt}</p>
       <div>
         <p className="text-xs font-bold text-[#b85f00]">
           {course.progressPercent}% bài
         </p>
         <div className="mt-2 h-2 w-32 overflow-hidden rounded-full bg-[#f2f4f7]">
           <div
-            className="h-full rounded-full bg-[#f28633]"
+            className="h-full rounded-full bg-[#f97316]"
             style={{ width: `${course.progressPercent}%` }}
           />
         </div>
@@ -206,11 +206,11 @@ function WorkshopCard({ workshop }: { workshop?: AdminUserOfflineWorkshop }) {
 
   return (
     <section className="rounded-2xl border border-[#e4e7ec] bg-white p-6 shadow-sm">
-      <h2 className="text-xl font-bold text-[#001c3d]">Workshop Offline</h2>
+      <h2 className="text-xl font-bold text-[#0b4f8a]">Workshop Offline</h2>
       <div className="mt-5 rounded-xl border border-[#eef1f5] bg-[#fffaf7] p-5">
         <div className="flex items-start justify-between gap-4">
           <div>
-            <p className="font-bold text-[#001c3d]">{workshop.title}</p>
+            <p className="font-bold text-[#0b4f8a]">{workshop.title}</p>
             <p className="mt-3 flex items-center gap-2 text-xs text-[#667085]">
               <MapPin size={14} />
               {workshop.location}
@@ -232,10 +232,10 @@ function WorkshopCard({ workshop }: { workshop?: AdminUserOfflineWorkshop }) {
 function TransactionRow({ transaction }: { transaction: AdminUserTransaction }) {
   return (
     <div className="grid grid-cols-[0.9fr_0.9fr_1fr_1fr_0.8fr] items-center border-t border-[#eef1f5] px-6 py-5 text-sm">
-      <p className="font-bold text-[#001c3d]">{transaction.invoiceCode}</p>
-      <p className="text-[#001c3d]">{transaction.dateLabel}</p>
-      <p className="font-bold text-[#001c3d]">{transaction.amount}</p>
-      <p className="flex items-center gap-2 text-[#001c3d]">
+      <p className="font-bold text-[#0b4f8a]">{transaction.invoiceCode}</p>
+      <p className="text-[#0b4f8a]">{transaction.dateLabel}</p>
+      <p className="font-bold text-[#0b4f8a]">{transaction.amount}</p>
+      <p className="flex items-center gap-2 text-[#0b4f8a]">
         <CreditCard size={15} />
         {transaction.paymentMethod}
       </p>
@@ -273,7 +273,7 @@ function getAchievementClass(tone: "green" | "orange" | "gray") {
     case "green":
       return "border-[#bbf7d0] bg-[#dcfce7] text-[#16a34a]";
     case "orange":
-      return "border-[#fed7aa] bg-[#fff7ed] text-[#f28633]";
+      return "border-[#fed7aa] bg-[#fff7ed] text-[#f97316]";
     default:
       return "border-[#e4e7ec] bg-[#f8fafc] text-[#98a2b3]";
   }

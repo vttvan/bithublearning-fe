@@ -71,7 +71,7 @@ export function CourseCard({ course }: { course: Course }) {
             aria-label="Thêm vào giỏ hàng"
             className="p-2 rounded-lg text-secondary hover:bg-secondary-container/20 transition-colors active:scale-90"
           >
-            <ShoppingCart size={20} />
+            <ShoppingCart size={20} className="text-secondary-container" />
           </button>
         </div>
       </div>

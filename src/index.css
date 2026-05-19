@@ -15,9 +15,9 @@
      COLORS
   ========================= */
 
-  --color-primary: #3b73bf;
+  --color-primary: #1469b8;
   --color-error: #ba1a1a;
-  --color-surface-tint: #3e5f90;
+  --color-surface-tint: #2b7ec6;
   --color-on-surface-variant: #43474f;
   --color-on-primary: #ffffff;
   --color-tertiary-container: #003518;
@@ -28,40 +28,40 @@
   --color-on-error-container: #93000a;
   --color-background: #fcf9f8;
   --color-surface-dim: #dcd9d9;
-  --color-on-secondary-container: #663500;
+  --color-on-secondary-container: #8a3d00;
   --color-outline: #737780;
-  --color-secondary-container: #fe932c;
-  --color-primary-fixed-dim: #a7c8ff;
-  --color-inverse-primary: #a7c8ff;
+  --color-secondary-container: #ff8a2a;
+  --color-primary-fixed-dim: #b8dcff;
+  --color-inverse-primary: #b8dcff;
   --color-on-tertiary-container: #38a864;
   --color-on-surface: #1b1c1c;
-  --color-secondary-fixed-dim: #ffb77d;
+  --color-secondary-fixed-dim: #ffc08a;
   --color-surface: #fcf9f8;
-  --color-on-primary-fixed-variant: #254776;
+  --color-on-primary-fixed-variant: #1469b8;
   --color-on-tertiary: #ffffff;
-  --color-secondary: #904d00;
+  --color-secondary: #c75a00;
   --color-on-tertiary-fixed-variant: #005229;
   --color-surface-container-highest: #e5e2e1;
   --color-surface-container: #f0eded;
   --color-tertiary: #001e0b;
-  --color-on-primary-fixed: #001b3c;
+  --color-on-primary-fixed: #063967;
   --color-on-tertiary-fixed: #00210d;
   --color-surface-container-lowest: #ffffff;
   --color-outline-variant: #c3c6d0;
   --color-on-error: #ffffff;
-  --color-primary-container: #002d5b;
+  --color-primary-container: #0b4f8a;
   --color-surface-container-low: #f6f3f2;
   --color-inverse-on-surface: #f3f0ef;
-  --color-primary-fixed: #d5e3ff;
+  --color-primary-fixed: #dcedff;
   --color-on-secondary: #ffffff;
-  --color-on-primary-container: #7696ca;
-  --color-secondary-fixed: #ffdcc3;
+  --color-on-primary-container: #d8ecff;
+  --color-secondary-fixed: #ffe2cc;
   --color-inverse-surface: #303030;
   --color-on-secondary-fixed: #2f1500;
   --color-surface-variant: #e5e2e1;
   --color-surface-bright: #fcf9f8;
   --color-on-background: #1b1c1c;
-  --color-on-secondary-fixed-variant: #6e3900;
+  --color-on-secondary-fixed-variant: #9a4700;
 
   /* =========================
      BORDER RADIUS
@@ -140,10 +140,10 @@ body {
 @utility hero-gradient {
   background:
     linear-gradient(135deg,
-      rgba(0, 24, 54, 0.6),
-      rgba(0, 24, 54, 0.7)),
+      rgba(11, 79, 138, 0.58),
+      rgba(6, 57, 103, 0.68)),
     radial-gradient(circle at top left,
-      rgba(254, 147, 44, 0.22),
+      rgba(255, 138, 42, 0.28),
       transparent 35%),
     url("https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80");
 
@@ -155,10 +155,10 @@ body {
 @utility courses-search-gradient {
   background:
     linear-gradient(135deg,
-      rgba(0, 24, 54, 0.6),
-      rgba(0, 24, 54, 0.62)),
+      rgba(11, 79, 138, 0.58),
+      rgba(6, 57, 103, 0.62)),
     radial-gradient(circle at top right,
-      rgba(254, 147, 44, 0.18),
+      rgba(255, 138, 42, 0.24),
       transparent 40%),
     url("../assets/course-background.png");
   background-size: cover;
@@ -364,15 +364,21 @@ body {
   /* Map shadcn variables → màu của bạn */
   --background: #fcf9f8;
   --foreground: #1b1c1c;
-  --primary: #254776;
+  --card: #ffffff;
+  --card-foreground: #1b1c1c;
+  --popover: #ffffff;
+  --popover-foreground: #1b1c1c;
+  --primary: #1469b8;
   --primary-foreground: #ffffff;
-  --secondary: #904d00;
+  --secondary: #c75a00;
   --secondary-foreground: #ffffff;
+  --accent: #fff1e6;
+  --accent-foreground: #0b4f8a;
   --muted: #f0eded;
   --muted-foreground: #43474f;
   --border: #c3c6d0;
   --input: #c3c6d0;
-  --ring: #3e5f90;
+  --ring: #2b7ec6;
   --destructive: #ba1a1a;
 
   --radius: 0.625rem;
@@ -380,12 +386,12 @@ body {
   /* sidebar giữ nguyên hoặc tuỳ chỉnh */
   --sidebar: #ffffff;
   --sidebar-foreground: #1b1c1c;
-  --sidebar-primary: #254776;
+  --sidebar-primary: #1469b8;
   --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: #f0eded;
   --sidebar-accent-foreground: #1b1c1c;
   --sidebar-border: #c3c6d0;
-  --sidebar-ring: #3e5f90;
+  --sidebar-ring: #2b7ec6;
 }
 
 .dark {

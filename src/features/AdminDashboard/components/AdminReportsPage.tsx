@@ -26,14 +26,14 @@ const AdminReportsPage: React.FC = () => {
   return (
     <div className="p-4 pb-20 sm:p-6 lg:p-8">
       <div className="mx-auto max-w-8xl">
-        <h1 className="text-3xl font-bold text-[#001c3d] sm:text-4xl">{data.title}</h1>
+        <h1 className="text-3xl font-bold text-[#0b4f8a] sm:text-4xl">{data.title}</h1>
         <p className="mt-2 text-sm text-[#606a76]">{data.subtitle}</p>
 
         <div className="mt-6 grid gap-4 md:grid-cols-3">
           {data.summary.map((item) => (
             <div key={item.id} className="rounded-2xl border border-[#e4e7ec] bg-white p-5 shadow-sm">
               <p className="text-sm font-semibold text-[#667085]">{item.label}</p>
-              <p className="mt-3 text-3xl font-bold text-[#001c3d]">{item.value}</p>
+              <p className="mt-3 text-3xl font-bold text-[#0b4f8a]">{item.value}</p>
             </div>
           ))}
         </div>
@@ -105,7 +105,7 @@ function getReportStatusClass(status: "open" | "in-review" | "resolved") {
     case "resolved":
       return "bg-[#e9f8ee] text-[#17803d]";
     case "in-review":
-      return "bg-[#eef3ff] text-[#003366]";
+      return "bg-[#eef3ff] text-[#1267ad]";
     case "open":
     default:
       return "bg-[#fff7e6] text-[#b85f00]";

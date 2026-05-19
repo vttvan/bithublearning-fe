@@ -57,7 +57,7 @@ const AboutPage: React.FC = () => {
           <h1 className="font-display text-display text-white mb-md">
             Liên hệ với chúng tôi
           </h1>
-          <p className="text-on-primary-fixed-variant text-body-lg leading-relaxed">
+          <p className="text-primary-fixed-dim text-body-lg leading-relaxed">
             Chúng tôi luôn sẵn sàng hỗ trợ bạn trên hành trình chinh phục kỹ
             năng lập trình. Hãy để lại lời nhắn hoặc liên hệ trực tiếp với đội
             ngũ BitHub.
@@ -84,7 +84,7 @@ const AboutPage: React.FC = () => {
               variants={itemVariants}
               className="bg-[#f9f9f9] p-md rounded-lg border border-outline-variant/30 flex gap-md items-start group"
             >
-              <div className="text-[#a85e1b] pt-1 shrink-0">
+              <div className="text-[#c75a00] pt-1 shrink-0">
                 <MapPin size={22} fill="currentColor" fillOpacity={0.2} />
               </div>
               <div className="flex-1">
@@ -104,7 +104,7 @@ const AboutPage: React.FC = () => {
               variants={itemVariants}
               className="bg-[#f9f9f9] p-md rounded-lg border border-outline-variant/30 flex gap-md items-center group"
             >
-              <div className="text-[#a85e1b] shrink-0">
+              <div className="text-[#c75a00] shrink-0">
                 <Mail size={20} fill="currentColor" fillOpacity={0.2} />
               </div>
               <div className="flex-1">
@@ -122,7 +122,7 @@ const AboutPage: React.FC = () => {
               variants={itemVariants}
               className="bg-[#f9f9f9] p-md rounded-lg border border-outline-variant/30 flex gap-md items-center group"
             >
-              <div className="text-[#a85e1b] shrink-0">
+              <div className="text-[#c75a00] shrink-0">
                 <Phone size={20} fill="currentColor" fillOpacity={0.2} />
               </div>
               <div className="flex-1">
@@ -141,13 +141,13 @@ const AboutPage: React.FC = () => {
                 Kết nối với chúng tôi
               </h3>
               <div className="flex gap-xs">
-                <button className="bg-[#001c3d] text-white p-2 rounded-sm hover:bg-primary transition-colors">
+                <button className="bg-[#0b4f8a] text-white p-2 rounded-sm hover:bg-primary transition-colors">
                   <Globe size={16} />
                 </button>
-                <button className="bg-[#001c3d] text-white p-2 rounded-sm hover:bg-primary transition-colors flex items-center justify-center w-8 h-8">
+                <button className="bg-[#0b4f8a] text-white p-2 rounded-sm hover:bg-primary transition-colors flex items-center justify-center w-8 h-8">
                   <div className="font-bold text-md leading-none">@</div>
                 </button>
-                <button className="bg-[#001c3d] text-white p-2 rounded-sm hover:bg-primary transition-colors">
+                <button className="bg-[#0b4f8a] text-white p-2 rounded-sm hover:bg-primary transition-colors">
                   <Share2 size={16} fill="currentColor" />
                 </button>
               </div>
@@ -212,7 +212,7 @@ const AboutPage: React.FC = () => {
                   ></textarea>
                 </div>
 
-                <button className="w-full bg-[#001836] text-white py-sm rounded font-bold text-md flex items-center justify-center gap-md hover:bg-black transition-colors group">
+                <button className="w-full bg-primary text-white py-sm rounded font-bold text-md flex items-center justify-center gap-md hover:bg-black transition-colors group">
                   Gửi tin nhắn
                   <Send size={18} className="ml-1" />
                 </button>
@@ -225,7 +225,7 @@ const AboutPage: React.FC = () => {
         {/* Quote */}
         <motion.div
           variants={itemVariants}
-          className="bg-[#fef2e8] border-l-[6px] border-[#a85e1b] p-md rounded-r-lg mt-md"
+          className="bg-[#fef2e8] border-l-[6px] border-[#c75a00] p-md rounded-r-lg mt-md"
         >
           <p className="italic text-on-surface text-body-xs leading-relaxed font-medium">
             "Tại BitHub, chúng tôi không chỉ dạy lập trình, chúng tôi xây dựng

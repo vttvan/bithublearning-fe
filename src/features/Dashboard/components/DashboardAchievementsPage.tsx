@@ -81,8 +81,8 @@ export const DashboardAchievementsPage: React.FC = () => {
               className="rounded-xl border border-[#e6e9ef] bg-white p-5 shadow-sm"
             >
               <div className="mb-4 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-                <h2 className="text-lg font-bold text-[#001c3d]">Bộ sưu tập huy hiệu</h2>
-                <span className="text-[11px] font-semibold text-[#f28633]">
+                <h2 className="text-lg font-bold text-[#0b4f8a]">Bộ sưu tập huy hiệu</h2>
+                <span className="text-[11px] font-semibold text-[#f97316]">
                   Đã mở 8 / 24
                 </span>
               </div>
@@ -98,13 +98,13 @@ export const DashboardAchievementsPage: React.FC = () => {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.24 }}
-              className="rounded-xl bg-[#08345b] p-5 text-white shadow-sm"
+              className="rounded-xl bg-[#176da8] p-5 text-white shadow-sm"
             >
               <h2 className="text-base font-bold">{data.milestone.title}</h2>
               <p className="mt-3 text-xs leading-relaxed text-white/80">
                 {data.milestone.description}
               </p>
-              <button className="mt-5 w-full rounded-md bg-[#0d2648] px-4 py-2.5 text-xs font-bold text-white ring-1 ring-white/20">
+              <button className="mt-5 w-full rounded-md bg-[#0f5f9f] px-4 py-2.5 text-xs font-bold text-white ring-1 ring-white/20">
                 {data.milestone.actionLabel}
               </button>
             </motion.section>
@@ -147,12 +147,12 @@ function StatCard({ stat, index }: { stat: AchievementStat; index: number }) {
       transition={{ delay: index * 0.06 }}
       className="rounded-xl border border-[#e6e9ef] bg-white p-5 shadow-sm"
     >
-      <Icon size={16} className="text-[#f28633]" />
-      <h3 className="mt-4 text-2xl font-bold text-[#001c3d]">{stat.value}</h3>
+      <Icon size={16} className="text-[#f97316]" />
+      <h3 className="mt-4 text-2xl font-bold text-[#0b4f8a]">{stat.value}</h3>
       <p className="mt-1 text-sm font-semibold text-[#344054]">{stat.label}</p>
-      <p className="mt-3 text-[11px] text-[#f28633]">{stat.supportingText}</p>
+      <p className="mt-3 text-[11px] text-[#f97316]">{stat.supportingText}</p>
       <div className="mt-3 h-1 w-full overflow-hidden rounded-full bg-[#f2f4f7]">
-        <div className="h-full w-3/4 bg-[#f28633]" />
+        <div className="h-full w-3/4 bg-[#f97316]" />
       </div>
     </motion.article>
   );
@@ -200,7 +200,7 @@ function CertificateCard({
           {certificate.issuedAt} • {certificate.certificateId}
         </p>
         <div className="mt-4 flex flex-wrap gap-2">
-          <button className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2.5 text-xs font-bold text-white hover:bg-[#003366]">
+          <button className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2.5 text-xs font-bold text-white hover:bg-[#1267ad]">
             <Download size={14} />
             {certificate.downloadLabel}
           </button>

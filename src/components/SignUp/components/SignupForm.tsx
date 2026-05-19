@@ -24,7 +24,7 @@ const SignUpForm: React.FC = () => {
 
   return (
     <>
-      <div className="px-8 pt-8 ml-10 mt-10">
+      <div className="px-5 pt-5 sm:px-8 sm:pt-8 lg:ml-10 lg:mt-10">
       <Link
           to="/"
           className="inline-flex items-center gap-2 text-body-md text-primary hover:text-primary transition-colors"
@@ -34,13 +34,13 @@ const SignUpForm: React.FC = () => {
         </Link>
       </div>
 
-      <div className="flex w-full flex-1 flex-col items-center justify-center px-8 py-12 overflow-auto min-w-0">
-        <div className="w-1/2 mx-auto">
+      <div className="flex w-full flex-1 flex-col items-center justify-start overflow-auto px-5 py-8 sm:justify-center sm:px-8 sm:py-12">
+        <div className="mx-auto w-full max-w-[560px]">
           <header className="mb-8">
             <h1 className=" text-headline-lg font-semibold text-primary-container">
               Create Account
             </h1>
-            <p className="mt-2 text-body-md text-on-primary-container/85">
+            <p className="mt-2 text-body-md text-primary-fixed-dim">
               Join the academy and start your learning journey.
             </p>
           </header>
@@ -58,7 +58,7 @@ const SignUpForm: React.FC = () => {
                 id="full_name"
                 type="text"
                 placeholder="John Doe"
-                className="w-full h-11 rounded-lg border-outline-variant bg-white px-3 text-body-md text-on-background placeholder:text-on-primary-container/50 focus-visible:border-primary focus-visible:ring-primary/30"
+                className="w-full h-11 rounded-lg border-outline-variant bg-white px-3 text-body-md text-on-background placeholder:text-primary-fixed-dim focus-visible:border-primary focus-visible:ring-primary/30"
               />
             </div>
 
@@ -74,7 +74,7 @@ const SignUpForm: React.FC = () => {
                 id="email"
                 type="email"
                 placeholder="name@company.com"
-                className="w-full h-11 rounded-lg border-outline-variant bg-white px-3 text-body-md text-on-background placeholder:text-on-primary-container/50 focus-visible:border-primary focus-visible:ring-primary/30"
+                className="w-full h-11 rounded-lg border-outline-variant bg-white px-3 text-body-md text-on-background placeholder:text-primary-fixed-dim focus-visible:border-primary focus-visible:ring-primary/30"
               />
             </div>
 
@@ -172,7 +172,7 @@ const SignUpForm: React.FC = () => {
             </Button>
           </form>
 
-          <p className="mt-8 text-center text-body-md text-on-primary-container/85">
+          <p className="mt-8 text-center text-body-md text-primary-fixed-dim">
             Already have an account?{" "}
             <Link
               to="/signin"

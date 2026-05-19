@@ -56,7 +56,7 @@ export const DashboardMyCoursesPage: React.FC = () => {
       <div className="mx-auto max-w-7xl">
         <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-[#001c3d] sm:text-4xl">{data.title}</h1>
+            <h1 className="text-3xl font-bold text-[#0b4f8a] sm:text-4xl">{data.title}</h1>
             <p className="mt-2 text-sm text-[#606a76]">{data.subtitle}</p>
           </div>
           <div className="flex flex-wrap gap-2 lg:justify-end">
@@ -66,7 +66,7 @@ export const DashboardMyCoursesPage: React.FC = () => {
                 onClick={() => setActiveFilter(filter.value)}
                 className={`rounded-md px-4 py-2 text-xs font-bold transition-colors ${
                   activeFilter === filter.value
-                    ? "bg-[#001c3d] text-white"
+                    ? "bg-[#0b4f8a] text-white"
                     : "border border-[#d0d5dd] bg-white text-[#344054] hover:bg-[#f9fafb]"
                 }`}
               >
@@ -125,7 +125,7 @@ function CourseCard({
             isCompleted ? "opacity-80 grayscale-[0.2]" : ""
           }`}
         />
-        <div className="absolute left-3 top-3 rounded-sm bg-[#f28633] px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-white">
+        <div className="absolute left-3 top-3 rounded-sm bg-[#f97316] px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-white">
           {course.levelTag}
         </div>
         {isCompleted ? (
@@ -139,7 +139,7 @@ function CourseCard({
       <div className="p-4">
         <h2
           className={`min-h-[56px] text-xl font-bold leading-tight ${
-            isCompleted ? "text-[#6b7280]" : "text-[#001c3d]"
+            isCompleted ? "text-[#6b7280]" : "text-[#0b4f8a]"
           }`}
         >
           {course.title}
@@ -153,7 +153,7 @@ function CourseCard({
           <div className="h-1.5 w-full overflow-hidden rounded-full bg-[#e4e7ec]">
             <div
               className={`h-full ${
-                isCompleted ? "bg-[#bdbfc4]" : "bg-[#f28633]"
+                isCompleted ? "bg-[#bdbfc4]" : "bg-[#f97316]"
               }`}
               style={{ width: `${course.progressPercent}%` }}
             />
@@ -168,7 +168,7 @@ function CourseCard({
           className={`mt-4 flex w-full items-center justify-center gap-2 rounded-md px-4 py-3 text-sm font-bold transition-colors ${
             isCompleted
               ? "border border-[#cfd4dc] bg-white text-[#667085] hover:bg-[#f9fafb]"
-              : "bg-primary text-white hover:bg-[#003366]"
+              : "bg-primary text-white hover:bg-[#1267ad]"
           }`}
         >
           <Play size={15} />

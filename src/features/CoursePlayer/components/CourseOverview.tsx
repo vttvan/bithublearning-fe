@@ -29,7 +29,7 @@ const CourseOverview: React.FC = () => {
                 key={tag}
                 className={`rounded-full border px-3 py-1 text-label-sm font-bold ${
                   index === 0
-                    ? "border-[#f28633]/10 bg-[#fff5ee] text-[#f28633]"
+                    ? "border-[#f97316]/10 bg-[#fff5ee] text-[#f97316]"
                     : "border-primary/10 bg-[#edf6ff] text-primary"
                 }`}
               >
@@ -92,7 +92,7 @@ const CourseOverview: React.FC = () => {
             <ul className="space-y-4">
               {data.prerequisites.map((item) => (
                 <li key={item} className="flex gap-3">
-                  <div className="w-1.5 h-1.5 bg-[#f28633] rounded-full mt-2" />
+                  <div className="w-1.5 h-1.5 bg-[#f97316] rounded-full mt-2" />
                   <p className="text-body-md text-on-surface-variant font-medium">
                     {item}
                   </p>
@@ -108,7 +108,7 @@ const CourseOverview: React.FC = () => {
             <h2 className="text-headline-sm font-bold text-primary">
               {data.curriculumTitle}
             </h2>
-            <p className="text-body-md font-bold text-[#f28633]">
+            <p className="text-body-md font-bold text-[#f97316]">
               {data.curriculumSummary}
             </p>
           </div>
@@ -124,7 +124,7 @@ const CourseOverview: React.FC = () => {
               >
                 <div className="p-6 flex items-center justify-between bg-white border-b border-outline-variant">
                   <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 bg-[#001c3d] text-white rounded-lg flex items-center justify-center font-bold">
+                    <div className="w-10 h-10 bg-[#0b4f8a] text-white rounded-lg flex items-center justify-center font-bold">
                       {mIdx + 1}
                     </div>
                     <div>
@@ -188,7 +188,7 @@ function InfoBadge({
 }) {
   return (
     <div className="flex items-center gap-3">
-      <div className="text-[#f28633]">{icon}</div>
+      <div className="text-[#f97316]">{icon}</div>
       <div>
         <p className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">
           {label}
@@ -215,7 +215,7 @@ function CheckItem({ text }: { text: string }) {
 function LessonIcon({ type }: { type: CourseOverviewLessonType }) {
   switch (type) {
     case "video":
-      return <PlayCircle size={18} className="text-[#f28633]" />;
+      return <PlayCircle size={18} className="text-[#f97316]" />;
     case "code":
       return <Code2 size={18} className="text-primary" />;
     case "quiz":

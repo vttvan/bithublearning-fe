@@ -43,7 +43,7 @@ const AdminDashboardShell: React.FC = () => {
         <button
           type="button"
           onClick={() => setMobileMenuOpen((current) => !current)}
-          className="flex w-full items-center justify-between rounded-lg border border-[#d0d5dd] bg-white px-4 py-3 font-semibold text-[#001c3d]"
+          className="flex w-full items-center justify-between rounded-lg border border-[#d0d5dd] bg-white px-4 py-3 font-semibold text-[#0b4f8a]"
           aria-expanded={mobileMenuOpen}
         >
           <span>Menu quản trị</span>
@@ -109,7 +109,7 @@ function AdminDashboardHeader({ userFullName }: { userFullName?: string }) {
       <div className="mx-auto flex max-w-8xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[#667085]">
-            <Sparkles size={14} className="text-[#f28633]" />
+            <Sparkles size={14} className="text-[#f97316]" />
             Admin Dashboard
           </p>
           <h1 className="mt-1 text-xl font-bold text-primary">
@@ -249,8 +249,8 @@ function AdminSidebarContent({
      
         </nav>
 
-        <div className={`${showAccountCard ? "block" : "hidden"} border-t border-[#e7ebf1] p-4`}>
-          <div className="mb-3 rounded-xl bg-[#0b2243] p-4 text-white">
+        <div className="border-t border-[#e7ebf1] p-4">
+          <div className={`${showAccountCard ? "mb-3 block" : "hidden"} rounded-xl bg-on-primary-fixed p-4 text-white`}>
             <p className="text-xs text-white/70">Đăng nhập với tài khoản</p>
             <p className="mt-1 text-sm font-bold">{userFullName}</p>
             <p className="text-xs text-white/70">{userEmail}</p>

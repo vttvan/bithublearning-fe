@@ -51,7 +51,7 @@ const QuizEngine: React.FC<QuizEngineProps> = ({ quiz }) => {
       {/* Quiz Header */}
       <div className="h-20 border-b border-outline-variant px-12 flex items-center justify-between bg-[#fcfcfc]">
         <div>
-          <p className="text-[#f28633] text-[10px] font-extrabold uppercase tracking-widest mb-1">{quiz.category}</p>
+          <p className="text-[#f97316] text-[10px] font-extrabold uppercase tracking-widest mb-1">{quiz.category}</p>
           <h2 className="text-title-lg font-bold text-primary">{quiz.title}</h2>
         </div>
         
@@ -64,10 +64,10 @@ const QuizEngine: React.FC<QuizEngineProps> = ({ quiz }) => {
             </div>
           </div>
           {/* Progress Display */}
-          <div className="flex items-center gap-4 bg-[#fff5ee] border border-[#f28633]/20 rounded-xl px-6 py-2 shadow-sm">
+          <div className="flex items-center gap-4 bg-[#fff5ee] border border-[#f97316]/20 rounded-xl px-6 py-2 shadow-sm">
             <div className="text-right">
-              <p className="text-[10px] font-bold text-[#f28633] uppercase">Progress</p>
-              <p className="text-headline-xs font-mono font-bold text-[#f28633]">
+              <p className="text-[10px] font-bold text-[#f97316] uppercase">Progress</p>
+              <p className="text-headline-xs font-mono font-bold text-[#f97316]">
                 {currentQuestion.toString().padStart(2, "0")}/{quiz.totalQuestions}
               </p>
             </div>
@@ -81,7 +81,7 @@ const QuizEngine: React.FC<QuizEngineProps> = ({ quiz }) => {
         <div className="flex-1 flex flex-col h-full">
           <div className="bg-white border border-outline-variant rounded-2xl p-10 shadow-sm flex-1 overflow-y-auto">
             <div className="flex items-center gap-3 mb-8">
-              <span className="bg-[#001c3d] text-white text-[11px] font-extrabold px-2 py-1 rounded">Q{currentQuestion}</span>
+              <span className="bg-[#0b4f8a] text-white text-[11px] font-extrabold px-2 py-1 rounded">Q{currentQuestion}</span>
               <span className="text-on-surface-variant text-label-sm font-bold uppercase tracking-wider">Multiple Choice</span>
             </div>
 
@@ -96,12 +96,12 @@ const QuizEngine: React.FC<QuizEngineProps> = ({ quiz }) => {
                   onClick={() => setSelectedOption(idx)}
                   className={`w-full text-left p-6 rounded-xl border-2 transition-all flex items-start gap-4 group ${
                     selectedOption === idx 
-                      ? "border-[#f28633] bg-[#fffcf9]" 
-                      : "border-outline-variant hover:border-[#f28633]/50 bg-white"
+                      ? "border-[#f97316] bg-[#fffcf9]" 
+                      : "border-outline-variant hover:border-[#f97316]/50 bg-white"
                   }`}
                 >
-                  <div className={`mt-1 flex-shrink-0 ${selectedOption === idx ? "text-[#f28633]" : "text-outline-variant group-hover:text-primary transition-colors"}`}>
-                    {selectedOption === idx ? <CheckCircle2 size={24} fill="currentColor" className="text-[#f28633] !fill-none" /> : <Circle size={24} />}
+                  <div className={`mt-1 flex-shrink-0 ${selectedOption === idx ? "text-[#f97316]" : "text-outline-variant group-hover:text-primary transition-colors"}`}>
+                    {selectedOption === idx ? <CheckCircle2 size={24} fill="currentColor" className="text-[#f97316] !fill-none" /> : <Circle size={24} />}
                   </div>
                   <span className={`text-body-lg font-medium leading-relaxed ${selectedOption === idx ? "text-primary" : "text-on-surface-variant"}`}>
                     {opt}
@@ -117,7 +117,7 @@ const QuizEngine: React.FC<QuizEngineProps> = ({ quiz }) => {
               <ChevronLeft size={20} />
               Previous Question
             </button>
-            <button className="bg-[#001c3d] text-white px-10 py-3 rounded-lg font-bold flex items-center gap-3 hover:bg-primary transition-colors active:scale-95">
+            <button className="bg-[#0b4f8a] text-white px-10 py-3 rounded-lg font-bold flex items-center gap-3 hover:bg-primary transition-colors active:scale-95">
               Save & Next
               <ChevronRight size={20} />
             </button>
@@ -129,7 +129,7 @@ const QuizEngine: React.FC<QuizEngineProps> = ({ quiz }) => {
           <div className="bg-white border border-outline-variant rounded-2xl p-8 shadow-sm flex flex-col">
             <div className="flex justify-between items-center mb-6">
               <h4 className="text-label-sm font-extrabold text-primary uppercase tracking-widest">Question Palette</h4>
-              <span className="text-[12px] font-bold text-[#f28633]">
+              <span className="text-[12px] font-bold text-[#f97316]">
                 {quiz.solvedQuestions} of {quiz.totalQuestions} Solved
               </span>
             </div>

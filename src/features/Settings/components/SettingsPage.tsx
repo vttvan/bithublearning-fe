@@ -10,7 +10,7 @@ import type {
 } from "../types/settings";
 
 const inputClassName =
-  "w-full rounded-md border border-[#d0d5dd] bg-white px-3 py-2.5 text-sm text-[#101828] outline-none transition-colors placeholder:text-[#98a2b3] focus:border-[#003366]";
+  "w-full rounded-md border border-[#d0d5dd] bg-white px-3 py-2.5 text-sm text-[#101828] outline-none transition-colors placeholder:text-[#98a2b3] focus:border-[#1267ad]";
 
 const initialPasswordState = {
   currentPassword: "",
@@ -192,13 +192,13 @@ const SettingsPage: React.FC = () => {
                   alt={settings.profile.fullName}
                   className="h-20 w-20 rounded-lg object-cover"
                 />
-                <button className="absolute -bottom-2 -right-2 flex h-8 w-8 items-center justify-center rounded-lg bg-[#001c3d] text-white shadow-sm">
+                <button className="absolute -bottom-2 -right-2 flex h-8 w-8 items-center justify-center rounded-lg bg-[#0b4f8a] text-white shadow-sm">
                   <Camera size={15} />
                 </button>
               </div>
 
               <div>
-                <h1 className="text-2xl font-bold text-[#001c3d]">
+                <h1 className="text-2xl font-bold text-[#0b4f8a]">
                   {settings.profile.fullName}
                 </h1>
                 <p className="mt-1 text-sm text-[#606a76]">
@@ -226,7 +226,7 @@ const SettingsPage: React.FC = () => {
               <button
                 onClick={handleSaveProfile}
                 disabled={savingProfile}
-                className="rounded-md bg-primary px-5 py-2.5 text-sm font-bold text-white hover:bg-[#003366] disabled:opacity-60"
+                className="rounded-md bg-primary px-5 py-2.5 text-sm font-bold text-white hover:bg-[#1267ad] disabled:opacity-60"
               >
                 {savingProfile ? "Saving..." : "Save Changes"}
               </button>
@@ -367,7 +367,7 @@ const SettingsPage: React.FC = () => {
               <button
                 onClick={handleUpdatePassword}
                 disabled={savingPassword}
-                className="w-full rounded-md border border-[#d0d5dd] px-4 py-3 text-sm font-bold text-[#001c3d] hover:bg-[#f9fafb] disabled:opacity-60"
+                className="w-full rounded-md border border-[#d0d5dd] px-4 py-3 text-sm font-bold text-[#0b4f8a] hover:bg-[#f9fafb] disabled:opacity-60"
               >
                 {savingPassword
                   ? "Updating..."
@@ -392,7 +392,7 @@ const SettingsPage: React.FC = () => {
                   className="flex items-start justify-between gap-4"
                 >
                   <div>
-                    <h3 className="text-sm font-bold text-[#001c3d]">
+                    <h3 className="text-sm font-bold text-[#0b4f8a]">
                       {preference.title}
                     </h3>
                     <p className="mt-1 text-xs text-[#606a76]">
@@ -402,7 +402,7 @@ const SettingsPage: React.FC = () => {
                   <button
                     onClick={() => handleToggleNotification(preference)}
                     className={`relative mt-1 h-6 w-11 rounded-full transition-colors ${
-                      preference.enabled ? "bg-[#f28633]" : "bg-[#e5e7eb]"
+                      preference.enabled ? "bg-[#f97316]" : "bg-[#e5e7eb]"
                     }`}
                   >
                     <span
@@ -421,7 +421,7 @@ const SettingsPage: React.FC = () => {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="rounded-xl bg-[#08345b] p-6 text-white shadow-sm"
+              className="rounded-xl bg-[#176da8] p-6 text-white shadow-sm"
             >
               <h2 className="text-2xl font-bold">{settings.twoFactor.title}</h2>
               <p className="mt-3 max-w-fulltext-sm leading-relaxed text-white/75">
@@ -436,7 +436,7 @@ const SettingsPage: React.FC = () => {
               <button
                 onClick={handleToggleTwoFactor}
                 disabled={togglingTwoFactor}
-                className="mt-8 w-full rounded-md bg-white px-4 py-3 text-sm font-bold text-[#001c3d] hover:bg-[#f3f4f6] disabled:opacity-60"
+                className="mt-8 w-full rounded-md bg-white px-4 py-3 text-sm font-bold text-[#0b4f8a] hover:bg-[#f3f4f6] disabled:opacity-60"
               >
                 {togglingTwoFactor
                   ? "Updating..."
@@ -477,7 +477,7 @@ const SettingsPage: React.FC = () => {
 function SectionTitle({
   icon,
   title,
-  className = "text-[#001c3d]",
+  className = "text-[#0b4f8a]",
 }: {
   icon: React.ReactNode;
   title: string;

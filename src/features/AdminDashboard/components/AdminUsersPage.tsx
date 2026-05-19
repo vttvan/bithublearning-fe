@@ -36,8 +36,8 @@ const AdminUsersPage: React.FC = () => {
           {data.summary.map((item) => (
             <div key={item.id} className="rounded-2xl border border-[#e4e7ec] bg-white p-5 shadow-sm">
               <p className="text-sm font-semibold text-[#667085]">{item.label}</p>
-              <p className="mt-3 text-3xl font-bold text-[#001c3d]">{item.value}</p>
-              <p className="mt-2 text-xs font-semibold text-[#f28633]">{item.meta}</p>
+              <p className="mt-3 text-3xl font-bold text-[#0b4f8a]">{item.value}</p>
+              <p className="mt-2 text-xs font-semibold text-[#f97316]">{item.meta}</p>
             </div>
           ))}
         </div>
@@ -80,7 +80,7 @@ function UserRow({ user, onOpen }: { user: AdminUserItem; onOpen: () => void }) 
       <p className="text-[#475467]">{user.joinedAt}</p>
       <button
         onClick={onOpen}
-        className="inline-flex items-center gap-1 text-sm font-semibold text-[#003366]"
+        className="inline-flex items-center gap-1 text-sm font-semibold text-[#1267ad]"
       >
         Chi tiết
         <ArrowUpRight size={15} />

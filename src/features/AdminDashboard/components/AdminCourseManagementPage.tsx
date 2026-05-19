@@ -46,7 +46,7 @@ const AdminCourseManagementPage: React.FC<{ mode: AdminCourseMode }> = ({ mode }
           </div>
           <button
             onClick={() => setIsCreateDialogOpen(true)}
-            className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-3 text-sm font-semibold text-white hover:bg-[#003366] sm:w-fit"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-3 text-sm font-semibold text-white hover:bg-[#1267ad] sm:w-fit"
           >
             <Plus size={16} />
             {mode === "online" ? "Thêm khóa học online" : "Thêm khóa học mới"}
@@ -57,8 +57,8 @@ const AdminCourseManagementPage: React.FC<{ mode: AdminCourseMode }> = ({ mode }
           {data.summary.map((item) => (
             <div key={item.id} className="rounded-2xl border border-[#e4e7ec] bg-white p-5 shadow-sm">
               <p className="text-sm font-semibold text-[#667085]">{item.label}</p>
-              <p className="mt-3 text-3xl font-bold text-[#001c3d]">{item.value}</p>
-              <p className="mt-2 text-xs font-semibold text-[#f28633]">{item.meta}</p>
+              <p className="mt-3 text-3xl font-bold text-[#0b4f8a]">{item.value}</p>
+              <p className="mt-2 text-xs font-semibold text-[#f97316]">{item.meta}</p>
             </div>
           ))}
         </div>
@@ -201,7 +201,7 @@ function CreateOnlineCourseDialog({
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#001c3d]/55 px-4 py-6 backdrop-blur-sm">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#0b4f8a]/55 px-4 py-6 backdrop-blur-sm">
       <motion.div
         initial={{ opacity: 0, y: 18, scale: 0.98 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -209,11 +209,11 @@ function CreateOnlineCourseDialog({
       >
         <div className="flex items-start justify-between border-b border-[#e4e7ec] px-6 py-5">
           <div className="flex gap-4">
-            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#edf6ff] text-[#003366]">
+            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#edf6ff] text-[#1267ad]">
               <BookOpen size={22} />
             </div>
             <div>
-              <h2 className="text-xl font-bold text-[#001c3d]">Thêm khóa học trực tuyến</h2>
+              <h2 className="text-xl font-bold text-[#0b4f8a]">Thêm khóa học trực tuyến</h2>
               <p className="mt-1 text-sm text-[#667085]">
                 Tạo bản nháp khóa học online trước khi thêm chương, video, bài tập và quiz.
               </p>
@@ -221,7 +221,7 @@ function CreateOnlineCourseDialog({
           </div>
           <button
             onClick={onClose}
-            className="flex h-9 w-9 items-center justify-center rounded-lg text-[#667085] hover:bg-[#f2f4f7] hover:text-[#001c3d]"
+            className="flex h-9 w-9 items-center justify-center rounded-lg text-[#667085] hover:bg-[#f2f4f7] hover:text-[#0b4f8a]"
             aria-label="Đóng dialog"
           >
             <X size={20} />
@@ -236,7 +236,7 @@ function CreateOnlineCourseDialog({
                   value={form.title}
                   onChange={(event) => updateField("title", event.target.value)}
                   placeholder="VD: React chuyên sâu cho Frontend Engineer"
-                  className="h-11 w-full rounded-lg border border-[#d0d5dd] px-3 text-sm outline-none focus:border-[#003366] focus:ring-2 focus:ring-[#003366]/15"
+                  className="h-11 w-full rounded-lg border border-[#d0d5dd] px-3 text-sm outline-none focus:border-[#1267ad] focus:ring-2 focus:ring-[#1267ad]/15"
                 />
               </Field>
 
@@ -245,7 +245,7 @@ function CreateOnlineCourseDialog({
                   <select
                     value={form.category}
                     onChange={(event) => updateField("category", event.target.value)}
-                    className="h-11 w-full rounded-lg border border-[#d0d5dd] bg-white px-3 text-sm outline-none focus:border-[#003366] focus:ring-2 focus:ring-[#003366]/15"
+                    className="h-11 w-full rounded-lg border border-[#d0d5dd] bg-white px-3 text-sm outline-none focus:border-[#1267ad] focus:ring-2 focus:ring-[#1267ad]/15"
                   >
                     <option>Software</option>
                     <option>Data</option>
@@ -258,7 +258,7 @@ function CreateOnlineCourseDialog({
                   <select
                     value={form.level}
                     onChange={(event) => updateField("level", event.target.value)}
-                    className="h-11 w-full rounded-lg border border-[#d0d5dd] bg-white px-3 text-sm outline-none focus:border-[#003366] focus:ring-2 focus:ring-[#003366]/15"
+                    className="h-11 w-full rounded-lg border border-[#d0d5dd] bg-white px-3 text-sm outline-none focus:border-[#1267ad] focus:ring-2 focus:ring-[#1267ad]/15"
                   >
                     <option>Beginner</option>
                     <option>Intermediate</option>
@@ -273,7 +273,7 @@ function CreateOnlineCourseDialog({
                     value={form.instructor}
                     onChange={(event) => updateField("instructor", event.target.value)}
                     placeholder="Tên giảng viên"
-                    className="h-11 w-full rounded-lg border border-[#d0d5dd] px-3 text-sm outline-none focus:border-[#003366] focus:ring-2 focus:ring-[#003366]/15"
+                    className="h-11 w-full rounded-lg border border-[#d0d5dd] px-3 text-sm outline-none focus:border-[#1267ad] focus:ring-2 focus:ring-[#1267ad]/15"
                   />
                 </Field>
                 <Field label="Học phí">
@@ -281,7 +281,7 @@ function CreateOnlineCourseDialog({
                     value={form.price}
                     onChange={(event) => updateField("price", event.target.value)}
                     placeholder="VD: 1.200.000đ"
-                    className="h-11 w-full rounded-lg border border-[#d0d5dd] px-3 text-sm outline-none focus:border-[#003366] focus:ring-2 focus:ring-[#003366]/15"
+                    className="h-11 w-full rounded-lg border border-[#d0d5dd] px-3 text-sm outline-none focus:border-[#1267ad] focus:ring-2 focus:ring-[#1267ad]/15"
                   />
                 </Field>
               </div>
@@ -291,7 +291,7 @@ function CreateOnlineCourseDialog({
                   type="date"
                   value={form.createdAt}
                   onChange={(event) => updateField("createdAt", event.target.value)}
-                  className="h-11 w-full rounded-lg border border-[#d0d5dd] px-3 text-sm outline-none focus:border-[#003366] focus:ring-2 focus:ring-[#003366]/15"
+                  className="h-11 w-full rounded-lg border border-[#d0d5dd] px-3 text-sm outline-none focus:border-[#1267ad] focus:ring-2 focus:ring-[#1267ad]/15"
                 />
               </Field>
 
@@ -301,7 +301,7 @@ function CreateOnlineCourseDialog({
                   onChange={(event) => updateField("description", event.target.value)}
                   placeholder="Tóm tắt giá trị khóa học, đối tượng phù hợp và kết quả đầu ra."
                   rows={4}
-                  className="w-full resize-none rounded-lg border border-[#d0d5dd] px-3 py-3 text-sm outline-none focus:border-[#003366] focus:ring-2 focus:ring-[#003366]/15"
+                  className="w-full resize-none rounded-lg border border-[#d0d5dd] px-3 py-3 text-sm outline-none focus:border-[#1267ad] focus:ring-2 focus:ring-[#1267ad]/15"
                 />
               </Field>
             </div>
@@ -312,7 +312,7 @@ function CreateOnlineCourseDialog({
                   value={form.thumbnail}
                   onChange={(event) => updateField("thumbnail", event.target.value)}
                   placeholder="URL ảnh thumbnail"
-                  className="h-11 w-full rounded-lg border border-[#d0d5dd] px-3 text-sm outline-none focus:border-[#003366] focus:ring-2 focus:ring-[#003366]/15"
+                  className="h-11 w-full rounded-lg border border-[#d0d5dd] px-3 text-sm outline-none focus:border-[#1267ad] focus:ring-2 focus:ring-[#1267ad]/15"
                 />
               </Field>
               <div className="overflow-hidden rounded-xl border border-[#e4e7ec] bg-[#f8fafc]">
@@ -324,7 +324,7 @@ function CreateOnlineCourseDialog({
                   </div>
                 )}
                 <div className="p-4">
-                  <p className="line-clamp-2 text-sm font-bold text-[#001c3d]">
+                  <p className="line-clamp-2 text-sm font-bold text-[#0b4f8a]">
                     {form.title || "Tên khóa học mới"}
                   </p>
                   <p className="mt-1 text-xs text-[#667085]">
@@ -348,7 +348,7 @@ function CreateOnlineCourseDialog({
             </button>
             <button
               type="submit"
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#001c3d] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#003366]"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#0b4f8a] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#1267ad]"
             >
               <Save size={16} />
               Tạo bản nháp
@@ -405,11 +405,11 @@ function CourseTableRow({
       <span className={`w-fit rounded-full px-2.5 py-1 text-xs font-bold ${getCourseStatusClass(course.status)}`}>
         {getCourseStatusLabel(course.status)}
       </span>
-      <p className="font-semibold text-[#001c3d]">{course.price}</p>
+      <p className="font-semibold text-[#0b4f8a]">{course.price}</p>
       <p className="text-[#475467]">{course.enrollment}</p>
       <button
         onClick={onOpen}
-        className="inline-flex items-center gap-1 text-sm font-semibold text-[#003366]"
+        className="inline-flex items-center gap-1 text-sm font-semibold text-[#1267ad]"
       >
         Quản lý
         <ArrowUpRight size={15} />

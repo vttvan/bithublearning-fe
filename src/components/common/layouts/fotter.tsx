@@ -22,18 +22,18 @@ const Footer: React.FC = () => {
 
         <nav
           aria-label="Liên kết footer"
-          className="flex flex-wrap gap-x-8 gap-y-3 text-xs font-bold text-[#001c3d]"
+          className="flex flex-wrap gap-x-8 gap-y-3 text-xs font-bold text-[#0b4f8a]"
         >
-          <a href="#" className="hover:text-[#f28633]">
+          <a href="#" className="hover:text-[#f97316]">
             Điều khoản dịch vụ
           </a>
-          <a href="#" className="hover:text-[#f28633]">
+          <a href="#" className="hover:text-[#f97316]">
             Chính sách bảo mật
           </a>
-          <a href="#" className="hover:text-[#f28633]">
+          <a href="#" className="hover:text-[#f97316]">
             Cài đặt cookie
           </a>
-          <a href="#" className="hover:text-[#f28633]">
+          <a href="#" className="hover:text-[#f97316]">
             Hỗ trợ
           </a>
         </nav>
@@ -42,14 +42,14 @@ const Footer: React.FC = () => {
           <a
             href="#"
             aria-label="Ngôn ngữ"
-            className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#d0d5dd] text-[#003366] transition-colors hover:border-[#f28633] hover:text-[#f28633]"
+            className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#d0d5dd] text-[#1267ad] transition-colors hover:border-[#f97316] hover:text-[#f97316]"
           >
             <Globe2 size={18} />
           </a>
           <a
             href="#"
             aria-label="Học viện"
-            className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#d0d5dd] text-[#003366] transition-colors hover:border-[#f28633] hover:text-[#f28633]"
+            className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#d0d5dd] text-[#1267ad] transition-colors hover:border-[#f97316] hover:text-[#f97316]"
           >
             <GraduationCap size={18} />
           </a>

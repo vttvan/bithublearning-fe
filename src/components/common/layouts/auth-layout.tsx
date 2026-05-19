@@ -37,7 +37,7 @@ export default function AuthLayout({
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${SIGNIN_HERO_IMAGE})` }}
           />
-          <div className="absolute inset-0 bg-primary-container/75" aria-hidden />
+          <div className="absolute inset-0 bg-primary-container/60" aria-hidden />
           <div className="relative z-10 flex h-full min-h-[520px] flex-col justify-between px-10 py-12 text-white lg:min-h-0 lg:px-14 lg:py-14">
             <div className="max-w-full mt-35">
               <p className=" text-4xl font-bold tracking-tight lg:text-5xl">

@@ -128,11 +128,11 @@ const OfflineWorkshopDetailPage: React.FC = () => {
     <div className="min-h-screen bg-[#f7f5f2] px-4 py-6 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl">
         <nav className="mb-5 flex items-center gap-2 text-[11px] font-bold uppercase tracking-wide text-[#5d6673]">
-          <Link to={breadcrumbPath} className="hover:text-[#003366]">
+          <Link to={breadcrumbPath} className="hover:text-[#1267ad]">
             {breadcrumbLabel}
           </Link>
           <ChevronRight size={13} />
-          <span className="truncate text-[#001c3d]">{workshop.title}</span>
+          <span className="truncate text-[#0b4f8a]">{workshop.title}</span>
         </nav>
 
         <motion.section
@@ -146,11 +146,11 @@ const OfflineWorkshopDetailPage: React.FC = () => {
             alt={workshop.title}
             className="absolute inset-0 h-full w-full object-cover opacity-35"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#08345b]/95 via-[#08345b]/88 to-[#08345b]/62" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#176da8]/95 via-[#176da8]/88 to-[#176da8]/62" />
 
           <div className="relative min-h-[260px] p-6 sm:p-8 lg:p-10">
             <div className="mb-7 flex flex-wrap items-center gap-3 text-xs font-bold">
-              <span className="rounded-full bg-[#f28633] px-4 py-1.5 uppercase tracking-wide text-white">
+              <span className="rounded-full bg-[#f97316] px-4 py-1.5 uppercase tracking-wide text-white">
                 {attendance?.statusLabel ?? "Đã lên lịch"}
               </span>
               <span className="flex items-center gap-1.5 text-white/88">
@@ -189,7 +189,7 @@ const OfflineWorkshopDetailPage: React.FC = () => {
 
           <div className="relative h-1 bg-white/12">
             <div
-              className="h-full bg-[#f28633]"
+              className="h-full bg-[#f97316]"
               style={{ width: `${attendance?.progressPercent ?? 0}%` }}
             />
           </div>
@@ -198,10 +198,10 @@ const OfflineWorkshopDetailPage: React.FC = () => {
         <div className="mt-8 grid gap-7 xl:grid-cols-[1fr_330px]">
           <main>
             <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-              <h2 className="text-2xl font-bold text-[#001c3d]">
+              <h2 className="text-2xl font-bold text-[#0b4f8a]">
                 Lịch học
               </h2>
-              <button className="inline-flex items-center gap-2 text-sm font-bold text-[#001c3d] hover:text-[#f28633]">
+              <button className="inline-flex items-center gap-2 text-sm font-bold text-[#0b4f8a] hover:text-[#f97316]">
                 <Download size={16} />
                 Tải lịch (.ics)
               </button>
@@ -283,7 +283,7 @@ function PublicWorkshopDetail({
             transition={{ duration: 0.6, delay: 0.2 }}
             className="max-w-2xl"
           >
-            <span className="mb-4 inline-flex rounded bg-[#f28633] px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">
+            <span className="mb-4 inline-flex rounded bg-[#f97316] px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">
               {workshop.category}
             </span>
             <h1 className="mb-4 font-display text-[36px] font-bold leading-tight text-on-primary md:text-[42px]">
@@ -362,8 +362,8 @@ function PublicWorkshopDetail({
                   onClick={() => onTabChange(tab.id)}
                   className={`shrink-0 border-b-2 pb-3 text-sm font-bold transition-colors ${
                     activeTab === tab.id
-                      ? "border-[#f28633] text-[#003366]"
-                      : "border-transparent text-on-surface-variant hover:text-[#003366]"
+                      ? "border-[#f97316] text-[#1267ad]"
+                      : "border-transparent text-on-surface-variant hover:text-[#1267ad]"
                   }`}
                 >
                   {tab.label}
@@ -423,7 +423,7 @@ function PublicWorkshopDetail({
 function PublicOverview({ workshop }: { workshop: OfflineWorkshop }) {
   return (
     <section>
-      <h2 className="mb-4 font-display text-2xl font-bold text-[#003366]">
+      <h2 className="mb-4 font-display text-2xl font-bold text-[#1267ad]">
         Tổng quan khóa học
       </h2>
       <p className="mb-8 text-base leading-relaxed text-on-surface-variant">
@@ -432,9 +432,9 @@ function PublicOverview({ workshop }: { workshop: OfflineWorkshop }) {
       <div className="grid gap-4 md:grid-cols-2">
         {(workshop.highlights ?? []).map((highlight) => (
           <div key={highlight.id} className="flex items-start gap-3">
-            <CheckCircle2 size={19} className="mt-0.5 shrink-0 text-[#f28633]" />
+            <CheckCircle2 size={19} className="mt-0.5 shrink-0 text-[#f97316]" />
             <div>
-              <h3 className="font-bold text-[#003366]">{highlight.title}</h3>
+              <h3 className="font-bold text-[#1267ad]">{highlight.title}</h3>
               <p className="mt-1 text-sm leading-relaxed text-on-surface-variant">
                 {highlight.description}
               </p>
@@ -458,7 +458,7 @@ function PublicCurriculum({
   return (
     <section>
       <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-        <h2 className="font-display text-2xl font-bold text-[#003366]">
+        <h2 className="font-display text-2xl font-bold text-[#1267ad]">
           Chương trình học
         </h2>
         <span className="text-sm font-medium text-on-surface-variant">
@@ -478,13 +478,13 @@ function PublicCurriculum({
                 <span className="flex min-w-0 items-center gap-3">
                   <ChevronRight
                     size={18}
-                    className={`shrink-0 text-[#003366] transition-transform ${isOpen ? "rotate-90" : ""}`}
+                    className={`shrink-0 text-[#1267ad] transition-transform ${isOpen ? "rotate-90" : ""}`}
                   />
                   <span>
-                    <span className="block text-xs font-bold uppercase tracking-wide text-[#f28633]">
+                    <span className="block text-xs font-bold uppercase tracking-wide text-[#f97316]">
                       {item.day}
                     </span>
-                    <span className="font-bold text-[#003366]">{item.title}</span>
+                    <span className="font-bold text-[#1267ad]">{item.title}</span>
                   </span>
                 </span>
               </button>
@@ -496,7 +496,7 @@ function PublicCurriculum({
                   <div className="grid gap-2 md:grid-cols-2">
                     {item.topics.map((topic) => (
                       <span key={topic} className="flex items-center gap-2 text-sm text-on-background">
-                        <Play size={13} className="shrink-0 text-[#f28633]" />
+                        <Play size={13} className="shrink-0 text-[#f97316]" />
                         {topic}
                       </span>
                     ))}
@@ -514,7 +514,7 @@ function PublicCurriculum({
 function PublicInstructor({ instructors }: { instructors: OfflineWorkshop["instructors"] }) {
   return (
     <section>
-      <h2 className="mb-6 font-display text-2xl font-bold text-[#003366]">
+      <h2 className="mb-6 font-display text-2xl font-bold text-[#1267ad]">
         Giảng viên
       </h2>
       <div className="space-y-6">
@@ -526,7 +526,7 @@ function PublicInstructor({ instructors }: { instructors: OfflineWorkshop["instr
               className="h-20 w-20 shrink-0 rounded-full object-cover"
             />
             <div>
-              <h3 className="text-xl font-bold text-[#003366]">{instructor.name}</h3>
+              <h3 className="text-xl font-bold text-[#1267ad]">{instructor.name}</h3>
               <p className="mb-3 text-sm font-semibold text-on-surface-variant">
                 {instructor.title}
               </p>
@@ -567,13 +567,11 @@ function PublicPricingCard({
             {workshop.progressText}
           </span>
         </div>
-        <button className="flex w-full items-center justify-center gap-2 rounded-lg bg-secondary-container py-3.5 font-bold text-on-secondary-container shadow-sm transition-all hover:brightness-110 active:scale-[0.98]">
+        <button className="flex w-full items-center justify-center gap-2 rounded-lg bg-secondary-container py-3.5 font-bold text-primary-container shadow-sm transition-all hover:brightness-110 active:scale-[0.98]">
           <ShoppingCart size={18} />
           Đăng ký workshop
         </button>
-        <button className="w-full rounded-lg border-2 border-outline-variant py-3 font-bold text-primary transition-all hover:bg-surface-container active:scale-[0.98]">
-          Thêm vào giỏ hàng
-        </button>
+
 
         <div>
           <h3 className="mb-3 font-bold text-primary">Workshop này bao gồm:</h3>
@@ -623,21 +621,21 @@ function RelatedWorkshopCard({ workshop }: { workshop: OfflineWorkshop }) {
           alt={workshop.title}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        <span className="absolute left-3 top-3 rounded bg-[#f28633] px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-white">
+        <span className="absolute left-3 top-3 rounded bg-[#f97316] px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-white">
           {workshop.category}
         </span>
       </div>
       <div className="p-4">
-        <h3 className="mb-3 min-h-[48px] font-bold leading-snug text-[#003366]">
+        <h3 className="mb-3 min-h-[48px] font-bold leading-snug text-[#1267ad]">
           {workshop.title}
         </h3>
         <div className="mb-3 flex items-center gap-1.5 text-sm">
-          <span className="font-bold text-[#003366]">4.8</span>
+          <span className="font-bold text-[#1267ad]">4.8</span>
           <span className="flex gap-0.5">{renderStars(4.8, 13)}</span>
         </div>
         <div className="flex items-center justify-between">
-          <span className="font-bold text-[#003366]">{formatUsd(workshop.price ?? 199)}</span>
-          <Heart size={18} className="text-on-surface-variant transition-colors group-hover:text-[#f28633]" />
+          <span className="font-bold text-[#1267ad]">{formatUsd(workshop.price ?? 199)}</span>
+          <Heart size={18} className="text-on-surface-variant transition-colors group-hover:text-[#f97316]" />
         </div>
       </div>
     </Link>
@@ -708,7 +706,7 @@ function SessionCard({
         <div>
           <h3
             className={`text-xl font-bold leading-snug ${
-              isCompleted ? "text-[#6b7280]" : "text-[#001c3d]"
+              isCompleted ? "text-[#6b7280]" : "text-[#0b4f8a]"
             }`}
           >
             {session.day}: {session.title}
@@ -740,7 +738,7 @@ function SessionCard({
 
       {isActive && session.actionLabel ? (
         <div className="mt-5 flex justify-end">
-          <button className="bg-primary px-6 py-2.5 text-xs font-bold text-white transition-colors hover:bg-[#003366]">
+          <button className="bg-primary px-6 py-2.5 text-xs font-bold text-white transition-colors hover:bg-[#1267ad]">
             {session.actionLabel}
           </button>
         </div>
@@ -758,29 +756,29 @@ function VenueCard({ workshop }: { workshop: OfflineWorkshop }) {
     <section className="overflow-hidden border border-[#cfd4dc] bg-white shadow-sm">
       <div className="relative h-40">
         <img src={mapUrl} alt={venueName} className="h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-[#08345b]/10" />
+        <div className="absolute inset-0 bg-[#176da8]/10" />
         <MapPin
-          className="absolute right-9 top-5 fill-[#f28633] text-[#f28633]"
+          className="absolute right-9 top-5 fill-[#f97316] text-[#f97316]"
           size={28}
         />
         <MapPin
-          className="absolute left-16 top-8 fill-[#f28633] text-[#f28633]"
+          className="absolute left-16 top-8 fill-[#f97316] text-[#f97316]"
           size={24}
         />
         <div className="absolute left-1/2 top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-[6px] bg-white shadow-lg">
-          <MapPin className="fill-[#f28633] text-[#f28633]" size={24} />
+          <MapPin className="fill-[#f97316] text-[#f97316]" size={24} />
         </div>
       </div>
 
       <div className="p-5">
-        <p className="mb-3 text-[10px] font-bold uppercase tracking-widest text-[#001c3d]">
+        <p className="mb-3 text-[10px] font-bold uppercase tracking-widest text-[#0b4f8a]">
           Thông tin địa điểm
         </p>
-        <h3 className="text-base font-bold text-[#001c3d]">{venueName}</h3>
+        <h3 className="text-base font-bold text-[#0b4f8a]">{venueName}</h3>
         <p className="mt-1 text-xs font-medium text-[#606a76]">{address}</p>
 
         {workshop.venue?.roomLabel ? (
-          <button className="mt-4 inline-flex w-full items-center justify-center gap-2 border border-[#cfd4dc] px-4 py-2.5 text-xs font-bold text-[#001c3d] hover:bg-[#f6f3f2]">
+          <button className="mt-4 inline-flex w-full items-center justify-center gap-2 border border-[#cfd4dc] px-4 py-2.5 text-xs font-bold text-[#0b4f8a] hover:bg-[#f6f3f2]">
             <Navigation size={15} />
             {workshop.venue.roomLabel}
           </button>
@@ -800,7 +798,7 @@ function VenueCard({ workshop }: { workshop: OfflineWorkshop }) {
 function InstructorsCard({ workshop }: { workshop: OfflineWorkshop }) {
   return (
     <section className="border border-[#cfd4dc] bg-white p-5 shadow-sm">
-      <p className="mb-4 text-[10px] font-bold uppercase tracking-widest text-[#001c3d]">
+      <p className="mb-4 text-[10px] font-bold uppercase tracking-widest text-[#0b4f8a]">
         Giảng viên khóa học
       </p>
       <div className="space-y-4">
@@ -812,7 +810,7 @@ function InstructorsCard({ workshop }: { workshop: OfflineWorkshop }) {
               className="h-12 w-12 object-cover"
             />
             <div>
-              <h3 className="text-sm font-bold text-[#001c3d]">
+              <h3 className="text-sm font-bold text-[#0b4f8a]">
                 {instructor.name}
               </h3>
               <p className="text-[11px] font-semibold text-[#606a76]">

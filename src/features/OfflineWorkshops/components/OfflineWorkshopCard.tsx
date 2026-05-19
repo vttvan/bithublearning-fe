@@ -13,7 +13,7 @@ export function OfflineWorkshopCard({ workshop }: { workshop: OfflineWorkshop })
           alt={workshop.title} 
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         />
-        <div className="absolute top-4 left-4 bg-[#f28633] text-white text-xs font-bold px-3 py-1 uppercase tracking-wider rounded-sm shadow-sm">
+        <div className="absolute top-4 left-4 bg-[#f97316] text-white text-xs font-bold px-3 py-1 uppercase tracking-wider rounded-sm shadow-sm">
           {workshop.category}
         </div>
       </Link>
@@ -21,7 +21,7 @@ export function OfflineWorkshopCard({ workshop }: { workshop: OfflineWorkshop })
       {/* Card Content */}
       <div className="p-6 flex flex-col flex-1">
         <Link to={`/office-workshop/${workshop.id}`} className="block">
-          <h3 className="text-xl font-bold text-[#003366] mb-4 line-clamp-2 min-h-[56px] hover:underline">
+          <h3 className="text-xl font-bold text-[#1267ad] mb-4 line-clamp-2 min-h-[56px] hover:underline">
             {workshop.title}
           </h3>
         </Link>
@@ -45,16 +45,16 @@ export function OfflineWorkshopCard({ workshop }: { workshop: OfflineWorkshop })
           <div className="flex flex-col gap-1.5 w-1/2">
             <div className="w-full h-1 bg-surface-variant rounded-full overflow-hidden">
               <div 
-                className={`h-full ${workshop.progressPercent > 90 ? 'bg-error' : 'bg-[#f28633]'}`} 
+                className={`h-full ${workshop.progressPercent > 90 ? 'bg-error' : 'bg-[#f97316]'}`} 
                 style={{ width: `${workshop.progressPercent}%` }}
               />
             </div>
-            <span className={`text-xs font-bold ${workshop.progressPercent > 90 ? 'text-error' : 'text-[#f28633]'}`}>
+            <span className={`text-xs font-bold ${workshop.progressPercent > 90 ? 'text-error' : 'text-[#f97316]'}`}>
               {workshop.progressText}
             </span>
           </div>
           
-          <Link to={`/office-workshop/${workshop.id}`} className="border border-[#003366] text-[#003366] font-bold px-4 py-2 rounded hover:bg-[#003366] hover:text-white transition-colors text-sm">
+          <Link to={`/office-workshop/${workshop.id}`} className="border border-[#1267ad] text-[#1267ad] font-bold px-4 py-2 rounded hover:bg-[#1267ad] hover:text-white transition-colors text-sm">
             View Details
           </Link>
         </div>

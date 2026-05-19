@@ -6,7 +6,7 @@ import { adminDashboardService } from "../services/adminDashboardService";
 import type { OfflineCourseEditorData, OfflineSessionItem } from "../types/adminDashboard";
 
 const inputClassName =
-  "w-full rounded-xl border border-[#d0d5dd] bg-white px-4 py-3 text-sm text-[#101828] outline-none focus:border-[#003366]";
+  "w-full rounded-xl border border-[#d0d5dd] bg-white px-4 py-3 text-sm text-[#101828] outline-none focus:border-[#1267ad]";
 
 const AdminOfflineCourseEditorPage: React.FC = () => {
   const { courseId = "offline-1" } = useParams<{ courseId: string }>();
@@ -145,7 +145,7 @@ const AdminOfflineCourseEditorPage: React.FC = () => {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-xs uppercase tracking-wide text-[#98a2b3]">Workshop trực tiếp</p>
-              <h1 className="mt-2 text-xl font-bold text-[#001c3d]">{data.title}</h1>
+              <h1 className="mt-2 text-xl font-bold text-[#0b4f8a]">{data.title}</h1>
             </div>
             <span className="rounded-full bg-[#fff7e6] px-3 py-1 text-xs font-semibold text-[#b85f00]">
               {data.subtitle}
@@ -161,11 +161,11 @@ const AdminOfflineCourseEditorPage: React.FC = () => {
                 onClick={() => handleSelectSession(session.id)}
                 className={`w-full rounded-xl border px-4 py-4 text-left ${
                   session.id === data.selectedSessionId
-                    ? "border-[#001c3d] bg-[#eef3ff]"
+                    ? "border-[#0b4f8a] bg-[#eef3ff]"
                     : "border-[#e4e7ec] bg-[#f8fafc]"
                 }`}
               >
-                <p className="font-semibold text-[#001c3d]">{session.title}</p>
+                <p className="font-semibold text-[#0b4f8a]">{session.title}</p>
                 <p className="mt-1 text-xs text-[#667085]">
                   {session.dateLabel} • {session.room}
                 </p>
@@ -175,7 +175,7 @@ const AdminOfflineCourseEditorPage: React.FC = () => {
 
           <button
             onClick={handleCreateSession}
-            className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#001c3d] px-4 py-3 text-sm font-semibold text-white"
+            className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#0b4f8a] px-4 py-3 text-sm font-semibold text-white"
           >
             <Plus size={16} />
             Thêm buổi học mới
@@ -186,12 +186,12 @@ const AdminOfflineCourseEditorPage: React.FC = () => {
           <div className="flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
             <div>
               <p className="text-sm font-semibold text-[#98a2b3]">Workshop / Chỉnh sửa buổi học</p>
-              <h2 className="mt-2 text-3xl font-bold text-[#001c3d]">{selectedSession.title}</h2>
+              <h2 className="mt-2 text-3xl font-bold text-[#0b4f8a]">{selectedSession.title}</h2>
             </div>
             <button
               onClick={handleSaveSession}
               disabled={isSaving}
-              className="inline-flex items-center gap-2 rounded-lg bg-[#001c3d] px-4 py-2.5 text-sm font-semibold text-white disabled:opacity-60"
+              className="inline-flex items-center gap-2 rounded-lg bg-[#0b4f8a] px-4 py-2.5 text-sm font-semibold text-white disabled:opacity-60"
             >
               <Save size={16} />
               {isSaving ? "Đang lưu..." : "Lưu lịch học"}
@@ -267,7 +267,7 @@ const AdminOfflineCourseEditorPage: React.FC = () => {
 
             <div className="space-y-4">
               <div className="rounded-2xl border border-[#e4e7ec] bg-[#f8fafc] p-4">
-                <div className="flex items-center gap-2 text-sm font-semibold text-[#001c3d]">
+                <div className="flex items-center gap-2 text-sm font-semibold text-[#0b4f8a]">
                   <CalendarDays size={16} />
                   Tài liệu buổi học
                 </div>
@@ -308,7 +308,7 @@ const AdminOfflineCourseEditorPage: React.FC = () => {
                   />
                   <button
                     onClick={handleAddAsset}
-                    className="w-full rounded-xl bg-[#001c3d] px-4 py-3 text-sm font-semibold text-white"
+                    className="w-full rounded-xl bg-[#0b4f8a] px-4 py-3 text-sm font-semibold text-white"
                   >
                     Thêm file
                   </button>

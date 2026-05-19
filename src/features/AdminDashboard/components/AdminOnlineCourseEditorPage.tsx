@@ -22,7 +22,7 @@ import type {
 } from "../types/adminDashboard";
 
 const inputClassName =
-  "w-full rounded-xl border border-[#d0d5dd] bg-white px-4 py-3 text-sm text-[#101828] outline-none focus:border-[#003366]";
+  "w-full rounded-xl border border-[#d0d5dd] bg-white px-4 py-3 text-sm text-[#101828] outline-none focus:border-[#1267ad]";
 
 type LessonEditorForm = {
   title: string;
@@ -328,7 +328,7 @@ const AdminOnlineCourseEditorPage: React.FC = () => {
 
           <button
             onClick={() => toast.message("Trình dựng học phần sẽ được mở rộng ở bước tiếp theo.")}
-            className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-[#f28633] px-4 py-3 text-sm font-semibold text-white"
+            className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-[#f97316] px-4 py-3 text-sm font-semibold text-white"
           >
             <Plus size={16} />
             Thêm học phần mới
@@ -341,7 +341,7 @@ const AdminOnlineCourseEditorPage: React.FC = () => {
               <p className="text-sm font-semibold text-[#98a2b3]">
                 Khóa học trực tuyến / Chỉnh sửa bài học
               </p>
-              <h2 className="mt-2 text-3xl font-bold text-[#001c3d]">
+              <h2 className="mt-2 text-3xl font-bold text-[#0b4f8a]">
                 {selectedLesson.title}
               </h2>
             </div>
@@ -352,7 +352,7 @@ const AdminOnlineCourseEditorPage: React.FC = () => {
               <button
                 onClick={handleSaveLesson}
                 disabled={isSaving}
-                className="inline-flex items-center gap-2 rounded-lg bg-[#001c3d] px-4 py-2.5 text-sm font-semibold text-white disabled:opacity-60"
+                className="inline-flex items-center gap-2 rounded-lg bg-[#0b4f8a] px-4 py-2.5 text-sm font-semibold text-white disabled:opacity-60"
               >
                 <Save size={16} />
                 {isSaving ? "Đang lưu..." : "Lưu thay đổi"}
@@ -430,14 +430,14 @@ const AdminOnlineCourseEditorPage: React.FC = () => {
                 <section className="rounded-2xl border border-[#e4e7ec] bg-[#f8fafc] p-5">
                   <div className="flex flex-col gap-3 xl:flex-row xl:items-center xl:justify-between">
                     <div>
-                      <h3 className="text-lg font-bold text-[#001c3d]">Trình dựng bài kiểm tra</h3>
+                      <h3 className="text-lg font-bold text-[#0b4f8a]">Trình dựng bài kiểm tra</h3>
                       <p className="mt-1 text-sm text-[#667085]">
                         Tạo bộ câu hỏi, nhập Excel và cấu hình điểm đạt.
                       </p>
                     </div>
                     <button
                       onClick={handleAddQuizQuestion}
-                      className="inline-flex items-center gap-2 rounded-lg bg-[#001c3d] px-4 py-2.5 text-sm font-semibold text-white"
+                      className="inline-flex items-center gap-2 rounded-lg bg-[#0b4f8a] px-4 py-2.5 text-sm font-semibold text-white"
                     >
                       <Plus size={16} />
                       Thêm câu hỏi
@@ -487,7 +487,7 @@ const AdminOnlineCourseEditorPage: React.FC = () => {
                   </div>
 
                   <div className="mt-5 rounded-2xl border border-dashed border-[#bfc7d4] bg-white p-4">
-                    <div className="flex items-center gap-2 text-sm font-semibold text-[#001c3d]">
+                    <div className="flex items-center gap-2 text-sm font-semibold text-[#0b4f8a]">
                       <FileSpreadsheet size={16} />
                       Nhập ngân hàng câu hỏi từ Excel
                     </div>
@@ -501,7 +501,7 @@ const AdminOnlineCourseEditorPage: React.FC = () => {
                       <button
                         onClick={handleImportQuizSpreadsheet}
                         disabled={isImportingQuiz}
-                        className="rounded-lg bg-[#f28633] px-4 py-3 text-sm font-semibold text-white disabled:opacity-60"
+                        className="rounded-lg bg-[#f97316] px-4 py-3 text-sm font-semibold text-white disabled:opacity-60"
                       >
                         {isImportingQuiz ? "Đang nhập..." : "Nhập Excel"}
                       </button>
@@ -535,7 +535,7 @@ const AdminOnlineCourseEditorPage: React.FC = () => {
 
               {lessonForm.type === "exercise" && lessonForm.codeExercise ? (
                 <section className="rounded-2xl border border-[#e4e7ec] bg-[#f8fafc] p-5">
-                  <div className="flex items-center gap-2 text-lg font-bold text-[#001c3d]">
+                  <div className="flex items-center gap-2 text-lg font-bold text-[#0b4f8a]">
                     <Braces size={18} />
                     Trình dựng bài thực hành code
                   </div>
@@ -630,7 +630,7 @@ const AdminOnlineCourseEditorPage: React.FC = () => {
 
                   <div className="mt-5">
                     <div className="mb-3 flex items-center justify-between">
-                      <h4 className="text-sm font-semibold text-[#001c3d]">Bộ test case</h4>
+                      <h4 className="text-sm font-semibold text-[#0b4f8a]">Bộ test case</h4>
                       <button
                         onClick={handleAddTestCase}
                         className="inline-flex items-center gap-2 rounded-lg border border-[#d0d5dd] bg-white px-3 py-2 text-xs font-semibold text-[#344054]"
@@ -669,7 +669,7 @@ const AdminOnlineCourseEditorPage: React.FC = () => {
                   className="h-44 w-full object-cover"
                 />
                 <div className="p-4">
-                  <div className="inline-flex items-center gap-2 rounded-full bg-[#e9eefb] px-3 py-1 text-xs font-semibold text-[#003366]">
+                  <div className="inline-flex items-center gap-2 rounded-full bg-[#e9eefb] px-3 py-1 text-xs font-semibold text-[#1267ad]">
                     <Video size={14} />
                     Đang chỉnh sửa
                   </div>
@@ -683,7 +683,7 @@ const AdminOnlineCourseEditorPage: React.FC = () => {
                 </div>
               </div>
               <div className="rounded-2xl border border-[#e4e7ec] p-4">
-                <h3 className="text-sm font-semibold text-[#001c3d]">Tệp đính kèm</h3>
+                <h3 className="text-sm font-semibold text-[#0b4f8a]">Tệp đính kèm</h3>
                 <div className="mt-3 space-y-2">
                   {selectedLesson.attachments.map((attachment) => (
                     <div
@@ -721,7 +721,7 @@ function LessonNode({
     <button
       onClick={onClick}
       className={`flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-sm transition-colors ${
-        active ? "bg-[#f28633] text-white" : "bg-white/10 text-white hover:bg-white/15"
+        active ? "bg-[#f97316] text-white" : "bg-white/10 text-white hover:bg-white/15"
       }`}
     >
       <div className="flex items-center gap-2">

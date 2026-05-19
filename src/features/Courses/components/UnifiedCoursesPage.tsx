@@ -33,7 +33,7 @@ const UnifiedCoursesPage: React.FC = () => {
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Chọn lộ trình học tập của bạn
             </h1>
-            <p className="text-lg text-white/90 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg text-primary-fixed-dim max-w-2xl mx-auto leading-relaxed">
             Dù bạn thích học trực tuyến theo tốc độ riêng hay tham gia các hội thảo trực tiếp chuyên sâu, chúng tôi đều có chương trình phù hợp dành cho bạn.
             </p>
           </motion.div>
@@ -47,7 +47,7 @@ const UnifiedCoursesPage: React.FC = () => {
         <div className="mb-20">
           <div className="flex items-center justify-between mb-8">
             <div>
-              <h2 className="text-3xl font-bold text-[#003366] mb-2">Các khóa học trực tuyến nổi bật</h2>
+              <h2 className="text-3xl font-bold text-[#1267ad] mb-2">Các khóa học trực tuyến nổi bật</h2>
               <p className="text-on-surface-variant">Các khóa học tự học chất lượng hàng đầu để bắt đầu hành trình của bạn.</p>
             </div>
             <button 
@@ -76,13 +76,13 @@ const UnifiedCoursesPage: React.FC = () => {
         <div className="mb-10">
           <div className="flex items-center justify-between mb-8">
             <div>
-              <h2 className="text-3xl font-bold text-[#003366] mb-2">Các buổi hội thảo trực tiếp sắp tới</h2>
+              <h2 className="text-3xl font-bold text-[#1267ad] mb-2">Các buổi hội thảo trực tiếp sắp tới</h2>
               <p className="text-on-surface-variant">Chương trình đào tạo chuyên sâu trực tiếp với các chuyên gia hàng đầu trong ngành.
               </p>
             </div>
             <button 
               onClick={() => navigate('/offline-workshops')}
-              className="hidden md:flex items-center gap-2 text-[#f28633] font-bold hover:underline"
+              className="hidden md:flex items-center gap-2 text-[#f97316] font-bold hover:underline"
             >
               View All <ArrowRight size={20} />
             </button>
@@ -96,14 +96,14 @@ const UnifiedCoursesPage: React.FC = () => {
           
           <button 
             onClick={() => navigate('/offline-workshops')}
-            className="md:hidden mt-6 w-full flex justify-center items-center gap-2 text-[#f28633] font-bold hover:underline py-3 bg-white border border-outline-variant rounded-lg"
+            className="md:hidden mt-6 w-full flex justify-center items-center gap-2 text-[#f97316] font-bold hover:underline py-3 bg-white border border-outline-variant rounded-lg"
           >
             Xem tất cả các hội thảo trực tiếp <ArrowRight size={20} />
           </button>
         </div>
         {/* Navigation Cards Intro */}
         <div className="text-center mb-10 mt-16">
-          <h2 className="text-3xl font-bold text-[#003366] mb-4">
+          <h2 className="text-3xl font-bold text-[#1267ad] mb-4">
           Không biết bắt đầu từ đâu?
           </h2>
           <p className="text-lg text-on-surface-variant max-w-2xl mx-auto">
@@ -122,9 +122,9 @@ const UnifiedCoursesPage: React.FC = () => {
             onClick={() => navigate('/courses-online')}
           >
             <div className="w-16 h-16 rounded-xl bg-blue-50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <MonitorPlay size={32} className="text-[#003366]" />
+              <MonitorPlay size={32} className="text-[#1267ad]" />
             </div>
-            <h2 className="text-2xl font-bold text-[#003366] mb-3">Khóa học trực tuyến</h2>
+            <h2 className="text-2xl font-bold text-[#1267ad] mb-3">Khóa học trực tuyến</h2>
             <p className="text-on-surface-variant flex-1 mb-8">
             Các khóa học video chất lượng cao, tự học theo tốc độ của riêng bạn. Học theo nhịp độ của riêng bạn với tài liệu toàn diện, bài kiểm tra tương tác và hỗ trợ cộng đồng.
 
@@ -139,17 +139,17 @@ const UnifiedCoursesPage: React.FC = () => {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4 }}
-            className="bg-white rounded-2xl p-8 border border-outline-variant shadow-lg hover:shadow-xl hover:border-[#f28633] transition-all cursor-pointer group flex flex-col"
+            className="bg-white rounded-2xl p-8 border border-outline-variant shadow-lg hover:shadow-xl hover:border-[#f97316] transition-all cursor-pointer group flex flex-col"
             onClick={() => navigate('/offline-workshops')}
           >
             <div className="w-16 h-16 rounded-xl bg-orange-50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <Users size={32} className="text-[#f28633]" />
+              <Users size={32} className="text-[#f97316]" />
             </div>
-            <h2 className="text-2xl font-bold text-[#003366] mb-3">Hội thảo trực tiếp</h2>
+            <h2 className="text-2xl font-bold text-[#1267ad] mb-3">Hội thảo trực tiếp</h2>
             <p className="text-on-surface-variant flex-1 mb-8">
             Chương trình đào tạo chuyên sâu, trực tiếp do các chuyên gia trong ngành hướng dẫn. Nắm vững kỹ năng giải quyết vấn đề một cách có hệ thống và các kiến ​​trúc hiện đại.
             </p>
-            <button className="w-full py-3 px-4 rounded-lg bg-surface-variant text-[#f28633] font-bold group-hover:bg-[#f28633] group-hover:text-white transition-colors">
+            <button className="w-full py-3 px-4 rounded-lg bg-surface-variant text-[#f97316] font-bold group-hover:bg-[#f97316] group-hover:text-white transition-colors">
             Xem lịch hội thảo
             </button>
           </motion.div>

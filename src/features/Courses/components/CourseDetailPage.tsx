@@ -164,7 +164,7 @@ const CourseDetailPage: React.FC = () => {
 
             {/* CTA buttons */}
             <div className="flex flex-wrap gap-3">
-              <button className="bg-secondary-container hover:bg-secondary text-primary hover:text-on-primary font-bold px-8 py-3 rounded-lg transition-all active:scale-95 shadow-lg">
+              <button className="bg-secondary-container hover:bg-secondary text-primary-container hover:text-on-primary font-bold px-8 py-3 rounded-lg transition-all active:scale-95 shadow-lg">
                 Đăng ký ngay
               </button>
               <button className="border border-white/40 text-white hover:bg-white/10 font-bold px-8 py-3 rounded-lg transition-all active:scale-95 flex items-center gap-2">
@@ -190,7 +190,7 @@ const CourseDetailPage: React.FC = () => {
                   {course.title}
                 </h2>
                 <div className="mt-1 flex flex-wrap items-center gap-2 text-sm">
-                  <span className="rounded bg-cyan-100 px-2 py-0.5 text-xs font-bold text-[#001c3d]">
+                  <span className="rounded bg-cyan-100 px-2 py-0.5 text-xs font-bold text-[#0b4f8a]">
                     Bán chạy nhất
                   </span>
                   <span className="rounded bg-violet-100 px-2 py-0.5 text-xs font-bold text-violet-700">
@@ -497,7 +497,7 @@ function PricingSidebar({ course }: { course: CourseDetail }) {
         </div>
 
         {/* CTA buttons */}
-        <button className="w-full bg-secondary-container text-on-secondary-container font-bold py-3.5 rounded-lg hover:brightness-110 transition-all active:scale-[0.98] shadow-md text-body-lg">
+        <button className="w-full bg-secondary-container text-primary-container font-bold py-3.5 rounded-lg hover:brightness-110 transition-all active:scale-[0.98] shadow-md text-body-lg">
           Đăng ký khóa học
         </button>
  

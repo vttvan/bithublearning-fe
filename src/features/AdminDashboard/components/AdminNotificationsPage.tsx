@@ -60,25 +60,25 @@ const AdminNotificationsPage: React.FC = () => {
   return (
     <div className="p-4 pb-20 sm:p-6 lg:p-8">
       <div className="mx-auto max-w-7xl">
-        <h1 className="text-3xl font-bold text-[#001c3d] sm:text-4xl">{data.title}</h1>
+        <h1 className="text-3xl font-bold text-[#0b4f8a] sm:text-4xl">{data.title}</h1>
         <p className="mt-2 text-sm text-[#606a76]">{data.subtitle}</p>
 
         <form onSubmit={createNotification} className="mt-8 grid gap-6 xl:grid-cols-[minmax(0,1fr)_320px]">
           <section className="rounded-2xl border border-[#e4e7ec] bg-white p-6 shadow-sm">
             <label className="block">
-              <span className="text-sm font-bold text-[#001c3d]">Tiêu đề thông báo</span>
+              <span className="text-sm font-bold text-[#0b4f8a]">Tiêu đề thông báo</span>
               <input
                 value={title}
                 onChange={(event) => setTitle(event.target.value)}
                 placeholder="Nhập tiêu đề thông báo..."
-                className="mt-3 h-12 w-full rounded-lg border border-[#d0d5dd] px-4 text-sm outline-none focus:border-[#003366] focus:ring-2 focus:ring-[#003366]/15"
+                className="mt-3 h-12 w-full rounded-lg border border-[#d0d5dd] px-4 text-sm outline-none focus:border-[#1267ad] focus:ring-2 focus:ring-[#1267ad]/15"
               />
             </label>
 
             <div className="mt-6">
-              <p className="text-sm font-bold text-[#001c3d]">Nội dung thông báo</p>
+              <p className="text-sm font-bold text-[#0b4f8a]">Nội dung thông báo</p>
               <div className="mt-3 overflow-hidden rounded-lg border border-[#d0d5dd]">
-                <div className="flex items-center gap-1 border-b border-[#e4e7ec] bg-[#f8fafc] px-3 py-2 text-[#001c3d]">
+                <div className="flex items-center gap-1 border-b border-[#e4e7ec] bg-[#f8fafc] px-3 py-2 text-[#0b4f8a]">
                   {[Bold, Italic, List, Link2, Image, Code2].map((Icon, index) => (
                     <button key={index} type="button" className="rounded p-2 hover:bg-white">
                       <Icon size={15} />
@@ -98,7 +98,7 @@ const AdminNotificationsPage: React.FC = () => {
 
           <aside className="space-y-5">
             <section className="rounded-2xl border border-[#e4e7ec] bg-white p-5 shadow-sm">
-              <h2 className="text-sm font-bold uppercase tracking-wide text-[#001c3d]">Cấu hình gửi</h2>
+              <h2 className="text-sm font-bold uppercase tracking-wide text-[#0b4f8a]">Cấu hình gửi</h2>
               <label className="mt-5 block">
                 <span className="text-xs font-bold text-[#344054]">Đối tượng nhận</span>
                 <select className="mt-2 h-11 w-full rounded-lg border border-[#d0d5dd] bg-white px-3 text-sm">
@@ -116,8 +116,8 @@ const AdminNotificationsPage: React.FC = () => {
             </section>
 
             <section className="rounded-2xl border border-[#e4e7ec] bg-white p-5 shadow-sm">
-              <h2 className="text-sm font-bold uppercase tracking-wide text-[#001c3d]">Thời gian</h2>
-              <label className="mt-5 flex items-center gap-3 text-sm font-semibold text-[#001c3d]">
+              <h2 className="text-sm font-bold uppercase tracking-wide text-[#0b4f8a]">Thời gian</h2>
+              <label className="mt-5 flex items-center gap-3 text-sm font-semibold text-[#0b4f8a]">
                 <input type="radio" defaultChecked />
                 Gửi ngay
               </label>
@@ -129,7 +129,7 @@ const AdminNotificationsPage: React.FC = () => {
                 <CalendarClock size={16} />
                 mm/dd/yyyy --:--
               </div>
-              <button className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#001c3d] px-4 py-3 text-sm font-bold text-white hover:bg-[#003366]">
+              <button className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#0b4f8a] px-4 py-3 text-sm font-bold text-white hover:bg-[#1267ad]">
                 <Send size={16} />
                 Gửi thông báo
               </button>
@@ -139,7 +139,7 @@ const AdminNotificationsPage: React.FC = () => {
 
         <section className="mt-8 rounded-2xl border border-[#e4e7ec] bg-white shadow-sm">
           <div className="border-b border-[#eef1f5] px-6 py-5">
-            <h2 className="text-xl font-bold text-[#001c3d]">Danh sách thông báo</h2>
+            <h2 className="text-xl font-bold text-[#0b4f8a]">Danh sách thông báo</h2>
           </div>
           <div className="overflow-x-auto">
             <div className="min-w-[920px]">
@@ -163,7 +163,7 @@ const AdminNotificationsPage: React.FC = () => {
 
 function ChannelCheckbox({ label, checked, onChange }: { label: string; checked: boolean; onChange: () => void }) {
   return (
-    <label className="flex items-center gap-3 text-sm text-[#001c3d]">
+    <label className="flex items-center gap-3 text-sm text-[#0b4f8a]">
       <input type="checkbox" checked={checked} onChange={onChange} className="h-4 w-4" />
       {label}
     </label>
@@ -173,13 +173,13 @@ function ChannelCheckbox({ label, checked, onChange }: { label: string; checked:
 function NotificationRow({ notification }: { notification: AdminNotificationItem }) {
   return (
     <div className="grid grid-cols-[1.4fr_1.5fr_0.8fr_1fr_0.8fr] items-center border-t border-[#eef1f5] px-6 py-5 text-sm">
-      <p className="font-bold text-[#001c3d]">{notification.title}</p>
+      <p className="font-bold text-[#0b4f8a]">{notification.title}</p>
       <p className="line-clamp-2 text-[#475467]">{notification.content}</p>
       <p className="flex items-center gap-2 text-[#475467]">
         <Mail size={15} />
         {notification.channels.join(", ")}
       </p>
-      <p className="text-[#001c3d]">{notification.sentAt}</p>
+      <p className="text-[#0b4f8a]">{notification.sentAt}</p>
       <span className={`inline-flex w-fit items-center gap-1 rounded-full px-2.5 py-1 text-xs font-bold ${getNotificationStatusClass(notification.status)}`}>
         {notification.status === "sent" && <Check size={13} />}
         {getNotificationStatusLabel(notification.status)}

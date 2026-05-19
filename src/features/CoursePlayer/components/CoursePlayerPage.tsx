@@ -273,7 +273,7 @@ function PlayerSidebarGroup({
         <ChevronDown
           size={17}
           className={`transition-transform duration-200 ${
-            active ? "text-[#f28633]" : "text-outline"
+            active ? "text-[#f97316]" : "text-outline"
           } ${isOpen ? "rotate-180" : ""}`}
         />
       </button>
@@ -333,7 +333,7 @@ function SubmenuItem({
       disabled={isLocked}
       className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left transition-colors ${
         active
-          ? "bg-[#f28633] text-white shadow-sm"
+          ? "bg-[#f97316] text-white shadow-sm"
           : isLocked
             ? "cursor-not-allowed text-outline"
             : "text-on-surface-variant hover:bg-surface-container-low hover:text-primary"
@@ -345,7 +345,7 @@ function SubmenuItem({
         ) : item.status === "completed" ? (
           <CheckCircle2 size={15} />
         ) : (
-          <span className={`block h-2 w-2 rounded-full ${active ? "bg-white" : "bg-[#f28633]"}`} />
+          <span className={`block h-2 w-2 rounded-full ${active ? "bg-white" : "bg-[#f97316]"}`} />
         )}
       </span>
       <span className="min-w-0 flex-1">
@@ -376,7 +376,7 @@ function PlayerSidebarLink({
       onClick={onClick}
       className={`group flex w-full items-center gap-4 rounded-xl px-5 py-4 transition-all duration-200 ${
         active
-          ? "bg-[#f28633] text-white shadow-md shadow-orange-200"
+          ? "bg-[#f97316] text-white shadow-md shadow-orange-200"
           : "text-on-surface-variant hover:bg-[#fff5ee] hover:text-primary"
       }`}
     >
