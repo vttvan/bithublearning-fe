@@ -1,12 +1,16 @@
 import React from "react";
-import { CalendarDays, Plus, Save, Upload } from "lucide-react";
+import { CalendarDays, Mail, Phone, Plus, Save, Upload, UserPlus, Users } from "lucide-react";
 import { useParams } from "react-router-dom";
 import { toast } from "sonner";
 import { adminDashboardService } from "../services/adminDashboardService";
-import type { OfflineCourseEditorData, OfflineSessionItem } from "../types/adminDashboard";
+import type {
+  OfflineCourseEditorData,
+  OfflineStudentAttendanceStatus,
+  OfflineStudentPaymentStatus,
+} from "../types/adminDashboard";
 
 const inputClassName =
-  "w-full rounded-xl border border-[#d0d5dd] bg-white px-4 py-3 text-sm text-[#101828] outline-none focus:border-[#1267ad]";
+  "w-full rounded-xl border border-[#d0d5dd] bg-white px-4 py-3 text-sm text-[#101828] outline-none focus:border-[#f97316] focus:ring-2 focus:ring-[#f97316]/15";
 
 const AdminOfflineCourseEditorPage: React.FC = () => {
   const { courseId = "offline-1" } = useParams<{ courseId: string }>();
@@ -15,6 +19,11 @@ const AdminOfflineCourseEditorPage: React.FC = () => {
   const [assetDraft, setAssetDraft] = React.useState({
     name: "",
     sizeLabel: "",
+  });
+  const [studentDraft, setStudentDraft] = React.useState({
+    name: "",
+    email: "",
+    phone: "",
   });
 
   React.useEffect(() => {
@@ -134,6 +143,46 @@ const AdminOfflineCourseEditorPage: React.FC = () => {
     }
   };
 
+  const handleAddStudent = async () => {
+    if (!studentDraft.name.trim() || !studentDraft.email.trim() || !studentDraft.phone.trim()) {
+      toast.error("Nhập đủ tên, email và số điện thoại học viên.");
+      return;
+    }
+
+    try {
+      const updated = await adminDashboardService.addOfflineCourseStudent(courseId, {
+        name: studentDraft.name.trim(),
+        email: studentDraft.email.trim(),
+        phone: studentDraft.phone.trim(),
+      });
+      setData(updated);
+      setStudentDraft({ name: "", email: "", phone: "" });
+      toast.success("Đã thêm học viên vào khóa học.");
+    } catch (error) {
+      console.error("Không thể thêm học viên:", error);
+      toast.error("Không thể thêm học viên.");
+    }
+  };
+
+  const handleUpdateStudent = async (
+    studentId: string,
+    paymentStatus: OfflineStudentPaymentStatus,
+    attendanceStatus: OfflineStudentAttendanceStatus,
+  ) => {
+    try {
+      const updated = await adminDashboardService.updateOfflineCourseStudent(courseId, {
+        studentId,
+        paymentStatus,
+        attendanceStatus,
+      });
+      setData(updated);
+      toast.success("Đã cập nhật trạng thái học viên.");
+    } catch (error) {
+      console.error("Không thể cập nhật học viên:", error);
+      toast.error("Không thể cập nhật học viên.");
+    }
+  };
+
   if (!data || !selectedSession) {
     return <div className="p-8">Đang tải trình chỉnh sửa workshop...</div>;
   }
@@ -175,7 +224,7 @@ const AdminOfflineCourseEditorPage: React.FC = () => {
 
           <button
             onClick={handleCreateSession}
-            className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#0b4f8a] px-4 py-3 text-sm font-semibold text-white"
+            className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#f97316] px-4 py-3 text-sm font-semibold text-white hover:bg-[#ea580c]"
           >
             <Plus size={16} />
             Thêm buổi học mới
@@ -191,7 +240,7 @@ const AdminOfflineCourseEditorPage: React.FC = () => {
             <button
               onClick={handleSaveSession}
               disabled={isSaving}
-              className="inline-flex items-center gap-2 rounded-lg bg-[#0b4f8a] px-4 py-2.5 text-sm font-semibold text-white disabled:opacity-60"
+              className="inline-flex items-center gap-2 rounded-lg bg-[#f97316] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#ea580c] disabled:opacity-60"
             >
               <Save size={16} />
               {isSaving ? "Đang lưu..." : "Lưu lịch học"}
@@ -308,12 +357,118 @@ const AdminOfflineCourseEditorPage: React.FC = () => {
                   />
                   <button
                     onClick={handleAddAsset}
-                    className="w-full rounded-xl bg-[#0b4f8a] px-4 py-3 text-sm font-semibold text-white"
+                    className="w-full rounded-xl bg-[#f97316] px-4 py-3 text-sm font-semibold text-white hover:bg-[#ea580c]"
                   >
                     Thêm file
                   </button>
                 </div>
               </div>
+            </div>
+          </div>
+
+          <div className="mt-8 rounded-2xl border border-[#fed7aa] bg-[#fff7ed] p-5">
+            <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+              <div>
+                <div className="flex items-center gap-2 text-sm font-semibold text-[#9a3412]">
+                  <Users size={18} />
+                  Danh sách học viên đăng ký
+                </div>
+                <p className="mt-1 text-sm text-[#9a3412]/75">
+                  {data.enrolledStudents.length} học viên •{" "}
+                  {data.enrolledStudents.filter((student) => student.paymentStatus === "paid").length} đã thanh toán
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-5 grid gap-3 lg:grid-cols-[1fr_1fr_180px_120px]">
+              <input
+                value={studentDraft.name}
+                onChange={(event) =>
+                  setStudentDraft((current) => ({ ...current, name: event.target.value }))
+                }
+                placeholder="Tên học viên"
+                className={inputClassName}
+              />
+              <input
+                value={studentDraft.email}
+                onChange={(event) =>
+                  setStudentDraft((current) => ({ ...current, email: event.target.value }))
+                }
+                placeholder="Email"
+                className={inputClassName}
+              />
+              <input
+                value={studentDraft.phone}
+                onChange={(event) =>
+                  setStudentDraft((current) => ({ ...current, phone: event.target.value }))
+                }
+                placeholder="Số điện thoại"
+                className={inputClassName}
+              />
+              <button
+                onClick={handleAddStudent}
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#f97316] px-4 py-3 text-sm font-semibold text-white hover:bg-[#ea580c]"
+              >
+                <UserPlus size={16} />
+                Thêm
+              </button>
+            </div>
+
+            <div className="mt-5 overflow-hidden rounded-2xl border border-[#fed7aa] bg-white">
+              {data.enrolledStudents.map((student) => (
+                <div
+                  key={student.id}
+                  className="grid gap-4 border-b border-[#ffedd5] px-4 py-4 last:border-b-0 xl:grid-cols-[1.25fr_1fr_170px_170px]"
+                >
+                  <div>
+                    <p className="font-bold text-[#9a3412]">{student.name}</p>
+                    <p className="mt-1 text-xs text-[#667085]">Đăng ký: {student.registeredAt}</p>
+                  </div>
+                  <div className="space-y-1 text-sm text-[#475467]">
+                    <p className="flex items-center gap-2">
+                      <Mail size={14} className="text-[#f97316]" />
+                      {student.email}
+                    </p>
+                    <p className="flex items-center gap-2">
+                      <Phone size={14} className="text-[#f97316]" />
+                      {student.phone}
+                    </p>
+                  </div>
+                  <select
+                    value={student.paymentStatus}
+                    onChange={(event) =>
+                      handleUpdateStudent(
+                        student.id,
+                        event.target.value as OfflineStudentPaymentStatus,
+                        student.attendanceStatus,
+                      )
+                    }
+                    className={inputClassName}
+                    aria-label={`Trạng thái thanh toán của ${student.name}`}
+                  >
+                    <option value="paid">Đã thanh toán</option>
+                    <option value="pending">Chờ thanh toán</option>
+                    <option value="refunded">Đã hoàn tiền</option>
+                  </select>
+                  <select
+                    value={student.attendanceStatus}
+                    onChange={(event) =>
+                      handleUpdateStudent(
+                        student.id,
+                        student.paymentStatus,
+                        event.target.value as OfflineStudentAttendanceStatus,
+                      )
+                    }
+                    className={inputClassName}
+                    aria-label={`Trạng thái tham dự của ${student.name}`}
+                  >
+                    <option value="not-started">Chưa học</option>
+                    <option value="attending">Đang học</option>
+                    <option value="completed">Hoàn thành</option>
+                    <option value="cancelled">Đã hủy</option>
+                  </select>
+                </div>
+              ))}
             </div>
           </div>
         </section>

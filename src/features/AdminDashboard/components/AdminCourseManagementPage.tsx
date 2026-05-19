@@ -46,7 +46,7 @@ const AdminCourseManagementPage: React.FC<{ mode: AdminCourseMode }> = ({ mode }
           </div>
           <button
             onClick={() => setIsCreateDialogOpen(true)}
-            className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-3 text-sm font-semibold text-white hover:bg-[#1267ad] sm:w-fit"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#f97316] px-4 py-3 text-sm font-semibold text-white hover:bg-[#ea580c] sm:w-fit"
           >
             <Plus size={16} />
             {mode === "online" ? "Thêm khóa học online" : "Thêm khóa học mới"}
@@ -348,7 +348,7 @@ function CreateOnlineCourseDialog({
             </button>
             <button
               type="submit"
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#0b4f8a] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#1267ad]"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#f97316] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#ea580c]"
             >
               <Save size={16} />
               Tạo bản nháp
@@ -409,7 +409,7 @@ function CourseTableRow({
       <p className="text-[#475467]">{course.enrollment}</p>
       <button
         onClick={onOpen}
-        className="inline-flex items-center gap-1 text-sm font-semibold text-[#1267ad]"
+        className="inline-flex items-center gap-1 text-sm font-semibold text-[#f97316]"
       >
         Quản lý
         <ArrowUpRight size={15} />

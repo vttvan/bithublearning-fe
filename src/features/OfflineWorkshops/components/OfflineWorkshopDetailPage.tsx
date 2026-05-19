@@ -344,7 +344,7 @@ function PublicWorkshopDetail({
                   <span className="text-white/80">{heroDate}</span>
                 </div>
               </div>
-              <button className="hidden shrink-0 rounded-lg bg-secondary-container px-5 py-2 text-sm font-bold text-on-secondary-container shadow-lg hover:brightness-110 md:block">
+              <button className="hidden shrink-0 rounded-lg bg-secondary-container px-5 py-2 text-sm font-bold text-on-primary shadow-lg hover:brightness-110 md:block">
                 Đăng ký ngay
               </button>
             </div>
@@ -567,7 +567,7 @@ function PublicPricingCard({
             {workshop.progressText}
           </span>
         </div>
-        <button className="flex w-full items-center justify-center gap-2 rounded-lg bg-secondary-container py-3.5 font-bold text-primary-container shadow-sm transition-all hover:brightness-110 active:scale-[0.98]">
+        <button className="flex w-full items-center justify-center gap-2 rounded-lg bg-secondary-container py-3.5 font-bold text-on-primary shadow-sm transition-all hover:brightness-110 active:scale-[0.98]">
           <ShoppingCart size={18} />
           Đăng ký workshop
         </button>

@@ -80,7 +80,7 @@ function UserRow({ user, onOpen }: { user: AdminUserItem; onOpen: () => void }) 
       <p className="text-[#475467]">{user.joinedAt}</p>
       <button
         onClick={onOpen}
-        className="inline-flex items-center gap-1 text-sm font-semibold text-[#1267ad]"
+        className="inline-flex items-center gap-1 text-sm font-semibold text-[#f97316]"
       >
         Chi tiết
         <ArrowUpRight size={15} />

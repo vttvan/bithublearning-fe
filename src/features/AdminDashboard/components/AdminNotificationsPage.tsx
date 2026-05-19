@@ -129,7 +129,7 @@ const AdminNotificationsPage: React.FC = () => {
                 <CalendarClock size={16} />
                 mm/dd/yyyy --:--
               </div>
-              <button className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#0b4f8a] px-4 py-3 text-sm font-bold text-white hover:bg-[#1267ad]">
+              <button className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#f97316] px-4 py-3 text-sm font-bold text-white hover:bg-[#ea580c]">
                 <Send size={16} />
                 Gửi thông báo
               </button>

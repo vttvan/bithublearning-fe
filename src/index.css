@@ -394,6 +394,18 @@ body {
   --sidebar-ring: #2b7ec6;
 }
 
+.admin-dashboard-theme {
+  --primary: #1469b8;
+  --ring: #2b7ec6;
+  --accent: #fff7ed;
+  --accent-foreground: #9a3412;
+  --sidebar-primary: #1469b8;
+  --sidebar-ring: #2b7ec6;
+  --admin-accent: #f97316;
+  --admin-accent-soft: #fff7ed;
+  --admin-accent-border: #fed7aa;
+}
+
 .dark {
 
   --background: oklch(0.145 0 0);

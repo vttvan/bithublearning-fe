@@ -41,10 +41,10 @@ const AdminOverviewPage: React.FC = () => {
             <p className="mt-2 text-sm text-[#606a76]">{data.subtitle}</p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <button className="rounded-lg border border-[#d0d5dd] bg-white px-4 py-2.5 text-sm font-semibold text-[#344054] hover:bg-[#f9fafb]">
+            <button className="rounded-lg border border-[#fed7aa] bg-white px-4 py-2.5 text-sm font-semibold text-[#c2410c] hover:bg-[#fff7ed]">
               Xử lý báo cáo
             </button>
-            <button className="rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#1267ad]">
+            <button className="rounded-lg bg-[#f97316] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#ea580c]">
               Thêm nội dung mới
             </button>
           </div>
@@ -286,7 +286,7 @@ function TopCoursesCard({
             </div>
             <div className="mt-4 h-2 overflow-hidden rounded-full bg-[#e4e7ec]">
               <div
-                className="h-full rounded-full bg-[#2563eb]"
+                className="h-full rounded-full bg-secondary-container"
                 style={{ width: `${Math.max(8, (course.sales / maxSales) * 100)}%` }}
               />
             </div>
@@ -385,7 +385,7 @@ function OverviewReportRow({ report }: { report: AdminOverviewReportItem }) {
         <span className={`rounded-full px-2.5 py-1 text-xs font-bold ${getOverviewSeverityClass(report.severity)}`}>
           {getOverviewSeverityLabel(report.severity)}
         </span>
-        <button className="text-xs font-bold text-[#1267ad]">Xem report</button>
+        <button className="text-xs font-bold text-[#f97316]">Xem report</button>
       </div>
     </article>
   );
@@ -400,7 +400,7 @@ function RecentActivitiesCard({ activities }: { activities: AdminRecentActivity[
     >
       <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
         <h2 className="text-xl font-bold text-primary">Hoạt động gần đây</h2>
-        <button className="text-sm font-semibold text-[#1267ad]">Xem tất cả</button>
+        <button className="text-sm font-semibold text-[#f97316]">Xem tất cả</button>
       </div>
 
       <div className="overflow-x-auto rounded-xl border border-[#eef1f5]">

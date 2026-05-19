@@ -55,7 +55,7 @@ export function OfflineWorkshopCard({ workshop }: { workshop: OfflineWorkshop })
           </div>
           
           <Link to={`/office-workshop/${workshop.id}`} className="border border-[#1267ad] text-[#1267ad] font-bold px-4 py-2 rounded hover:bg-[#1267ad] hover:text-white transition-colors text-sm">
-            View Details
+            Xem chi tiết
           </Link>
         </div>
       </div>

@@ -69,7 +69,7 @@ const AdminUserDetailPage: React.FC = () => {
               />
             </div>
 
-            <button className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-[#d0d5dd] bg-white px-4 py-2.5 text-sm font-semibold text-[#0b4f8a] hover:bg-[#f8fafc]">
+            <button className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-[#fed7aa] bg-white px-4 py-2.5 text-sm font-semibold text-[#c2410c] hover:bg-[#fff7ed]">
               <RotateCcw size={16} />
               Đặt lại mật khẩu
             </button>

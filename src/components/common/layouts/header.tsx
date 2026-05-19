@@ -77,7 +77,7 @@ const Header = () => {
             </Button>
             <Button
               onClick={() => navigate("/signup")}
-              className="px-md py-xs  bg-secondary-container text-on-secondary-container/90 font-bold rounded-lg hover:brightness-110 transition-all active:scale-95"
+              className="px-md py-xs  bg-secondary-container text-on-primary font-bold rounded-lg hover:brightness-110 transition-all active:scale-95"
             >
               Đăng ký
             </Button>

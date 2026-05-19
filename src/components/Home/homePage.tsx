@@ -1,6 +1,13 @@
-import { Users, BookOpen, BadgeCheck, ArrowRight } from "lucide-react";
+import {
+  Users,
+  BookOpen,
+  BadgeCheck,
+  ArrowRight,
+  ShoppingCart,
+  Star,
+  CheckCircle,
+} from "lucide-react";
 import { motion, Variants } from "framer-motion";
-import { Button } from "../common/ui/button";
 import { useNavigate } from "react-router-dom";
 
 const containerVariants: Variants = {
@@ -50,13 +57,14 @@ const HomePage: React.FC = () => {
               </h1>
               <p className="font-body-lg text-base text-primary-fixed-dim mb-lg leading-relaxed sm:text-body-lg">
                 Tham gia các khóa học chuyên nghiệp do chuyên gia trong ngành
-                thiết kế. Làm chủ đổi mới có hệ thống (TRIZ) và các ngôn ngữ
-                lập trình đang được săn đón qua hệ sinh thái học tập bài bản.
+                thiết kế. Làm chủ đổi mới có hệ thống (TRIZ) và các ngôn ngữ lập
+                trình đang được săn đón qua hệ sinh thái học tập bài bản.
               </p>
               <div className="flex flex-col gap-sm mb-xl sm:flex-row sm:flex-wrap sm:gap-md">
-                <button 
-                onClick={() => navigate("/courses")}
-                className="bg-secondary-container hover:bg-secondary text-primary hover:text-primary px-lg py-sm rounded font-bold text-body-lg transition-all active:scale-95 shadow-lg">
+                <button
+                  onClick={() => navigate("/courses")}
+                  className="bg-secondary-container hover:bg-secondary text-on-primary hover:text-primary px-lg py-sm rounded font-bold text-body-lg transition-all active:scale-95 shadow-lg"
+                >
                   Khám phá khóa học
                 </button>
                 <button className="border border-on-primary text-on-primary hover:bg-on-primary hover:text-primary px-lg py-sm rounded font-bold text-body-lg transition-all active:scale-95">
@@ -69,7 +77,10 @@ const HomePage: React.FC = () => {
                 animate="visible"
                 className="grid grid-cols-1 gap-sm sm:grid-cols-3 sm:gap-md"
               >
-                <motion.div variants={itemVariants} className="stat-card-blur rounded-2xl border border-white/10 p-sm text-center text-white">
+                <motion.div
+                  variants={itemVariants}
+                  className="stat-card-blur rounded-2xl border border-white/10 p-sm text-center text-white"
+                >
                   <Users
                     className="mx-auto mb-sm text-secondary-container"
                     size={24}
@@ -82,7 +93,10 @@ const HomePage: React.FC = () => {
                   </div>
                 </motion.div>
 
-                <motion.div variants={itemVariants} className="stat-card-blur rounded-2xl border border-white/10 p-sm text-center text-white">
+                <motion.div
+                  variants={itemVariants}
+                  className="stat-card-blur rounded-2xl border border-white/10 p-sm text-center text-white"
+                >
                   <BookOpen
                     className="mx-auto mb-sm text-secondary-container"
                     size={24}
@@ -95,7 +109,10 @@ const HomePage: React.FC = () => {
                   </div>
                 </motion.div>
 
-                <motion.div variants={itemVariants} className="stat-card-blur rounded-2xl border border-white/10 p-sm text-center text-white">
+                <motion.div
+                  variants={itemVariants}
+                  className="stat-card-blur rounded-2xl border border-white/10 p-sm text-center text-white"
+                >
                   <BadgeCheck
                     className="mx-auto mb-sm text-secondary-container"
                     size={24}
@@ -119,8 +136,8 @@ const HomePage: React.FC = () => {
                   Lộ trình chuyên nghiệp nổi bật
                 </h2>
                 <p className="text-on-surface-variant max-w-full">
-                  Các chuyên ngành được tuyển chọn để đưa bạn từ nền tảng ban đầu
-                  đến năng lực thực chiến cùng chứng nhận được công nhận.
+                  Các chuyên ngành được tuyển chọn để đưa bạn từ nền tảng ban
+                  đầu đến năng lực thực chiến cùng chứng nhận được công nhận.
                 </p>
               </div>
               <button className="flex w-fit items-center gap-xs text-secondary font-bold hover:underline decoration-2">
@@ -161,9 +178,7 @@ const HomePage: React.FC = () => {
                           Làm chủ full-stack từ HTML/CSS đến React và Node.js.
                         </p>
                         <div className="flex items-center gap-xs mb-md">
-                          <span className="material-symbols-outlined text-secondary-container">
-                            star
-                          </span>
+                          <Star className="fill-secondary-container text-secondary-container" size={20} />
                           <span className="font-bold text-primary">4.9</span>
                           <span className="text-on-surface-variant text-label-sm">
                             (2,1k đánh giá)
@@ -173,8 +188,21 @@ const HomePage: React.FC = () => {
                           <div className="text-headline-md font-bold text-primary">
                             $89.00
                           </div>
-                          <div className="text-on-surface-variant text-label-sm">
-                            Giảng viên: GS. Alex Rivera
+                          <div className="flex items-center gap-3">
+                            <div className="text-on-surface-variant text-label-sm">
+                              Giảng viên: GS. Alex Rivera
+                            </div>
+                            <button
+                              type="button"
+                              onClick={() => navigate("/cart")}
+                              aria-label="Đi tới giỏ hàng"
+                              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-secondary transition-colors hover:bg-secondary-container/20 active:scale-95"
+                            >
+                              <ShoppingCart
+                                size={20}
+                                className="text-secondary-container"
+                              />
+                            </button>
                           </div>
                         </div>
                       </div>
@@ -201,9 +229,7 @@ const HomePage: React.FC = () => {
                           TRIZ.
                         </p>
                         <div className="flex items-center gap-xs mb-md">
-                          <span className="material-symbols-outlined text-secondary-container">
-                            star
-                          </span>
+                          <Star className="fill-secondary-container text-secondary-container" size={20} />
                           <span className="font-bold text-primary">5.0</span>
                           <span className="text-on-surface-variant text-label-sm">
                             (850 đánh giá)
@@ -213,8 +239,21 @@ const HomePage: React.FC = () => {
                           <div className="text-headline-md font-bold text-primary">
                             $120.00
                           </div>
-                          <div className="text-on-surface-variant text-label-sm">
-                            Giảng viên: TS. Elena Petrova
+                          <div className="flex items-center gap-3">
+                            <div className="text-on-surface-variant text-label-sm">
+                              Giảng viên: TS. Elena Petrova
+                            </div>
+                            <button
+                              type="button"
+                              onClick={() => navigate("/cart")}
+                              aria-label="Đi tới giỏ hàng"
+                              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-secondary transition-colors hover:bg-secondary-container/20 active:scale-95"
+                            >
+                              <ShoppingCart
+                                size={20}
+                                className="text-secondary-container"
+                              />
+                            </button>
                           </div>
                         </div>
                       </div>
@@ -241,9 +280,7 @@ const HomePage: React.FC = () => {
                           chuẩn thực tế trong ngành.
                         </p>
                         <div className="flex items-center gap-xs mb-md">
-                          <span className="material-symbols-outlined text-secondary-container">
-                            star
-                          </span>
+                          <Star className="fill-secondary-container text-secondary-container" size={20} />
                           <span className="font-bold text-primary">4.8</span>
                           <span className="text-on-surface-variant text-label-sm">
                             (1,5k đánh giá)
@@ -253,8 +290,21 @@ const HomePage: React.FC = () => {
                           <div className="text-headline-md font-bold text-primary">
                             $95.00
                           </div>
-                          <div className="text-on-surface-variant text-label-sm">
-                            Giảng viên: ThS. James Chen
+                          <div className="flex items-center gap-3">
+                            <div className="text-on-surface-variant text-label-sm">
+                              Giảng viên: ThS. James Chen
+                            </div>
+                            <button
+                              type="button"
+                              onClick={() => navigate("/cart")}
+                              aria-label="Đi tới giỏ hàng"
+                              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-secondary transition-colors hover:bg-secondary-container/20 active:scale-95"
+                            >
+                              <ShoppingCart
+                                size={20}
+                                className="text-secondary-container"
+                              />
+                            </button>
                           </div>
                         </div>
                       </div>
@@ -309,25 +359,19 @@ const HomePage: React.FC = () => {
               </p>
               <div className="space-y-sm mb-lg">
                 <div className="flex items-center gap-sm">
-                  <span className="material-symbols-outlined text-secondary-container">
-                    check_circle
-                  </span>
+                  <CheckCircle className="shrink-0 text-secondary-container" size={22} />
                   <span className="text-body-md font-semibold text-primary">
                     Tùy chỉnh học phần theo nhu cầu
                   </span>
                 </div>
                 <div className="flex items-center gap-sm">
-                  <span className="material-symbols-outlined text-secondary-container">
-                    check_circle
-                  </span>
+                  <CheckCircle className="shrink-0 text-secondary-container" size={22} />
                   <span className="text-body-md font-semibold text-primary">
                     Tích hợp API với hệ thống LMS
                   </span>
                 </div>
                 <div className="flex items-center gap-sm">
-                  <span className="material-symbols-outlined text-secondary-container">
-                    check_circle
-                  </span>
+                  <CheckCircle className="shrink-0 text-secondary-container" size={22} />
                   <span className="text-body-md font-semibold text-primary">
                     Kết nối trực tiếp với chuyên gia TRIZ
                   </span>

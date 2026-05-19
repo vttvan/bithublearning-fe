@@ -307,7 +307,7 @@ const AdminOnlineCourseEditorPage: React.FC = () => {
                   <h2 className="text-sm font-semibold">{module.title}</h2>
                   <button
                     onClick={() => handleCreateLesson(module.id)}
-                    className="text-xs text-white/70 hover:text-white"
+                    className="text-xs font-semibold text-[#fdba74] hover:text-[#fed7aa]"
                   >
                     + Thêm bài học
                   </button>
@@ -346,13 +346,13 @@ const AdminOnlineCourseEditorPage: React.FC = () => {
               </h2>
             </div>
             <div className="flex gap-3">
-              <button className="rounded-lg border border-[#d0d5dd] px-4 py-2.5 text-sm font-semibold text-[#344054]">
+              <button className="rounded-lg border border-[#fed7aa] px-4 py-2.5 text-sm font-semibold text-[#c2410c] hover:bg-[#fff7ed]">
                 Xem trước
               </button>
               <button
                 onClick={handleSaveLesson}
                 disabled={isSaving}
-                className="inline-flex items-center gap-2 rounded-lg bg-[#0b4f8a] px-4 py-2.5 text-sm font-semibold text-white disabled:opacity-60"
+                className="inline-flex items-center gap-2 rounded-lg bg-[#f97316] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#ea580c] disabled:opacity-60"
               >
                 <Save size={16} />
                 {isSaving ? "Đang lưu..." : "Lưu thay đổi"}
@@ -437,7 +437,7 @@ const AdminOnlineCourseEditorPage: React.FC = () => {
                     </div>
                     <button
                       onClick={handleAddQuizQuestion}
-                      className="inline-flex items-center gap-2 rounded-lg bg-[#0b4f8a] px-4 py-2.5 text-sm font-semibold text-white"
+                      className="inline-flex items-center gap-2 rounded-lg bg-[#f97316] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#ea580c]"
                     >
                       <Plus size={16} />
                       Thêm câu hỏi
@@ -633,7 +633,7 @@ const AdminOnlineCourseEditorPage: React.FC = () => {
                       <h4 className="text-sm font-semibold text-[#0b4f8a]">Bộ test case</h4>
                       <button
                         onClick={handleAddTestCase}
-                        className="inline-flex items-center gap-2 rounded-lg border border-[#d0d5dd] bg-white px-3 py-2 text-xs font-semibold text-[#344054]"
+                        className="inline-flex items-center gap-2 rounded-lg border border-[#fed7aa] bg-white px-3 py-2 text-xs font-semibold text-[#c2410c] hover:bg-[#fff7ed]"
                       >
                         <Plus size={14} />
                         Thêm test case

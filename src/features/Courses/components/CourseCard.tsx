@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Star, ShoppingCart, User } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { Star, User } from "lucide-react";
 import type { Course } from "@/types/course";
 
 function formatVND(value: number): string {
@@ -22,6 +22,8 @@ export function renderStars(rating: number) {
 }
 
 export function CourseCard({ course }: { course: Course }) {
+  const navigate = useNavigate();
+
   return (
     <div className="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline-variant hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
       {/* Image */}
@@ -68,10 +70,12 @@ export function CourseCard({ course }: { course: Course }) {
             {course.price === 0 ? "Miễn phí" : formatVND(course.price)}
           </span>
           <button
-            aria-label="Thêm vào giỏ hàng"
-            className="p-2 rounded-lg text-secondary hover:bg-secondary-container/20 transition-colors active:scale-90"
+            type="button"
+            onClick={() => navigate(`/courses-online/${course.id}`)}
+            aria-label={`Xem chi tiết ${course.title}`}
+            className="rounded-lg bg-on-primary border border-secondary-container px-3 py-2 text-sm font-semibold text-secondary-container transition-colors hover:bg-secondary-container hover:text-on-primary active:scale-90"
           >
-            <ShoppingCart size={20} className="text-secondary-container" />
+            Xem chi tiết
           </button>
         </div>
       </div>

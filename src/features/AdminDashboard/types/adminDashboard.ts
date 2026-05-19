@@ -219,6 +219,23 @@ export interface OfflineSessionItem {
   assets: OfflineSessionAsset[];
 }
 
+export type OfflineStudentPaymentStatus = "paid" | "pending" | "refunded";
+export type OfflineStudentAttendanceStatus =
+  | "not-started"
+  | "attending"
+  | "completed"
+  | "cancelled";
+
+export interface OfflineCourseStudent {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  registeredAt: string;
+  paymentStatus: OfflineStudentPaymentStatus;
+  attendanceStatus: OfflineStudentAttendanceStatus;
+}
+
 export interface OfflineCourseEditorData {
   id: string;
   title: string;
@@ -226,6 +243,7 @@ export interface OfflineCourseEditorData {
   venue: string;
   uploadHint: string;
   sessions: OfflineSessionItem[];
+  enrolledStudents: OfflineCourseStudent[];
   selectedSessionId: string;
 }
 
@@ -274,6 +292,18 @@ export interface AddOfflineSessionAssetPayload {
   sessionId: string;
   name: string;
   sizeLabel: string;
+}
+
+export interface AddOfflineCourseStudentPayload {
+  name: string;
+  email: string;
+  phone: string;
+}
+
+export interface UpdateOfflineCourseStudentPayload {
+  studentId: string;
+  paymentStatus: OfflineStudentPaymentStatus;
+  attendanceStatus: OfflineStudentAttendanceStatus;
 }
 
 export interface AdminUserSummaryCard {

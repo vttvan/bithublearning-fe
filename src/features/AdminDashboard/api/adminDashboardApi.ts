@@ -11,6 +11,7 @@ import {
   adminUsersMock,
 } from "../mocks/adminDashboard.mock";
 import type {
+  AddOfflineCourseStudentPayload,
   AddOfflineSessionAssetPayload,
   AdminCourseManagementData,
   AdminCourseMode,
@@ -24,6 +25,7 @@ import type {
   ImportQuizSpreadsheetPayload,
   OfflineCourseEditorData,
   OnlineCourseEditorData,
+  UpdateOfflineCourseStudentPayload,
   UpdateOfflineSessionPayload,
   UpdateOnlineLessonPayload,
 } from "../types/adminDashboard";
@@ -447,6 +449,69 @@ export const adminDashboardApi = {
     return request<OfflineCourseEditorData>({
       url: `/admin/courses/offline/${courseId}/sessions/${payload.sessionId}/assets`,
       method: "POST",
+      data: payload,
+    });
+  },
+
+  async addOfflineCourseStudent(
+    courseId: string,
+    payload: AddOfflineCourseStudentPayload,
+  ): Promise<OfflineCourseEditorData> {
+    if (shouldUseMockApi) {
+      await wait();
+      const course = offlineCourseEditorsStore[courseId];
+      if (!course) {
+        return structuredClone(offlineCourseEditorsStore["offline-1"]);
+      }
+
+      course.enrolledStudents = [
+        ...course.enrolledStudents,
+        {
+          id: `student-${Date.now()}`,
+          name: payload.name,
+          email: payload.email,
+          phone: payload.phone,
+          registeredAt: "Just now",
+          paymentStatus: "pending",
+          attendanceStatus: "not-started",
+        },
+      ];
+      return structuredClone(course);
+    }
+
+    return request<OfflineCourseEditorData>({
+      url: `/admin/courses/offline/${courseId}/students`,
+      method: "POST",
+      data: payload,
+    });
+  },
+
+  async updateOfflineCourseStudent(
+    courseId: string,
+    payload: UpdateOfflineCourseStudentPayload,
+  ): Promise<OfflineCourseEditorData> {
+    if (shouldUseMockApi) {
+      await wait();
+      const course = offlineCourseEditorsStore[courseId];
+      if (!course) {
+        return structuredClone(offlineCourseEditorsStore["offline-1"]);
+      }
+
+      course.enrolledStudents = course.enrolledStudents.map((student) =>
+        student.id === payload.studentId
+          ? {
+              ...student,
+              paymentStatus: payload.paymentStatus,
+              attendanceStatus: payload.attendanceStatus,
+            }
+          : student,
+      );
+      return structuredClone(course);
+    }
+
+    return request<OfflineCourseEditorData>({
+      url: `/admin/courses/offline/${courseId}/students/${payload.studentId}`,
+      method: "PUT",
       data: payload,
     });
   },

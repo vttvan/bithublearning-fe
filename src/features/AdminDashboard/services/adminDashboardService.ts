@@ -1,10 +1,12 @@
 import { adminDashboardApi } from "../api/adminDashboardApi";
 import type {
+  AddOfflineCourseStudentPayload,
   AddOfflineSessionAssetPayload,
   AdminCourseMode,
   CreateOfflineSessionPayload,
   CreateOnlineLessonPayload,
   ImportQuizSpreadsheetPayload,
+  UpdateOfflineCourseStudentPayload,
   UpdateOfflineSessionPayload,
   UpdateOnlineLessonPayload,
 } from "../types/adminDashboard";
@@ -48,6 +50,14 @@ export const adminDashboardService = {
 
   addOfflineSessionAsset(courseId: string, payload: AddOfflineSessionAssetPayload) {
     return adminDashboardApi.addOfflineSessionAsset(courseId, payload);
+  },
+
+  addOfflineCourseStudent(courseId: string, payload: AddOfflineCourseStudentPayload) {
+    return adminDashboardApi.addOfflineCourseStudent(courseId, payload);
+  },
+
+  updateOfflineCourseStudent(courseId: string, payload: UpdateOfflineCourseStudentPayload) {
+    return adminDashboardApi.updateOfflineCourseStudent(courseId, payload);
   },
 
   getUsers() {
