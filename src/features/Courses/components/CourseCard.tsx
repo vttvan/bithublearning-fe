@@ -73,7 +73,7 @@ export function CourseCard({ course }: { course: Course }) {
             type="button"
             onClick={() => navigate(`/courses-online/${course.id}`)}
             aria-label={`Xem chi tiết ${course.title}`}
-            className="rounded-lg bg-on-primary border border-secondary-container px-3 py-2 text-sm font-semibold text-secondary-container transition-colors hover:bg-secondary-container hover:text-on-primary active:scale-90"
+            className="rounded-lg bg-secondary-container  px-3 py-2 text-sm font-semibold text-on-primary transition-colors hover:bg-on-secondary-container hover:text-on-primary active:scale-90"
           >
             Xem chi tiết
           </button>

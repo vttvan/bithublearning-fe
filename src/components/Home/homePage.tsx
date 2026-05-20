@@ -177,21 +177,24 @@ const HomePage: React.FC = () => {
                         <p className="text-on-surface-variant text-body-md mb-md">
                           Làm chủ full-stack từ HTML/CSS đến React và Node.js.
                         </p>
-                        <div className="flex items-center gap-xs mb-md">
-                          <Star className="fill-secondary-container text-secondary-container" size={20} />
+                        <div className="flex items-center gap-xs mb-2">
+                          <Star
+                            className="fill-secondary-container text-secondary-container"
+                            size={20}
+                          />
                           <span className="font-bold text-primary">4.9</span>
                           <span className="text-on-surface-variant text-label-sm">
                             (2,1k đánh giá)
                           </span>
                         </div>
-                        <div className="flex flex-col gap-xs border-t border-outline-variant pt-md sm:flex-row sm:items-center sm:justify-between">
+                        <div className="text-on-surface-variant text-label-sm mb-md">
+                          Giảng viên: GS. Alex Rivera
+                        </div>
+                        <div className="flex items-center justify-between gap-xs border-t border-outline-variant pt-md">
                           <div className="text-headline-md font-bold text-primary">
                             $89.00
                           </div>
                           <div className="flex items-center gap-3">
-                            <div className="text-on-surface-variant text-label-sm">
-                              Giảng viên: GS. Alex Rivera
-                            </div>
                             <button
                               type="button"
                               onClick={() => navigate("/cart")}
@@ -228,21 +231,24 @@ const HomePage: React.FC = () => {
                           Giải quyết vấn đề kỹ thuật phức tạp bằng phương pháp
                           TRIZ.
                         </p>
-                        <div className="flex items-center gap-xs mb-md">
-                          <Star className="fill-secondary-container text-secondary-container" size={20} />
+                        <div className="flex items-center gap-xs mb-2">
+                          <Star
+                            className="fill-secondary-container text-secondary-container"
+                            size={20}
+                          />
                           <span className="font-bold text-primary">5.0</span>
                           <span className="text-on-surface-variant text-label-sm">
                             (850 đánh giá)
                           </span>
                         </div>
-                        <div className="flex flex-col gap-xs border-t border-outline-variant pt-md sm:flex-row sm:items-center sm:justify-between">
+                        <div className="text-on-surface-variant text-label-sm mb-md">
+                          Giảng viên: TS. Elena Petrova
+                        </div>
+                        <div className="flex items-center justify-between gap-xs border-t border-outline-variant pt-md">
                           <div className="text-headline-md font-bold text-primary">
                             $120.00
                           </div>
                           <div className="flex items-center gap-3">
-                            <div className="text-on-surface-variant text-label-sm">
-                              Giảng viên: TS. Elena Petrova
-                            </div>
                             <button
                               type="button"
                               onClick={() => navigate("/cart")}
@@ -279,21 +285,24 @@ const HomePage: React.FC = () => {
                           Phân tích và trực quan hóa bộ dữ liệu phức tạp theo
                           chuẩn thực tế trong ngành.
                         </p>
-                        <div className="flex items-center gap-xs mb-md">
-                          <Star className="fill-secondary-container text-secondary-container" size={20} />
+                        <div className="flex items-center gap-xs mb-2">
+                          <Star
+                            className="fill-secondary-container text-secondary-container"
+                            size={20}
+                          />
                           <span className="font-bold text-primary">4.8</span>
                           <span className="text-on-surface-variant text-label-sm">
                             (1,5k đánh giá)
                           </span>
                         </div>
-                        <div className="flex flex-col gap-xs border-t border-outline-variant pt-md sm:flex-row sm:items-center sm:justify-between">
+                        <div className="text-on-surface-variant text-label-sm mb-md">
+                          Giảng viên: ThS. James Chen
+                        </div>
+                        <div className="flex items-center justify-between gap-xs border-t border-outline-variant pt-md">
                           <div className="text-headline-md font-bold text-primary">
                             $95.00
                           </div>
                           <div className="flex items-center gap-3">
-                            <div className="text-on-surface-variant text-label-sm">
-                              Giảng viên: ThS. James Chen
-                            </div>
                             <button
                               type="button"
                               onClick={() => navigate("/cart")}
@@ -359,19 +368,28 @@ const HomePage: React.FC = () => {
               </p>
               <div className="space-y-sm mb-lg">
                 <div className="flex items-center gap-sm">
-                  <CheckCircle className="shrink-0 text-secondary-container" size={22} />
+                  <CheckCircle
+                    className="shrink-0 text-secondary-container"
+                    size={22}
+                  />
                   <span className="text-body-md font-semibold text-primary">
                     Tùy chỉnh học phần theo nhu cầu
                   </span>
                 </div>
                 <div className="flex items-center gap-sm">
-                  <CheckCircle className="shrink-0 text-secondary-container" size={22} />
+                  <CheckCircle
+                    className="shrink-0 text-secondary-container"
+                    size={22}
+                  />
                   <span className="text-body-md font-semibold text-primary">
                     Tích hợp API với hệ thống LMS
                   </span>
                 </div>
                 <div className="flex items-center gap-sm">
-                  <CheckCircle className="shrink-0 text-secondary-container" size={22} />
+                  <CheckCircle
+                    className="shrink-0 text-secondary-container"
+                    size={22}
+                  />
                   <span className="text-body-md font-semibold text-primary">
                     Kết nối trực tiếp với chuyên gia TRIZ
                   </span>

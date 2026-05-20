@@ -497,7 +497,7 @@ function PricingSidebar({ course }: { course: CourseDetail }) {
         </div>
 
         {/* CTA buttons */}
-        <button className="w-full bg-secondary-container text-on-primary font-bold py-3.5 rounded-lg hover:brightness-110 transition-all active:scale-[0.98] shadow-md text-body-lg">
+        <button className="w-full bg-secondary-container text-on-primary font-bold py-3.5 rounded-lg hover:bg-on-secondary-container transition-all active:scale-[0.98] shadow-md text-body-lg">
           Đăng ký khóa học
         </button>
  

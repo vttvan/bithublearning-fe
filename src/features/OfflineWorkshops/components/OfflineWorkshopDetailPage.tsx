@@ -567,7 +567,7 @@ function PublicPricingCard({
             {workshop.progressText}
           </span>
         </div>
-        <button className="flex w-full items-center justify-center gap-2 rounded-lg bg-secondary-container py-3.5 font-bold text-on-primary shadow-sm transition-all hover:brightness-110 active:scale-[0.98]">
+        <button className="flex w-full items-center justify-center gap-2 rounded-lg bg-secondary-container py-3.5 font-bold text-on-primary shadow-sm transition-all hover:bg-on-secondary-container active:scale-[0.98]">
           <ShoppingCart size={18} />
           Đăng ký workshop
         </button>
